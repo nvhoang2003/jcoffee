@@ -12,17 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Tcom
  */
-public class BookingDAO extends BaseDAO{
+public class BookingDAO extends BaseDAO {
+
     public static List<Booking> list() {
         List<Booking> dataList = new ArrayList<>();
 
         openConnection();
-        
-         try {
+
+        try {
             //Thuc thi lenh
             String sql = "select * from bookings";
             statement = conn.prepareStatement(sql);
@@ -31,10 +33,10 @@ public class BookingDAO extends BaseDAO{
             while (resultSet.next()) {
                 Booking booking;
                 booking = new Booking(
-                    resultSet.getInt("booking_id"),
-                    resultSet.getString("name"),
-                    resultSet.getInt("seat_count"),
-                    BookingState.getBookingStateByKey(resultSet.getInt("state"))
+                        resultSet.getInt("booking_id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("seat_count"),
+                        BookingState.getBookingStateByKey(resultSet.getInt("state"))
                 );
                 dataList.add(booking);
             }
@@ -46,7 +48,7 @@ public class BookingDAO extends BaseDAO{
 
         return dataList;
     }
-    
+
     public static void insert(Booking booking) {
         openConnection();
 
@@ -64,8 +66,8 @@ public class BookingDAO extends BaseDAO{
 
         closeConnection();
     }
-     
-      public static void update(Booking booking) {
+
+    public static void update(Booking booking) {
         openConnection();
 
         String sql = "update bookings set name = ?, seat_count = ?, state = ? where booking_id = ?";
@@ -83,8 +85,8 @@ public class BookingDAO extends BaseDAO{
 
         closeConnection();
     }
-      
-       public static void delete(int id) {
+
+    public static void delete(int id) {
         openConnection();
 
         String sql = "delete from bookings where id = ?";
@@ -99,10 +101,10 @@ public class BookingDAO extends BaseDAO{
 
         closeConnection();
     }
-       
-        public static Booking find(int id) {
+
+    public static Booking find(int id) {
         Booking booking = null;
-        
+
         openConnection();
 
         try {
@@ -110,15 +112,15 @@ public class BookingDAO extends BaseDAO{
             String sql = "select * from bookings where id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
-            
+
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 booking = new Booking(
-                    resultSet.getInt("booking_id"),
-                    resultSet.getString("name"),
-                    resultSet.getInt("seat_count"),
-                    BookingState.getBookingStateByKey(resultSet.getInt("state"))
+                        resultSet.getInt("booking_id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("seat_count"),
+                        BookingState.getBookingStateByKey(resultSet.getInt("state"))
                 );
                 break;
             }
@@ -127,13 +129,13 @@ public class BookingDAO extends BaseDAO{
         }
 
         closeConnection();
-        
+
         return booking;
     }
-       
-       public static List<Booking> findBYState(int Value){
+
+    public static List<Booking> findBYState(int Value) {
         List<Booking> dataList = new ArrayList<>();
-        
+
         openConnection();
 
         try {
@@ -141,18 +143,18 @@ public class BookingDAO extends BaseDAO{
             String sql = "select * from bookings where state = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, Value);
-            
+
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 Booking booking;
                 booking = new Booking(
-                    resultSet.getInt("booking_id"),
-                    resultSet.getString("name"),
-                    resultSet.getInt("seat_count"),
-                    BookingState.getBookingStateByKey(resultSet.getInt("state"))
+                        resultSet.getInt("booking_id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("seat_count"),
+                        BookingState.getBookingStateByKey(resultSet.getInt("state"))
                 );
-                
+
                 dataList.add(booking);
             }
         } catch (SQLException ex) {
@@ -160,7 +162,7 @@ public class BookingDAO extends BaseDAO{
         }
 
         closeConnection();
-        
+
         return dataList;
-       }
+    }
 }
