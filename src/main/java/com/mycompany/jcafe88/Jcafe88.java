@@ -3,10 +3,13 @@
  */
 package com.mycompany.jcafe88;
 
+import com.mycompany.jcafe88.dao.AdminDAO;
 import com.mycompany.jcafe88.models.Booking;
 import com.mycompany.jcafe88.dao.BookingDAO;
+import com.mycompany.jcafe88.models.Admin;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Tcom
@@ -14,14 +17,18 @@ import java.util.List;
 public class Jcafe88 {
 
     public static void main(String[] args) {
-//        System.out.println("Hello World!");
-        BookingDAO bd = new BookingDAO();
-         
-        List<Booking> list = bd.list();
-        if (list == null) {
+        AdminDAO bd = new AdminDAO();
+
+        List<Admin> list1 = bd.list();
+        if (list1 == null) {
             System.out.println("NOt round");
         } else {
-            System.out.println(list);
+            System.out.println(list1);
         }
+        
+        Admin admin = new Admin("hoang", "admin02", "1234678");
+        bd.insert(admin);
+        
+        System.out.println(bd.login("hoang", "1234678"));
     }
 }
