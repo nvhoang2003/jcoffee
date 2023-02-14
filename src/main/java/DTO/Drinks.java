@@ -4,6 +4,7 @@
  */
 package DTO;
 
+import java.sql.ResultSet;
 import java.util.Date;
 
 /**
@@ -11,6 +12,9 @@ import java.util.Date;
  * @author Admin
  */
 public class Drinks {
+
+
+
     private int id;
     private String name;
     private int price;
@@ -72,6 +76,9 @@ public class Drinks {
     public String toString() {
         return "Drinks{" + "id=" + id + ", name=" + name + ", price=" + price + ", Description=" + Description + ", Image=" + Image + '}';
     }
-
+    public static ResultSet executeQuery() {
+        
+        return null;
+        
+    }
 }
-

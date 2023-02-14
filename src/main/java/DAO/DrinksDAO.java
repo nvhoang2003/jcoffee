@@ -5,7 +5,6 @@
 package DAO;
 
 import DTO.Drinks;
-import Utilities.DBUtility;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-public class DrinksDAO {
+public class DrinksDAO extends com.mycompany.jcafe88.dao.BaseDAO {
    private static DrinksDAO instance;
     
     public DrinksDAO() {
@@ -33,10 +32,10 @@ public class DrinksDAO {
     
     public List<Drinks> GetListDrink() {
         List<Drinks> list = new ArrayList<Drinks>();
-        Connection con = DBUtility.openConnection();
+        openConnection();
         try {
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM `drinks`");
-            ResultSet rs = pstmt.executeQuery();
+            String sql =("SELECT * FROM `drinks`");
+            ResultSet rs = Drinks.executeQuery();
             while (rs.next()) {
                 Drinks drinks = new Drinks(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
                 list.add(drinks);
@@ -51,6 +50,10 @@ public class DrinksDAO {
         
        return null;
         
+    }
+
+    private void openConnection() {
+       
     }
 
 }
