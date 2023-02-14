@@ -1,1 +1,7 @@
+com\mycompany\jcafe88\models\Booking.class
+com\mycompany\jcafe88\dao\BookingDAO.class
+com\mycompany\jcafe88\models\Admin.class
+com\mycompany\jcafe88\dao\BaseDAO.class
+com\mycompany\jcafe88\dao\AdminDAO.class
 com\mycompany\jcafe88\Jcafe88.class
+com\mycompany\jcafe88\BookingState.class
