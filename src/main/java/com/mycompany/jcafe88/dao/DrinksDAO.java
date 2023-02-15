@@ -35,8 +35,9 @@ public class DrinksDAO extends BaseDAO {
         List<Drinks> list = new ArrayList<Drinks>();
         openConnection();
         try {
-            String sql = ("SELECT * FROM `drinks`");
-            ResultSet rs = Drinks.executeQuery();
+            String sql = ("SELECT * FROM drinks");
+            statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Drinks drinks = new Drinks(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
                 list.add(drinks);
@@ -46,19 +47,6 @@ public class DrinksDAO extends BaseDAO {
         }
         closeConnection();
         return null;
-
+        
     }
-
-    public List<Drinks> list() {
-
-        String sql = "insert into Description(name, color,) values (?, ?)";
-        return null;
-
-    }
-
-
-
-}
-
-
 }
