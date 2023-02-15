@@ -11,10 +11,10 @@ import java.util.Date;
  * @author NGUYEN DAT
  */
 public class Customer {
-        private String customer_name, address, email, phone_number;
-    private int customer_id, gender, age;
-    private Date date_of_birth;
-    private Boolean Is_vip;
+    String customer_name, address, email, phone_number;
+    int customer_id, gender, age;
+    Date date_of_birth;
+    Boolean Is_vip;
 
     public Customer(){
   

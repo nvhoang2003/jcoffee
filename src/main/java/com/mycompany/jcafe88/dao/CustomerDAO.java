@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.SQLException;
 
 /**
  *
@@ -78,12 +79,12 @@ public class CustomerDAO extends BaseDAO {
         String sql = "update costumer set costumer_name = ?, gender = ?, address = ?, email = ?, phone_number = ?. age = ?, date_of_birth = ? where id = ?";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, customer.getcustomer_name());
-            statement.setInt(2, customer.getgender());
-            statement.setString(3, customer.getemail());
-            statement.getString(4, customer.getphone_number());
-            statement.getInt(5, customer.getage());
-            statement.getDate(6, customer.getdate_of_birth());
+            statement.setString(1, customer.getCustomer_name());
+            statement.setInt(2, customer.getGender());
+            statement.setString(3, customer.getEmail());
+            statement.getString(4, customer.getPhone_number());
+            statement.getInt(5, customer.getAge());
+            statement.getDate(6, customer.getDate_Of_Birth());
 
 
             statement.execute();
@@ -111,7 +112,7 @@ public class CustomerDAO extends BaseDAO {
     }
 
     public static Customer find(int Customer_id) {
-        Book book = null;
+        Customer customer = null;
         
         openConnection();
 
