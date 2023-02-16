@@ -121,5 +121,4 @@ public class BillDAO extends BaseDAO {
         return Bill;
     }
 
-   
 }

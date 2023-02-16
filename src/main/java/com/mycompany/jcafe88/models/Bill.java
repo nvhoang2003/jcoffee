@@ -11,6 +11,7 @@ import java.sql.Date;
  * @author ACER
  */
 public class Bill {
+
     private final int bill_id;
     private final int customer_id;
     private final Date time_pay;
@@ -61,6 +62,5 @@ public class Bill {
     public String toString() {
         return "Bill{" + "bill_id=" + bill_id + ", customer_id=" + customer_id + ", time_pay=" + time_pay + ", amount=" + amount + ", amount_after_sale=" + amount_after_sale + ", order_id=" + order_id + ", code_sale_id=" + code_sale_id + '}';
     }
-   
-    
+
 }
