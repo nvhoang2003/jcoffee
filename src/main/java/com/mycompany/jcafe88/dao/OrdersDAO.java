@@ -41,7 +41,7 @@ public class OrdersDAO extends BaseDAO {
         List<Orders> list = new ArrayList<Orders>();
         openConnection();
         try {
-            String sql = ("SELECT * FROM Orders");
+            String sql = ("SELECT * FROM orders");
             statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
