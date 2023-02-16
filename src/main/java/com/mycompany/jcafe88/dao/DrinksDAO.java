@@ -67,7 +67,7 @@ public class DrinksDAO extends BaseDAO {
             statement.setString(4, drinks.getImage());
             statement.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
@@ -86,7 +86,7 @@ public class DrinksDAO extends BaseDAO {
 
             statement.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
@@ -116,7 +116,7 @@ public class DrinksDAO extends BaseDAO {
                 break;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
@@ -133,9 +133,8 @@ public class DrinksDAO extends BaseDAO {
 
             statement.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(BookingDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         closeConnection();
     }
 }
