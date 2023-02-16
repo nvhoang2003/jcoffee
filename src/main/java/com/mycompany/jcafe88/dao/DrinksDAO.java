@@ -58,7 +58,7 @@ public class DrinksDAO extends BaseDAO {
     public static void insert(Drinks drinks) {
         openConnection();
 
-        String sql = "insert into admins(name, user_name, password) values (?, ?, ?)";
+        String sql = "insert into drinks(name, price, Description,Image) values (?, ?, ?,?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, drinks.getName());
@@ -76,7 +76,7 @@ public class DrinksDAO extends BaseDAO {
     public static void update(Drinks drinks) {
         openConnection();
 
-        String sql = "update admins set name = ?, user_name = ?, password = ? where admin_id = ?";
+        String sql = "update set drinks set (name, price, Description,Image) values (?, ?, ?,?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, drinks.getName());
@@ -99,7 +99,7 @@ public class DrinksDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from admins where id = ?";
+            String sql = "select * from drinks where id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
 
@@ -126,7 +126,7 @@ public class DrinksDAO extends BaseDAO {
     public static void delete(int id) {
         openConnection();
 
-        String sql = "delete from Drinks where id = ?";
+        String sql = "delete from drinks where id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
