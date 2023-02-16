@@ -8,6 +8,11 @@ package com.mycompany.jcafe88.dao;
  *
  * @author Admin
  */
+import static com.mycompany.jcafe88.dao.BaseDAO.closeConnection;
+import static com.mycompany.jcafe88.dao.BaseDAO.conn;
+import static com.mycompany.jcafe88.dao.BaseDAO.openConnection;
+import static com.mycompany.jcafe88.dao.BaseDAO.statement;
+import com.mycompany.jcafe88.models.Admin;
 import com.mycompany.jcafe88.models.Drinks;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DrinksDAO extends BaseDAO {
+
     private static DrinksDAO instance;
 
     public DrinksDAO() {
@@ -47,6 +53,89 @@ public class DrinksDAO extends BaseDAO {
         }
         closeConnection();
         return null;
-        
+    }
+
+    public static void insert(Drinks drinks) {
+        openConnection();
+
+        String sql = "insert into admins(name, user_name, password) values (?, ?, ?)";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, drinks.getName());
+            statement.setInt(2, drinks.getPrice());
+            statement.setString(3, drinks.getDescription());
+            statement.setString(4, drinks.getImage());
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+    }
+
+    public static void update(Drinks drinks) {
+        openConnection();
+
+        String sql = "update admins set name = ?, user_name = ?, password = ? where admin_id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, drinks.getName());
+            statement.setInt(2, drinks.getPrice());
+            statement.setString(3, drinks.getDescription());
+            statement.setString(4, drinks.getImage());
+
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+    }
+
+    public static Drinks find(int id) {
+        Drinks drinks = null;
+
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select * from admins where id = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                drinks = new Drinks(
+                        resultSet.getInt("drinks_id"),
+                        resultSet.getString("Name"),
+                        resultSet.getInt("Price"),
+                        resultSet.getString("Description"),
+                        resultSet.getString("Image")
+                );
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return null;
+    }
+
+    public static void delete(int id) {
+        openConnection();
+
+        String sql = "delete from Drinks where id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(BookingDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
     }
 }

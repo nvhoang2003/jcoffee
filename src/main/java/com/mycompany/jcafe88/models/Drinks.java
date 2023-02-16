@@ -23,6 +23,12 @@ public class Drinks {
         this.Image = Image;
     }
 
+
+    public Drinks(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
