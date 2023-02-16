@@ -11,7 +11,7 @@ import java.util.Date;
  * @author NGUYEN DAT
  */
 public class Customer {
-        private String customer_name, address, email, phone_number;
+    private String customer_name, address, email, phone_number;
     private int customer_id, gender, age;
     private Date date_of_birth;
     private Boolean Is_vip;
@@ -32,7 +32,7 @@ public class Customer {
         this.Is_vip = Is_vip;
     }
     
-    public String getCustomer_name(String string) {
+    public String getCustomer_name() {
         return customer_name;
     }
 

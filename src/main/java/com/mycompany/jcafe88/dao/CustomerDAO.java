@@ -5,11 +5,13 @@
 package com.mycompany.jcafe88.dao;
 
 import com.mycompany.jcafe88.models.Customer;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.SQLException;
 
 /**
  *
@@ -29,42 +31,44 @@ public class CustomerDAO extends BaseDAO {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Customer customer = new Customer(
-                        resultSet.getInt(customer_id),
-                        resultSet.getString(customer_name),
-                        resultSet.getInt(gender),
-                        resultSet.getString(address),
-                        resultSet.getString(email),
-                        resultSet.getString(phone_number),
-                        resultSet.getInt(age),
-                        resultSet.getDate(date_of_birth),
-                        resultSet.getBoolean(Is_vip));
+                Customer customer;
+                customer = new Customer(
+                        resultSet.getInt("Customer_id"),
+                        resultSet.getString("Customer_name"),
+                        resultSet.getInt("Gender"),
+                        resultSet.getString("Address"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("Phone_number"),
+                        resultSet.getInt("Age"),
+                        resultSet.getDate("Date_Of_Birth"),
+                        resultSet.getBoolean("Is_vip"));
                 dataList.add(customer);
             }
-        } catch (SQLExeception ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        closeConnection();
+
+        return dataList;
     }
 
-    closeConnection();
-
-    return dataList
-}
-
- public static void insert(Customer customer) {
+    public static void insert(Customer customer) {
         openConnection();
 
-        String sql = "insert into customer(customer_name, gender, address, email, phone_number, age, date_of_birth) values (?, ?, ?, ?, ?, ?)";
+        String sql = "insert into customers(customer_name, gender, address, email, phone_number, age, date_of_birth) values (?, ?, ?, ?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, customer.getcustomer_name());
-            statement.setInt(2, customer.getgender());
-            statement.setString(3, customer.getemail());
-            statement.getString(4, customer.getphone_number());
-            statement.getInt(5, customer.getage());
-            statement.getDate(6, customer.getdate_of_birth());
+            statement.setString(1, customer.getCustomer_name());
+            statement.setInt(2, customer.getGender());
+            statement.setString(3, customer.getAddress());
+            statement.setString(4, customer.getEmail());
+            statement.setString(5, customer.getPhone_number());
+            statement.setInt(6, customer.getAge());
+            statement.setDate(7, (Date) customer.getDate_of_birth());
+            statement.setBoolean(8, customer.getIs_vip());
 
             statement.execute();
+
         } catch (SQLException ex) {
             Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -78,15 +82,16 @@ public class CustomerDAO extends BaseDAO {
         String sql = "update costumer set costumer_name = ?, gender = ?, address = ?, email = ?, phone_number = ?. age = ?, date_of_birth = ? where id = ?";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, customer.getcustomer_name());
-            statement.setInt(2, customer.getgender());
-            statement.setString(3, customer.getemail());
-            statement.getString(4, customer.getphone_number());
-            statement.getInt(5, customer.getage());
-            statement.getDate(6, customer.getdate_of_birth());
-
+            statement.setString(1, customer.getCustomer_name());
+            statement.setInt(2, customer.getGender());
+            statement.setString(3, customer.getEmail());
+            statement.setString(5, customer.getPhone_number());
+            statement.setInt(6, customer.getAge());
+            statement.setDate(7, (Date) customer.getDate_of_birth());
+            statement.setBoolean(8, customer.getIs_vip());
 
             statement.execute();
+
         } catch (SQLException ex) {
             Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -100,49 +105,54 @@ public class CustomerDAO extends BaseDAO {
         String sql = "delete from customer where Customer_id = ?";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setInt(1, costumer_id);
+            statement.setInt(1, Customer_id);
 
             statement.execute();
+
         } catch (SQLException ex) {
-            Logger.getLogger(CostumerDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
     }
 
     public static Customer find(int Customer_id) {
-        Book book = null;
-        
+        Customer customer = null;
+
         openConnection();
 
         try {
             //Thuc thi lenh
             String sql = "select * from books where id = ?";
             statement = conn.prepareStatement(sql);
-            statement.setInt(1, costumer_id);
-            
+            statement.setInt(1, Customer_id);
+
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()) {
-                costumer = new Costumer(
-                        resultSet.getInt("Costumer_id"),
-                        statement = conn.prepareStatement(sql);
-                        statement.setString(1, customer.getcustomer_name());
-                        statement.setInt(2, customer.getgender());
-                        statement.setString(3, customer.getemail());
-                        statement.getString(4, customer.getphone_number());
-                        statement.getInt(5, customer.getage());
-                        statement.getDate(6, customer.getdate_of_birth());
+            statement = conn.prepareStatement(sql);
 
+            while (resultSet.next()) {
+                customer = new Customer(
+                        resultSet.getInt("Customer_id"),
+                        resultSet.getString("Customer_name"),
+                        resultSet.getInt("Gender"),
+                        resultSet.getString("Address"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("Phone_number"),
+                        resultSet.getInt("Age"),
+                        resultSet.getDate("Date_Of_Birth"),
+                        resultSet.getBoolean("Is_vip")
                 );
                 break;
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CostumerDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
-        
-        return costumer;
+
+        return customer;
     }
 }
+
