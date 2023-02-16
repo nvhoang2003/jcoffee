@@ -57,7 +57,7 @@ public class OrdersDAO extends BaseDAO {
     public static void insert(Orders orders) {
         openConnection();
 
-        String sql = "insert into orders(Order_id, Customer_id, Booking_id,) values (?, ?, ?)";
+        String sql = "insert into orders(order_id, customer_id, booking_id,) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getOrder_id());
@@ -74,7 +74,7 @@ public class OrdersDAO extends BaseDAO {
     public static void update(Orders orders) {
         openConnection();
 
-        String sql = "update set orders set (Order_id, Customer_id, Booking_id,) values (?, ?, ?)";
+        String sql = "update set orders set (order_id,customer_id, booking_id,) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getOrder_id());
@@ -104,9 +104,9 @@ public class OrdersDAO extends BaseDAO {
 
             while (resultSet.next()) {
                 orders = new Orders(
-                        resultSet.getInt("Order_id"),
-                        resultSet.getInt("Customer_id"),
-                        resultSet.getInt("Booking_id")
+                        resultSet.getInt("order_id"),
+                        resultSet.getInt("customer_id"),
+                        resultSet.getInt("booking_id")
                 );
                 break;
             }

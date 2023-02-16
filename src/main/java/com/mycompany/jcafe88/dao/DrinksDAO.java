@@ -58,7 +58,7 @@ public class DrinksDAO extends BaseDAO {
     public static void insert(Drinks drinks) {
         openConnection();
 
-        String sql = "insert into drinks(name, price, Description,Image) values (?, ?, ?,?)";
+        String sql = "insert into drinks(name, price, description,image) values (?, ?, ?,?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, drinks.getName());
@@ -76,7 +76,7 @@ public class DrinksDAO extends BaseDAO {
     public static void update(Drinks drinks) {
         openConnection();
 
-        String sql = "update set drinks set (name, price, Description,Image) values (?, ?, ?,?)";
+        String sql = "update set drinks set (name, price, description,image) values (?, ?, ?,?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, drinks.getName());
@@ -108,10 +108,10 @@ public class DrinksDAO extends BaseDAO {
             while (resultSet.next()) {
                 drinks = new Drinks(
                         resultSet.getInt("drinks_id"),
-                        resultSet.getString("Name"),
-                        resultSet.getInt("Price"),
-                        resultSet.getString("Description"),
-                        resultSet.getString("Image")
+                        resultSet.getString("name"),
+                        resultSet.getInt("price"),
+                        resultSet.getString("description"),
+                        resultSet.getString("image")
                 );
                 break;
             }
