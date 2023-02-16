@@ -33,15 +33,15 @@ public class CustomerDAO extends BaseDAO {
             while (resultSet.next()) {
                 Customer customer;
                 customer = new Customer(
-                        resultSet.getInt("Customer_id"),
-                        resultSet.getString("Customer_name"),
-                        resultSet.getInt("Gender"),
-                        resultSet.getString("Address"),
-                        resultSet.getString("Email"),
-                        resultSet.getString("Phone_number"),
-                        resultSet.getInt("Age"),
-                        resultSet.getDate("Date_Of_Birth"),
-                        resultSet.getBoolean("Is_vip"));
+                        resultSet.getInt("customer_id"),
+                        resultSet.getString("customer_name"),
+                        resultSet.getInt("gender"),
+                        resultSet.getString("address"),
+                        resultSet.getString("email"),
+                        resultSet.getString("phone_number"),
+                        resultSet.getInt("age"),
+                        resultSet.getDate("date_of_birth"),
+                        resultSet.getBoolean("is_vip"));
                 dataList.add(customer);
             }
         } catch (SQLException ex) {
@@ -79,7 +79,7 @@ public class CustomerDAO extends BaseDAO {
     public static void update(Customer customer) {
         openConnection();
 
-        String sql = "update costumer set costumer_name = ?, gender = ?, address = ?, email = ?, phone_number = ?. age = ?, date_of_birth = ? where id = ?";
+        String sql = "update customer set customer_name = ?, gender = ?, address = ?, email = ?, phone_number = ?. age = ?, date_of_birth = ? where id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, customer.getCustomer_name());
@@ -102,7 +102,7 @@ public class CustomerDAO extends BaseDAO {
     public static void delete(int Customer_id) {
         openConnection();
 
-        String sql = "delete from customer where Customer_id = ?";
+        String sql = "delete from customer where customer_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, Customer_id);
@@ -123,7 +123,7 @@ public class CustomerDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from books where id = ?";
+            String sql = "select * from customer where id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, Customer_id);
 
@@ -133,15 +133,15 @@ public class CustomerDAO extends BaseDAO {
 
             while (resultSet.next()) {
                 customer = new Customer(
-                        resultSet.getInt("Customer_id"),
-                        resultSet.getString("Customer_name"),
-                        resultSet.getInt("Gender"),
-                        resultSet.getString("Address"),
-                        resultSet.getString("Email"),
-                        resultSet.getString("Phone_number"),
-                        resultSet.getInt("Age"),
-                        resultSet.getDate("Date_Of_Birth"),
-                        resultSet.getBoolean("Is_vip")
+                        resultSet.getInt("customer_id"),
+                        resultSet.getString("customer_name"),
+                        resultSet.getInt("gender"),
+                        resultSet.getString("address"),
+                        resultSet.getString("email"),
+                        resultSet.getString("phone_number"),
+                        resultSet.getInt("age"),
+                        resultSet.getDate("date_Of_Birth"),
+                        resultSet.getBoolean("is_vip")
                 );
                 break;
 
