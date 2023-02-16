@@ -52,7 +52,7 @@ public class BookingCustomerDAO extends BaseDAO {
     public static void insert(BookingCustomer bookingcustomer) {
         openConnection();
 
-        String sql = "insert into bookings(booking_id, customer_id, book_date, time_out) values (?, ?, ?, ?)";
+        String sql = "insert into bookingcustomers(booking_id, customer_id, book_date, time_out) values (?, ?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, bookingcustomer.getBooking_id());
@@ -70,7 +70,7 @@ public class BookingCustomerDAO extends BaseDAO {
     public static void update(BookingCustomer bookingcustomer) {
         openConnection();
 
-        String sql = "update bookingcustomers set booking_id = ?, customer_id = ?, book_date = ? where booking_id = ?";
+        String sql = "update bookingcustomers set booking_id = ?, customer_id = ?, book_date = ?, time_out = ? where booking_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, bookingcustomer.getBooking_id());
@@ -80,7 +80,7 @@ public class BookingCustomerDAO extends BaseDAO {
             statement.setInt(5, bookingcustomer.getBooking_customer_id());
             statement.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(BookingDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingCustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
@@ -126,7 +126,7 @@ public class BookingCustomerDAO extends BaseDAO {
                 break;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(BookingDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingCustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
