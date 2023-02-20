@@ -122,7 +122,7 @@ public class CodeSaleDAO extends BaseDAO {
                 break;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(BookingDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CodeSaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         closeConnection();
