@@ -82,6 +82,11 @@ public class LoginJFrame extends javax.swing.JFrame {
                 ResetMouseClicked(evt);
             }
         });
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,6 +187,10 @@ public class LoginJFrame extends javax.swing.JFrame {
         jTextField1.setText("");
         jPasswordField1.setText("");
     }//GEN-LAST:event_ResetMouseClicked
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
