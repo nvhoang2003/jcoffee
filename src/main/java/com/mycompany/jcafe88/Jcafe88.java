@@ -4,8 +4,6 @@
 package com.mycompany.jcafe88;
 
 import com.mycompany.jcafe88.dao.AdminDAO;
-import com.mycompany.jcafe88.models.Booking;
-import com.mycompany.jcafe88.dao.BookingDAO;
 import com.mycompany.jcafe88.models.Admin;
 import java.util.ArrayList;
 import java.util.List;
