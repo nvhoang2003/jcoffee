@@ -135,6 +135,11 @@ public class LoginJFrame extends javax.swing.JFrame {
                 ResetMouseClicked(evt);
             }
         });
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
+            }
+        });
 
         jPasswordField1.setBackground(new java.awt.Color(245, 255, 250));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +271,10 @@ public class LoginJFrame extends javax.swing.JFrame {
         jTextField1.setText("");
         jPasswordField1.setText("");
     }//GEN-LAST:event_ResetMouseClicked
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResetActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
