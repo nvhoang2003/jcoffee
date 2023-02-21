@@ -12,10 +12,7 @@ import static com.mycompany.jcafe88.dao.BaseDAO.closeConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.conn;
 import static com.mycompany.jcafe88.dao.BaseDAO.openConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.statement;
-import com.mycompany.jcafe88.models.Admin;
 import com.mycompany.jcafe88.models.Drinks;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -52,7 +49,7 @@ public class DrinksDAO extends BaseDAO {
             Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         closeConnection();
-        return null;
+        return list;
     }
 
     public static void insert(Drinks drinks) {
@@ -120,7 +117,7 @@ public class DrinksDAO extends BaseDAO {
         }
 
         closeConnection();
-        return null;
+        return drinks;
     }
 
     public static void delete(int id) {
