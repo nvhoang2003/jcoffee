@@ -11,12 +11,12 @@ package com.mycompany.jcafe88.models;
 public class Orders {
     private int Order_id;
     private int Customer_id;
-    private int amount;
+    private int Booking_id;
 
-    public Orders(int Order_id, int Customer_id, int amount) {
+    public Orders(int Order_id, int Customer_id, int Booking_id) {
         this.Order_id = Order_id;
         this.Customer_id = Customer_id;
-        this.amount = amount;
+        this.Booking_id = Booking_id;
     }
 
     public int getOrder_id() {
@@ -35,17 +35,17 @@ public class Orders {
         this.Customer_id = Customer_id;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getBooking_id() {
+        return Booking_id;
     }
 
-    public Orders(int amount) {
-        this.amount = amount;
+    public void setBooking_id(int Booking_id) {
+        this.Booking_id = Booking_id;
     }
 
     @Override
     public String toString() {
-        return "Orders{" + "Order_id=" + Order_id + ", Customer_id=" + Customer_id + ", Booking_id=" + amount + '}';
+        return "Orders{" + "Order_id=" + Order_id + ", Customer_id=" + Customer_id + ", Booking_id=" + Booking_id + '}';
     }
 
     

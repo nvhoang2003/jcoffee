@@ -8,7 +8,10 @@ import static com.mycompany.jcafe88.dao.BaseDAO.closeConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.conn;
 import static com.mycompany.jcafe88.dao.BaseDAO.openConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.statement;
+import com.mycompany.jcafe88.models.Drinks;
 import com.mycompany.jcafe88.models.Orders;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -54,12 +57,12 @@ public class OrdersDAO extends BaseDAO {
     public static void insert(Orders orders) {
         openConnection();
 
-        String sql = "insert into orders(order_id, customer_id, amount,) values (?, ?, ?)";
+        String sql = "insert into orders(order_id, customer_id, booking_id,) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getOrder_id());
             statement.setInt(2, orders.getCustomer_id());
-            statement.setInt(3, orders.getAmount());
+            statement.setInt(3, orders.getBooking_id());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,12 +74,12 @@ public class OrdersDAO extends BaseDAO {
     public static void update(Orders orders) {
         openConnection();
 
-        String sql = "update set orders set (order_id,customer_id, amount,) values (?, ?, ?)";
+        String sql = "update set orders set (order_id,customer_id, booking_id,) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getOrder_id());
             statement.setInt(2, orders.getCustomer_id());
-            statement.setInt(3, orders.getAmount());
+            statement.setInt(3, orders.getBooking_id());
 
             statement.execute();
         } catch (SQLException ex) {
@@ -103,7 +106,7 @@ public class OrdersDAO extends BaseDAO {
                 orders = new Orders(
                         resultSet.getInt("order_id"),
                         resultSet.getInt("customer_id"),
-                        resultSet.getInt("amount")
+                        resultSet.getInt("booking_id")
                 );
                 break;
             }
@@ -112,7 +115,7 @@ public class OrdersDAO extends BaseDAO {
         }
 
         closeConnection();
-        return orders;
+        return null;
     }
 
     public static void delete(int id) {

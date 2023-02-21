@@ -23,12 +23,6 @@ public class Drinks {
         this.Image = Image;
     }
 
-    public Drinks(String name, int price, String Description, String Image) {
-        this.name = name;
-        this.price = price;
-        this.Description = Description;
-        this.Image = Image;
-    }
 
     public Drinks(int id, String name) {
         this.id = id;
