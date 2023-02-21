@@ -211,9 +211,6 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -261,9 +258,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         int phonenumber = Integer.parseInt(jPhoneNumber.getText());
         int age = Integer.parseInt(jAge.getText());
         int dateofbirth = Integer.parseInt(jDateOfBirth.getText());
-        String Male = jCheckboxMale.getText();
-        String Female = jCheckboxFemale.getText();
-       
+        
        
     }//GEN-LAST:event_jSaveActionPerformed
 
@@ -334,9 +329,5 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private javax.swing.JButton jSave;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-
-    
 }
