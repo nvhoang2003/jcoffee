@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Base64;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
@@ -174,9 +175,8 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                         .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(SaveButton)
-                        .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(SaveButton)
                     .addComponent(jButton3))
                 .addContainerGap())
         );
@@ -225,8 +225,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
-        
-        Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage.toString()); 
+        Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage); 
         DrinksDAO.insert(drinks);
     }//GEN-LAST:event_SaveButtonActionPerformed
 
