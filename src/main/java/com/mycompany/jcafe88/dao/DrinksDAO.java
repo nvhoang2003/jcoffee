@@ -12,10 +12,7 @@ import static com.mycompany.jcafe88.dao.BaseDAO.closeConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.conn;
 import static com.mycompany.jcafe88.dao.BaseDAO.openConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.statement;
-import com.mycompany.jcafe88.models.Admin;
 import com.mycompany.jcafe88.models.Drinks;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -45,14 +42,14 @@ public class DrinksDAO extends BaseDAO {
             statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Drinks drinks = new Drinks(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+                Drinks drinks = new Drinks(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getBytes(5));
                 list.add(drinks);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         closeConnection();
-        return null;
+        return list;
     }
 
     public static void insert(Drinks drinks) {
@@ -64,7 +61,7 @@ public class DrinksDAO extends BaseDAO {
             statement.setString(1, drinks.getName());
             statement.setInt(2, drinks.getPrice());
             statement.setString(3, drinks.getDescription());
-            statement.setString(4, drinks.getImage());
+            statement.setBytes(4, drinks.getImage());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,7 +79,7 @@ public class DrinksDAO extends BaseDAO {
             statement.setString(1, drinks.getName());
             statement.setInt(2, drinks.getPrice());
             statement.setString(3, drinks.getDescription());
-            statement.setString(4, drinks.getImage());
+            statement.setBytes(4, drinks.getImage());
 
             statement.execute();
         } catch (SQLException ex) {
@@ -111,7 +108,7 @@ public class DrinksDAO extends BaseDAO {
                         resultSet.getString("name"),
                         resultSet.getInt("price"),
                         resultSet.getString("description"),
-                        resultSet.getString("image")
+                        resultSet.getBytes("image")
                 );
                 break;
             }
@@ -120,7 +117,7 @@ public class DrinksDAO extends BaseDAO {
         }
 
         closeConnection();
-        return null;
+        return drinks;
     }
 
     public static void delete(int id) {

@@ -13,9 +13,9 @@ public class Drinks {
     private String name;
     private int price;
     private String Description;
-    private String Image;
+    private byte[] Image;
 
-    public Drinks(int id, String name, int price, String Description, String Image) {
+    public Drinks(int id, String name, int price, String Description, byte[] Image) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -23,6 +23,12 @@ public class Drinks {
         this.Image = Image;
     }
 
+    public Drinks(String name, int price, String Description, byte[] Image) {
+        this.name = name;
+        this.price = price;
+        this.Description = Description;
+        this.Image = Image;
+    }
 
     public Drinks(int id, String name) {
         this.id = id;
@@ -61,17 +67,17 @@ public class Drinks {
         this.Description = Description;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return Image;
     }
 
-    public void setImage(String Image) {
+    public void setImage(byte[] Image) {
         this.Image = Image;
     }
 
     @Override
     public String toString() {
-        return "Drinks{" + "id=" + id + ", name=" + name + ", price=" + price + ", Description=" + Description + ", Image=" + Image + '}';
+        return "Drinks{" + "id=" + id + ", name=" + name + ", price=" + price + ", Description=" + Description + '}';
     }
     
 }
