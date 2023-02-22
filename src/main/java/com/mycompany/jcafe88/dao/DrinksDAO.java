@@ -42,7 +42,7 @@ public class DrinksDAO extends BaseDAO {
             statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Drinks drinks = new Drinks(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+                Drinks drinks = new Drinks(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getBytes(5));
                 list.add(drinks);
             }
         } catch (SQLException ex) {
@@ -61,7 +61,7 @@ public class DrinksDAO extends BaseDAO {
             statement.setString(1, drinks.getName());
             statement.setInt(2, drinks.getPrice());
             statement.setString(3, drinks.getDescription());
-            statement.setString(4, drinks.getImage());
+            statement.setBytes(4, drinks.getImage());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,7 +79,7 @@ public class DrinksDAO extends BaseDAO {
             statement.setString(1, drinks.getName());
             statement.setInt(2, drinks.getPrice());
             statement.setString(3, drinks.getDescription());
-            statement.setString(4, drinks.getImage());
+            statement.setBytes(4, drinks.getImage());
 
             statement.execute();
         } catch (SQLException ex) {
@@ -108,7 +108,7 @@ public class DrinksDAO extends BaseDAO {
                         resultSet.getString("name"),
                         resultSet.getInt("price"),
                         resultSet.getString("description"),
-                        resultSet.getString("image")
+                        resultSet.getBytes("image")
                 );
                 break;
             }
