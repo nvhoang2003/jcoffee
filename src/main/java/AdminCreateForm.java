@@ -19,6 +19,12 @@ public class AdminCreateForm extends javax.swing.JFrame {
     public AdminCreateForm() {
         initComponents();
     }
+    
+    public static void ShowAdminForm(){
+        AdminCreateForm acf = new AdminCreateForm();
+        acf.setLocationRelativeTo(null);
+        acf.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -331,7 +337,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminCreateForm().setVisible(true);
+                ShowAdminForm();
             }
         });
     }
