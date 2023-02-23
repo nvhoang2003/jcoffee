@@ -6,13 +6,13 @@ import javax.swing.table.TableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author NGUYEN DAT
  */
 public class CustomerCreateForm extends javax.swing.JFrame {
-         DefaultTableModel tableModel;
+
+    DefaultTableModel tableModel;
 
     /**
      * Creates new form Customer
@@ -52,6 +52,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jSave = new javax.swing.JButton();
         jReset = new javax.swing.JButton();
         jExit = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -99,6 +100,12 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             }
         });
 
+        jDateOfBirth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDateOfBirthActionPerformed(evt);
+            }
+        });
+
         jSave.setBackground(new java.awt.Color(61, 235, 52));
         jSave.setText("Save");
         jSave.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +130,14 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             }
         });
 
+        Delete.setBackground(new java.awt.Color(0, 204, 204));
+        Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,20 +145,23 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jAge, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                    .addComponent(jName)
-                    .addComponent(jAdress))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jAge, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                            .addComponent(jName)
+                            .addComponent(jAdress)))
+                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -196,13 +214,14 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSave)
                     .addComponent(jExit)
-                    .addComponent(jReset))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jReset)
+                    .addComponent(Delete))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "Name", "Gender", "Address", "Email", "Phone Number", "Age", "Date Of Birth"
@@ -259,18 +278,17 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jDateOfBirth.setText("");
         jCheckboxMale.setSelected(false);
         jCheckboxFemale.setSelected(false);
-        
+
     }//GEN-LAST:event_jResetActionPerformed
 
     private void jCheckboxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckboxMaleActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jCheckboxMaleActionPerformed
 
     private void jSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSaveActionPerformed
         // TODO add your handling code here:
-       
-        
+
         System.out.println("Save ....");
         String fullname = jName.getText();
         String adress = jAdress.getText();
@@ -279,15 +297,15 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         int age = Integer.parseInt(jAge.getText());
         int dateofbirth = Integer.parseInt(jDateOfBirth.getText());
         int gender;
-        if(jCheckboxFemale.isSelected()){
+        if (jCheckboxFemale.isSelected()) {
             gender = 2;
-        } else if (jCheckboxMale.isSelected()){
+        } else if (jCheckboxMale.isSelected()) {
             gender = 1;
-        }else{
-            gender =3;
+        } else {
+            gender = 3;
         }
-        
-       tableModel.addRow(new Object[] {fullname, gender, adress, email, phonenumber, age, dateofbirth});
+
+        tableModel.addRow(new Object[]{fullname, gender, adress, email, phonenumber, age, dateofbirth});
     }//GEN-LAST:event_jSaveActionPerformed
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
@@ -298,6 +316,21 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private void jPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPhoneNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPhoneNumberActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        // TODO add your handling code here:
+        jName.setText("");
+        jPhoneNumber.setText("");
+        jAge.setText("");
+        jAdress.setText("");
+        jDateOfBirth.setText("");
+        jEmail.setText("");
+        System.out.println("Delete Succesful!!");
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void jDateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDateOfBirthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDateOfBirthActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,6 +367,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Delete;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField jAdress;
