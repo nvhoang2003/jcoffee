@@ -41,7 +41,7 @@ public class AdminForm extends Admin {
             validate_message.put("password", "Invalid password");
         }
         
-        if(!password.equals(confirm_password) && !password.isBlank()&& !confirm_password.isBlank()){
+        if(confirm_password.isBlank() == false){
         } else {
             validate_message.put("password", "Password must a same as confirm password");
             validate_message.put("confirm_password", "Confirm password must a same as password");
