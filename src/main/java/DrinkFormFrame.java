@@ -1,3 +1,4 @@
+
 import com.mycompany.jcafe88.dao.DrinksDAO;
 import com.mycompany.jcafe88.models.Drinks;
 
@@ -19,10 +20,11 @@ import javax.swing.JFileChooser;
  */
 public class DrinkFormFrame extends javax.swing.JFrame {
 
-     private ImageIcon format=null;
-    String fname=null;
-    int s=0;
-    byte[] pimage=null;
+    private ImageIcon format = null;
+    String fname = null;
+    int s = 0;
+    byte[] pimage = null;
+
     /**
      * Creates new form DrinksFormFrame
      */
@@ -119,20 +121,23 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(chooseImgButton)
-                                        .addGap(52, 52, 52)
-                                        .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(27, 27, 27)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
+                                .addGap(41, 41, 41)
                                 .addComponent(SaveButton)
-                                .addGap(83, 83, 83)
-                                .addComponent(jButton3)
-                                .addGap(88, 88, 88)
-                                .addComponent(jButton1)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(chooseImgButton)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(62, 62, 62)
+                                        .addComponent(jButton3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton1)))))
                         .addGap(72, 72, 72))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
@@ -174,10 +179,10 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
                     .addComponent(jButton1)
-                    .addComponent(SaveButton)
-                    .addComponent(jButton3))
+                    .addComponent(SaveButton))
                 .addContainerGap())
         );
 
@@ -201,19 +206,18 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 
     private void chooseImgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseImgButtonActionPerformed
         // TODO add your handling code here:
-        JFileChooser fchoser=new JFileChooser();
+        JFileChooser fchoser = new JFileChooser();
         fchoser.showOpenDialog(null);
-        File f=fchoser.getSelectedFile();
-        fname=f.getAbsolutePath();
-        ImageIcon micon=new ImageIcon(fname);
+        File f = fchoser.getSelectedFile();
+        fname = f.getAbsolutePath();
+        ImageIcon micon = new ImageIcon(fname);
         try {
-            File image=new File(fname);
-            FileInputStream fis=new FileInputStream(image);
-            ByteArrayOutputStream baos=new ByteArrayOutputStream();
-            byte[] buf=new byte[1024];
-            for(int readnum; (readnum = fis.read(buf)) !=-1;)
-            {
-                baos.write(buf,0,readnum);
+            File image = new File(fname);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for (int readnum; (readnum = fis.read(buf)) != -1;) {
+                baos.write(buf, 0, readnum);
             }
             pimage = baos.toByteArray();
             String tesst = pimage.toString();
@@ -225,7 +229,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
-        Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage); 
+        Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage);
         DrinksDAO.insert(drinks);
     }//GEN-LAST:event_SaveButtonActionPerformed
 
@@ -240,7 +244,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         }
 
         Image img = myImage.getImage();
-        Image img2=img.getScaledInstance(lblimage.getHeight(),    lblimage.getWidth(),  Image.SCALE_SMOOTH);
+        Image img2 = img.getScaledInstance(lblimage.getHeight(), lblimage.getWidth(), Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(img2);
         return image;
     }
