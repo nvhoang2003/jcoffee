@@ -1,5 +1,12 @@
 
 import java.awt.Dimension;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -226,7 +233,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         txtName.setText("");
         txtSaleOff.setText("");
         txtCode.setText("");
-        System.out.println("Reset Done");
+//        System.out.println("Reset Done");
     }//GEN-LAST:event_ResetActionPerformed
 
     private void txtSaleOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleOffActionPerformed
@@ -235,14 +242,9 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
-        HomeFrame jframe = new HomeFrame();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-        // set the jframe size and location, and make it visible
-//      jframe.setPreferredSize(new Dimension(772, 502));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
         setVisible(false);
-        jframe.setVisible(true);
+ 
+       HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
