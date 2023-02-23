@@ -278,7 +278,6 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jDateOfBirth.setText("");
         jCheckboxMale.setSelected(false);
         jCheckboxFemale.setSelected(false);
-
     }//GEN-LAST:event_jResetActionPerformed
 
     private void jCheckboxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckboxMaleActionPerformed
