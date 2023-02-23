@@ -92,9 +92,9 @@ public class LoginJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
 
-        Login.setBackground(new java.awt.Color(210, 105, 30));
+        Login.setBackground(new java.awt.Color(204, 204, 204));
         Login.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        Login.setForeground(new java.awt.Color(187, 244, 236));
+        Login.setForeground(new java.awt.Color(0, 0, 0));
         Login.setLabel("Login");
         Login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,9 +126,9 @@ public class LoginJFrame extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(97, 25));
         jLabel2.setVerifyInputWhenFocusTarget(false);
 
-        Reset.setBackground(new java.awt.Color(210, 105, 30));
+        Reset.setBackground(new java.awt.Color(204, 204, 204));
         Reset.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        Reset.setForeground(new java.awt.Color(187, 244, 236));
+        Reset.setForeground(new java.awt.Color(0, 0, 0));
         Reset.setLabel("Reset");
         Reset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,7 +149,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Sitka Heading", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(253, 82, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Welcome To JCaffeShop");
 
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
