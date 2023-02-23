@@ -123,7 +123,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         });
 
         jExit.setBackground(new java.awt.Color(242, 19, 19));
-        jExit.setText("Exit");
+        jExit.setText("Back");
         jExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jExitActionPerformed(evt);
@@ -269,13 +269,14 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
     private void jResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jResetActionPerformed
         // TODO add your handling code here:
-        System.out.println("Reset....");
+        System.out.println("Reset....");  
         jName.setText("");
         jAdress.setText("");
         jEmail.setText("");
         jPhoneNumber.setText("");
         jAge.setText("");
         jDateOfBirth.setText("");
+//        buttonGroup1.setSelected(jCheckboxMale, false);
         jCheckboxMale.setSelected(false);
         jCheckboxFemale.setSelected(false);
 
@@ -310,7 +311,13 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
         // TODO add your handling code here:
-        dispose();
+        HomeFrame jframe = new HomeFrame();
+        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+        
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
     }//GEN-LAST:event_jExitActionPerformed
 
     private void jPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPhoneNumberActionPerformed
