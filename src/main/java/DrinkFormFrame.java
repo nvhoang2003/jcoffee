@@ -216,7 +216,6 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                 baos.write(buf,0,readnum);
             }
             pimage = baos.toByteArray();
-            String tesst = pimage.toString();
             lblimage.setIcon(resizeImage(fname, buf));
 //            lblimage.setText( pimage.toString());
         } catch (Exception e) {
