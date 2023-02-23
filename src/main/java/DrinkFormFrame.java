@@ -107,7 +107,6 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 
         lblimage.setBackground(new java.awt.Color(51, 0, 51));
         lblimage.setForeground(new java.awt.Color(102, 102, 102));
-        lblimage.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\img 50.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,7 +140,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                                 .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 46, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
