@@ -1,4 +1,5 @@
 
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /*
@@ -11,12 +12,14 @@ import javax.swing.table.TableModel;
  * @author NGUYEN DAT
  */
 public class CustomerCreateForm extends javax.swing.JFrame {
+         DefaultTableModel tableModel;
 
     /**
      * Creates new form Customer
      */
     public CustomerCreateForm() {
         initComponents();
+        tableModel = (DefaultTableModel) jTable1.getModel();
     }
 
     /**
@@ -51,6 +54,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -205,6 +210,19 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Gender", "Adress", "Email", "Phone Number", "Age", "Date of birth"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,6 +269,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
     private void jSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSaveActionPerformed
         // TODO add your handling code here:
+       
+        
         System.out.println("Save ....");
         String fullname = jName.getText();
         String adress = jAdress.getText();
@@ -258,8 +278,16 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         int phonenumber = Integer.parseInt(jPhoneNumber.getText());
         int age = Integer.parseInt(jAge.getText());
         int dateofbirth = Integer.parseInt(jDateOfBirth.getText());
+        int gender;
+        if(jCheckboxFemale.isSelected()){
+            gender = 2;
+        } else if (jCheckboxMale.isSelected()){
+            gender = 1;
+        }else{
+            gender =3;
+        }
         
-       
+       tableModel.addRow(new Object[] {fullname, gender, adress, email, phonenumber, age, dateofbirth});
     }//GEN-LAST:event_jSaveActionPerformed
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
@@ -328,6 +356,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private javax.swing.JButton jReset;
     private javax.swing.JButton jSave;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
