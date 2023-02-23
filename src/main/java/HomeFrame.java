@@ -68,6 +68,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
+        AdminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/admin resize.png"))); // NOI18N
         AdminButton.setText("Admin");
         AdminButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         //AdminButton.setBorder(new javax.swing.border.AbstractBorder(javax.swing.border.BevelBorder.RAISED));
