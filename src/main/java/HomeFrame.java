@@ -158,7 +158,26 @@ public class HomeFrame extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    public static void ShowHomeFrame() {
+        final String dir = System.getProperty("user.dir");
+            HomeFrame lf = new HomeFrame();
+            try {
+                lf.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File(dir + "\\src\\main\\java\\image\\background-home.jpg")))));
+            } catch (IOException e) {
+            }
+            lf.pack();
+            lf.setLocationRelativeTo(null);
+//                lf.add(lf.jPanel1);
+            lf.add(lf.TitleHome);
+            lf.add(lf.AdminButton);
+            lf.add(lf.BillButton);
+            lf.add(lf.CodeSaleButton);
+            lf.add(lf.CustomerButton);
+            lf.add(lf.DrinkButton);
+            lf.add(lf.OrderButton);
+            lf.add(lf.LogoutButton);
+            lf.setVisible(true);
+    }
     private void BillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BillButtonActionPerformed
@@ -178,24 +197,7 @@ public class HomeFrame extends javax.swing.JFrame {
     public static void main(String args[]) throws IOException{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            final String dir = System.getProperty("user.dir");
-            HomeFrame lf = new HomeFrame();
-            try {
-                lf.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File(dir + "\\src\\main\\java\\image\\background-home.jpg")))));
-            } catch (IOException e) {
-            }
-            lf.pack();
-            lf.setLocationRelativeTo(null);
-//                lf.add(lf.jPanel1);
-            lf.add(lf.TitleHome);
-            lf.add(lf.AdminButton);
-            lf.add(lf.BillButton);
-            lf.add(lf.CodeSaleButton);
-            lf.add(lf.CustomerButton);
-            lf.add(lf.DrinkButton);
-            lf.add(lf.OrderButton);
-            lf.add(lf.LogoutButton);
-            lf.setVisible(true);
+            ShowHomeFrame();
         });
     }
 
