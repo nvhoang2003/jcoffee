@@ -5,7 +5,8 @@
 import com.mycompany.jcafe88.dao.AdminDAO;
 import com.mycompany.jcafe88.models.Admin;
 import java.awt.Dimension;
-
+import form.AdminForm;
+import java.util.Map;
 /**
  *
  * @author Tcom
@@ -176,6 +177,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
+        Map<String, String> validate_message = AdminForm.validated(fullNameField.getText(), userNameField.getText(), new String(passwordField.getPassword()), new String(confirmPasswordField.getPassword()));
         Admin admin = new Admin(fullNameField.getText(), userNameField.getText(), new String(passwordField.getPassword()));
         AdminDAO.insert(admin);
     }//GEN-LAST:event_saveButtonActionPerformed
