@@ -5,11 +5,19 @@
 import com.mycompany.jcafe88.dao.AdminDAO;
 import java.awt.Dimension;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Tcom
  */
 public class AdminIndexForm extends javax.swing.JFrame {
+
+    public static void ShowAdminForm() {
+        AdminIndexForm aif = new AdminIndexForm();
+        aif.setLocationRelativeTo(null);
+        aif.setVisible(true);
+        aif.showListAdmin();
+    }
 
     /**
      * Creates new form AdminIndexForm
@@ -17,12 +25,12 @@ public class AdminIndexForm extends javax.swing.JFrame {
     public AdminIndexForm() {
         initComponents();
     }
-    
-    private void showListAdmin(){
+
+    private void showListAdmin() {
 //        jTable1.addRow
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (int i = 0; i < AdminDAO.list().size(); i++) {
-            model.addRow(new Object[]{AdminDAO.list().get(i).getAdmin_id(), AdminDAO.list().get(i).getName(), AdminDAO.list().get(i).getUser_name()});      
+            model.addRow(new Object[]{AdminDAO.list().get(i).getAdmin_id(), AdminDAO.list().get(i).getName(), AdminDAO.list().get(i).getUser_name()});
         }
     }
 
@@ -172,9 +180,7 @@ public class AdminIndexForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AdminIndexForm aif = new AdminIndexForm();
-                aif.setVisible(true);
-                aif.showListAdmin();
+                ShowAdminForm();
             }
         });
     }
