@@ -93,6 +93,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
 
         Login.setBackground(new java.awt.Color(204, 204, 204));
+        Login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Login.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         Login.setForeground(new java.awt.Color(0, 0, 0));
         Login.setLabel("Login");
@@ -182,7 +183,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGap(194, 194, 194)
                                             .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(25, 25, 25))
