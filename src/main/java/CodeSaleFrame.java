@@ -1,4 +1,12 @@
 
+import java.awt.Dimension;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -41,7 +49,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         Code = new javax.swing.JLabel();
         txtCode = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BackButton = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         CodeSaleTable = new javax.swing.JTable();
@@ -97,12 +105,13 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
         Code.setText("Code");
 
-        jButton1.setText("Back");
-        jButton1.setMaximumSize(new java.awt.Dimension(86, 30));
-        jButton1.setMinimumSize(new java.awt.Dimension(86, 30));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BackButton.setText("Back");
+        BackButton.setMaximumSize(new java.awt.Dimension(86, 30));
+        BackButton.setMinimumSize(new java.awt.Dimension(86, 30));
+        BackButton.setName("Back"); // NOI18N
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BackButtonActionPerformed(evt);
             }
         });
 
@@ -130,12 +139,12 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtSaleOff)
                     .addComponent(txtCode, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -158,7 +167,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                     .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -224,16 +233,19 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         txtName.setText("");
         txtSaleOff.setText("");
         txtCode.setText("");
-        System.out.println("Reset Done");
+//        System.out.println("Reset Done");
     }//GEN-LAST:event_ResetActionPerformed
 
     private void txtSaleOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleOffActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSaleOffActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        setVisible(false);
+ 
+       HomeFrame.ShowHomeFrame();
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
@@ -274,9 +286,11 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                 new CodeSaleFrame().setVisible(true);
             }
         });
+ 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     private javax.swing.JLabel Code;
     private javax.swing.JTable CodeSaleTable;
     private javax.swing.JButton Delete;
@@ -284,7 +298,6 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     private javax.swing.JButton Reset;
     private javax.swing.JLabel SaleOff;
     private javax.swing.JButton Save_Code;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

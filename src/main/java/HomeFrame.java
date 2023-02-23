@@ -1,4 +1,5 @@
 
+import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -54,19 +55,29 @@ public class HomeFrame extends javax.swing.JFrame {
         TitleHome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TitleHome.setForeground(new java.awt.Color(102, 0, 102));
         TitleHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitleHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\icons8-coffee-beans-50.png")); // NOI18N
         TitleHome.setText("WELCOME TO JCAFE88!!!");
 
-        CodeSaleButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\sale resize.png")); // NOI18N
         CodeSaleButton.setText("Code Sale");
+        CodeSaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodeSaleButtonActionPerformed(evt);
+            }
+        });
 
-        CustomerButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\customer resize.png")); // NOI18N
         CustomerButton.setText("Customer");
+        CustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerButtonActionPerformed(evt);
+            }
+        });
 
-        OrderButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\order resize.png")); // NOI18N
         OrderButton.setText("Order");
+        OrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderButtonActionPerformed(evt);
+            }
+        });
 
-        AdminButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\admin resize.png")); // NOI18N
         AdminButton.setText("Admin");
         AdminButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         //AdminButton.setBorder(new javax.swing.border.AbstractBorder(javax.swing.border.BevelBorder.RAISED));
@@ -77,7 +88,6 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        BillButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\bill resize.png")); // NOI18N
         BillButton.setText("Bill");
         BillButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,13 +95,16 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        DrinkButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\drink resize.png")); // NOI18N
         DrinkButton.setText("    Drink");
+        DrinkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DrinkButtonActionPerformed(evt);
+            }
+        });
 
         LogoutButton.setBackground(new java.awt.Color(255, 51, 51));
         LogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LogoutButton.setForeground(new java.awt.Color(255, 255, 255));
-        LogoutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\icons8-logout-rounded-30.png")); // NOI18N
         LogoutButton.setText("Logout");
         LogoutButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -158,27 +171,8 @@ public class HomeFrame extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BillButtonActionPerformed
-
-    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AdminButtonActionPerformed
-
-    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LogoutButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     * @throws java.io.IOException
-     */
-    public static void main(String args[]) throws IOException{
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            final String dir = System.getProperty("user.dir");
+    public static void ShowHomeFrame() {
+        final String dir = System.getProperty("user.dir");
             HomeFrame lf = new HomeFrame();
             try {
                 lf.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File(dir + "\\src\\main\\java\\image\\background-home.jpg")))));
@@ -196,6 +190,79 @@ public class HomeFrame extends javax.swing.JFrame {
             lf.add(lf.OrderButton);
             lf.add(lf.LogoutButton);
             lf.setVisible(true);
+    }
+    private void BillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BillButtonActionPerformed
+
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
+        // TODO add your handling code here:
+        AdminIndexForm jframe = new AdminIndexForm();
+        jframe.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
+    }//GEN-LAST:event_AdminButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        // TODO add your handling code here:
+        LoginJFrame jframe = new LoginJFrame();
+        jframe.setDefaultCloseOperation(LoginJFrame.EXIT_ON_CLOSE);
+        
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void OrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_OrderButtonActionPerformed
+
+    private void CustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerButtonActionPerformed
+        // TODO add your handling code here:
+        CustomerCreateForm jframe = new CustomerCreateForm();
+        jframe.setDefaultCloseOperation(CustomerCreateForm.EXIT_ON_CLOSE);
+        
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
+    }//GEN-LAST:event_CustomerButtonActionPerformed
+
+    private void CodeSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodeSaleButtonActionPerformed
+        // TODO add your handling code here:
+        CodeSaleFrame jframe = new CodeSaleFrame();
+        jframe.setDefaultCloseOperation(CodeSaleFrame.EXIT_ON_CLOSE);
+        
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
+    }//GEN-LAST:event_CodeSaleButtonActionPerformed
+
+    private void DrinkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DrinkButtonActionPerformed
+        // TODO add your handling code here:
+        DrinkIndexForm jframe = new DrinkIndexForm();
+        jframe.setDefaultCloseOperation(DrinkIndexForm.EXIT_ON_CLOSE);
+        
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
+    }//GEN-LAST:event_DrinkButtonActionPerformed
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     */
+    public static void main(String args[]) throws IOException{
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            ShowHomeFrame();
         });
     }
 

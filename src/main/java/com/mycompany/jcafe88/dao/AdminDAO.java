@@ -37,8 +37,8 @@ public class AdminDAO extends BaseDAO {
                 Admin admin;
                 admin = new Admin(
                         resultSet.getInt("admin_id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("user_name")
+                        resultSet.getString("user_name"),
+                        resultSet.getString("name")        
                 );
                 dataList.add(admin);
             }
@@ -57,8 +57,9 @@ public class AdminDAO extends BaseDAO {
         String sql = "insert into admins(name, user_name, password) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, admin.getName());
-            statement.setString(2, admin.getUser_name());
+            statement.setString(1, admin.getUser_name());
+            statement.setString(2, admin.getName());
+            
             statement.setString(3, admin.getEncryptedPassword(admin.getPassword()));
 
             statement.execute();

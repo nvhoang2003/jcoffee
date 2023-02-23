@@ -84,6 +84,11 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 255, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         SaveButton.setBackground(new java.awt.Color(0, 255, 0));
         SaveButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -97,6 +102,11 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         chooseImgButton.setText("Choose Img");
         chooseImgButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +117,6 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 
         lblimage.setBackground(new java.awt.Color(51, 0, 51));
         lblimage.setForeground(new java.awt.Color(102, 102, 102));
-        lblimage.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\img 50.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,7 +150,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                                 .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 46, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -233,6 +242,14 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage);
         DrinksDAO.insert(drinks);
     }//GEN-LAST:event_SaveButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public ImageIcon resizeImage(String imagePath, byte[] pic) {
 
