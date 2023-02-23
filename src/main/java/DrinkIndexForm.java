@@ -60,6 +60,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lbid.setBackground(new java.awt.Color(153, 153, 255));
         lbid.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -74,7 +75,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Drink Information");
+        jLabel1.setText("Create New Drink");
 
         jLabel2.setText("ID:");
 
@@ -159,9 +160,9 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                     .addGroup(lbidLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnsave)
-                        .addGap(61, 61, 61)
+                        .addGap(60, 60, 60)
                         .addComponent(btnreset)
-                        .addGap(65, 65, 65)
+                        .addGap(66, 66, 66)
                         .addComponent(btndelete)))
                 .addGroup(lbidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lbidLayout.createSequentialGroup()
