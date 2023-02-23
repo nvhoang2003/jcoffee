@@ -37,8 +37,8 @@ public class AdminDAO extends BaseDAO {
                 Admin admin;
                 admin = new Admin(
                         resultSet.getInt("admin_id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("user_name")
+                        resultSet.getString("user_name"),
+                        resultSet.getString("name")        
                 );
                 dataList.add(admin);
             }
