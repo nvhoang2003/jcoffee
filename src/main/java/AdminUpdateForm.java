@@ -221,8 +221,13 @@ public class AdminUpdateForm extends javax.swing.JFrame {
         jframe.setLocationRelativeTo(null);
         setVisible(false);
         jframe.setVisible(true);
+        HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_backButtonActionPerformed
-
+    public static void ShowAdminUpdateForm(){
+        AdminUpdateForm auf = new AdminUpdateForm();
+        auf.setLocationRelativeTo(null);
+        auf.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -253,7 +258,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminUpdateForm().setVisible(true);
+                ShowAdminUpdateForm();
             }
         });
     }

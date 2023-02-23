@@ -215,6 +215,11 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static void ShowCodeSaleFram(){
+        CodeSaleFrame csf = new CodeSaleFrame();
+        csf.setLocationRelativeTo(null);
+        csf.setVisible(true);
+    }
     private void Save_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_CodeActionPerformed
         // TODO add your handling code here:
         String Name = txtName.getText();      
@@ -283,7 +288,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CodeSaleFrame().setVisible(true);
+                ShowCodeSaleFram();
             }
         });
  
