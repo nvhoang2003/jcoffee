@@ -34,8 +34,8 @@ public class DrinksDAO extends BaseDAO {
         return instance;
     }
 
-    public List<Drinks> GetListDrink() {
-        List<Drinks> list = new ArrayList<Drinks>();
+    public static List<Drinks> list() {
+        List<Drinks> list = new ArrayList<>();
         openConnection();
         try {
             String sql = ("SELECT * FROM drinks");
@@ -73,7 +73,7 @@ public class DrinksDAO extends BaseDAO {
     public static void update(Drinks drinks) {
         openConnection();
 
-        String sql = "update set drinks set (name, price, description,image) values (?, ?, ?,?)";
+        String sql = "update drinks set name = ?, price = ?, description = ?, image = ? where drink_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, drinks.getName());
@@ -96,7 +96,7 @@ public class DrinksDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from drinks where id = ?";
+            String sql = "select * from drinks where drink_id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
 
@@ -104,7 +104,7 @@ public class DrinksDAO extends BaseDAO {
 
             while (resultSet.next()) {
                 drinks = new Drinks(
-                        resultSet.getInt("drinks_id"),
+                        resultSet.getInt("drink_id"),
                         resultSet.getString("name"),
                         resultSet.getInt("price"),
                         resultSet.getString("description"),
@@ -123,7 +123,7 @@ public class DrinksDAO extends BaseDAO {
     public static void delete(int id) {
         openConnection();
 
-        String sql = "delete from drinks where id = ?";
+        String sql = "delete from drinks where drink_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
