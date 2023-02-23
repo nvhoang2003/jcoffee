@@ -1,4 +1,5 @@
 
+import java.awt.Dimension;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -220,6 +221,14 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        HomeFrame jframe = new HomeFrame();
+        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+        
+        jframe.setPreferredSize(new Dimension(400, 300));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

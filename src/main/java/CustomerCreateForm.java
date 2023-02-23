@@ -1,4 +1,5 @@
 
+import java.awt.Dimension;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -116,7 +117,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         });
 
         jExit.setBackground(new java.awt.Color(242, 19, 19));
-        jExit.setText("Exit");
+        jExit.setText("Back");
         jExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jExitActionPerformed(evt);
@@ -292,7 +293,14 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
         // TODO add your handling code here:
-        dispose();
+        HomeFrame jframe = new HomeFrame();
+        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+        
+        jframe.setPreferredSize(new Dimension(400, 300));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        setVisible(false);
+        jframe.setVisible(true);
     }//GEN-LAST:event_jExitActionPerformed
 
     private void jPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPhoneNumberActionPerformed
