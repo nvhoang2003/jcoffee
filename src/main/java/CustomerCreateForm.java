@@ -279,7 +279,6 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 //        buttonGroup1.setSelected(jCheckboxMale, false);
         jCheckboxMale.setSelected(false);
         jCheckboxFemale.setSelected(false);
-
     }//GEN-LAST:event_jResetActionPerformed
 
     private void jCheckboxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckboxMaleActionPerformed
