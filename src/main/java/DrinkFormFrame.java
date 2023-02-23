@@ -31,6 +31,12 @@ public class DrinkFormFrame extends javax.swing.JFrame {
     public DrinkFormFrame() {
         initComponents();
     }
+    
+    public static void ShowDrinkFormFrame(){
+        DrinkFormFrame dff = new DrinkFormFrame();
+        dff.setLocationRelativeTo(null);
+        dff.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -299,11 +305,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 //        imageLoad Canvas1;
 //        FileDialog fd = new FileDialog(dff, "Open", FileDialog.LOAD);
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DrinkFormFrame().setVisible(true);
-            }
-        });
+        ShowDrinkFormFrame();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
