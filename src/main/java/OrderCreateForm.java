@@ -40,6 +40,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
         Text = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         CustomersText = new javax.swing.JTextField();
+        Exit1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         OrderTable = new javax.swing.JTable();
 
@@ -47,6 +48,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
 
+        Save.setBackground(new java.awt.Color(255, 102, 0));
         Save.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Save.setText("Save");
         Save.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +57,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
             }
         });
 
+        Reset.setBackground(new java.awt.Color(102, 255, 102));
         Reset.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Reset.setText("Reset");
         Reset.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +66,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
             }
         });
 
+        Exit.setBackground(new java.awt.Color(51, 255, 204));
         Exit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Exit.setText("Exit");
         Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +80,15 @@ public class OrderCreateForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Customers_id");
+
+        Exit1.setBackground(new java.awt.Color(153, 153, 255));
+        Exit1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Exit1.setText("Back");
+        Exit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,11 +108,13 @@ public class OrderCreateForm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(Save)
-                        .addGap(72, 72, 72)
+                        .addGap(42, 42, 42)
                         .addComponent(Reset)
-                        .addGap(80, 80, 80)
-                        .addComponent(Exit)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(Exit)
+                        .addGap(39, 39, 39)
+                        .addComponent(Exit1)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +131,8 @@ public class OrderCreateForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Reset)
                     .addComponent(Save)
-                    .addComponent(Exit))
+                    .addComponent(Exit)
+                    .addComponent(Exit1))
                 .addGap(19, 19, 19))
         );
 
@@ -172,6 +188,10 @@ public class OrderCreateForm extends javax.swing.JFrame {
           dispose();
     }//GEN-LAST:event_ExitActionPerformed
 
+    private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Exit1ActionPerformed
+
     /**
      * @param args the command line arguments
      */    
@@ -210,6 +230,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CustomersText;
     private javax.swing.JButton Exit;
+    private javax.swing.JButton Exit1;
     private javax.swing.JTable OrderTable;
     private javax.swing.JButton Reset;
     private javax.swing.JButton Save;

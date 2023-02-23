@@ -1,19 +1,55 @@
+
+import com.mycompany.jcafe88.dao.BaseDAO;
+import com.mycompany.jcafe88.dao.DrinksDAO;
+import com.mycompany.jcafe88.models.Drinks;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Tcom
  */
 public class DrinkIndexForm extends javax.swing.JFrame {
+    
+    DefaultTableModel tableModel;
+    static Connection conn = null;
+    static PreparedStatement statement = null;
 
     /**
      * Creates new form DrinkIndexForm
      */
     public DrinkIndexForm() {
         initComponents();
+        tableModel = (DefaultTableModel) TableDrinks.getModel();
+        openConnection();
+        try {
+            String sql = ("SELECT * FROM drinks");
+            statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Drinks drinks = new Drinks(rs.getInt("ID"), rs.getString("Name"), rs.getInt("Price"), rs.getString("Description"), rs.getString("Image"));
+                TableDrinks.addRowSelectionInterval(WIDTH, WIDTH);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        closeConnection();
     }
 
     /**
@@ -37,7 +73,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         lbprice = new javax.swing.JLabel();
         lbdescription = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableDrinks = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,25 +164,24 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                 .addGap(37, 37, 37))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableDrinks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "ID", "Name", "Price", "Description"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TableDrinks);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
             .addComponent(lbid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,6 +231,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableDrinks;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -203,11 +239,28 @@ public class DrinkIndexForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbdescription;
     private javax.swing.JPanel lbid;
     private javax.swing.JLabel lbimage;
     private javax.swing.JLabel lbname;
     private javax.swing.JLabel lbprice;
     // End of variables declaration//GEN-END:variables
+    private void openConnection() {
+        try {
+            //Mo ket noi
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JCafe", "root", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void closeConnection() {
+        try {
+            //Mo ket noi
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JCafe", "root", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

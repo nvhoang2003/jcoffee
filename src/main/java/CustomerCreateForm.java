@@ -1,4 +1,7 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /*
@@ -11,12 +14,12 @@ import javax.swing.table.TableModel;
  * @author NGUYEN DAT
  */
 public class CustomerCreateForm extends javax.swing.JFrame {
-
     /**
      * Creates new form Customer
      */
     public CustomerCreateForm() {
         initComponents();
+        
     }
 
     /**

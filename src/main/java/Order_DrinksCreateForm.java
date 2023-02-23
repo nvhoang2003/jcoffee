@@ -42,6 +42,7 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
         Text2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Text3 = new javax.swing.JTextField();
+        Exit1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TableOrder = new javax.swing.JTable();
 
@@ -62,6 +63,7 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
+        Save.setBackground(new java.awt.Color(153, 204, 0));
         Save.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Save.setText("Save");
         Save.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +72,7 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
             }
         });
 
+        Reset.setBackground(new java.awt.Color(51, 0, 204));
         Reset.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Reset.setText("Reset");
         Reset.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +81,7 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
             }
         });
 
+        Exit.setBackground(new java.awt.Color(153, 102, 255));
         Exit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Exit.setText("Exit");
         Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -99,32 +103,47 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Quantity");
 
+        Exit1.setBackground(new java.awt.Color(153, 153, 255));
+        Exit1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Exit1.setText("Back");
+        Exit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(Text1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Save)
-                                .addGap(37, 37, 37)
-                                .addComponent(Reset)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Exit))
-                            .addComponent(Text2)
-                            .addComponent(Text3))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(Text1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Text2)
+                                    .addComponent(Text3))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(Save)
+                        .addGap(65, 65, 65)
+                        .addComponent(Reset)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Exit)
+                        .addGap(57, 57, 57)))
+                .addComponent(Exit1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +164,8 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Reset)
                     .addComponent(Exit)
-                    .addComponent(Save))
+                    .addComponent(Save)
+                    .addComponent(Exit1))
                 .addGap(16, 16, 16))
         );
 
@@ -215,6 +235,10 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ExitActionPerformed
 
+    private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Exit1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -252,6 +276,7 @@ public class Order_DrinksCreateForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Exit;
+    private javax.swing.JButton Exit1;
     private javax.swing.JButton Reset;
     private javax.swing.JButton Save;
     private javax.swing.JTable TableOrder;
