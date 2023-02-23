@@ -1,5 +1,6 @@
 
 import com.mycompany.jcafe88.dao.AdminDAO;
+//import 
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -225,14 +226,14 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         // TODO add your handling code here:
-         HomeFrame jframe = new HomeFrame();
-            jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-
-            // set the jframe size and location, and make it visible
-            jframe.setPreferredSize(new Dimension(400, 300));
-            jframe.pack();
-            jframe.setLocationRelativeTo(null);
-            jframe.setVisible(true);
+//         HomeFrame jframe = new HomeFrame();
+//            jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+//
+//            // set the jframe size and location, and make it visible
+//            jframe.setPreferredSize(new Dimension(400, 300));
+//            jframe.pack();
+//            jframe.setLocationRelativeTo(null);
+//            jframe.setVisible(true);
     }//GEN-LAST:event_LoginActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -252,15 +253,17 @@ public class LoginJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(lf, "Please enter your user name and password before login!",
                     "Bad Request", JOptionPane.ERROR_MESSAGE);
         }else if (AdminDAO.login(username, passText)) {
-            HomeFrame jframe = new HomeFrame();
-            jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-            lf.setVisible(false);
-            // set the jframe size and location, and make it visible
-            jframe.setPreferredSize(new Dimension(400, 300));
-            jframe.pack();
-            jframe.setLocationRelativeTo(null);
-            setVisible(false);
-            jframe.setVisible(true);
+//            HomeFrame jframe = new HomeFrame();
+//            jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+//            lf.setVisible(false);
+//            // set the jframe size and location, and make it visible
+//            jframe.setPreferredSize(new Dimension(800, 600));
+//            jframe.pack();
+//            jframe.setLocationRelativeTo(null);
+//            setVisible(false);
+//            jframe.setVisible(true);
+              HomeFrame.ShowHomeFrame();
+              dispose();
         } else {
             JOptionPane.showMessageDialog(lf, "Wrong username or Password. Please try again!",
                     "Denied Access", JOptionPane.ERROR_MESSAGE);

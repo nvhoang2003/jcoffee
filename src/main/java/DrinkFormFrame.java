@@ -97,6 +97,11 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         chooseImgButton.setText("Choose Img");
         chooseImgButton.addActionListener(new java.awt.event.ActionListener() {
@@ -233,6 +238,10 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage);
         DrinksDAO.insert(drinks);
     }//GEN-LAST:event_SaveButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public ImageIcon resizeImage(String imagePath, byte[] pic) {
 
