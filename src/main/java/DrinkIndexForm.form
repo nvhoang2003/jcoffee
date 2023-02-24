@@ -78,6 +78,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnnew" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="btnsave" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               </Group>
@@ -171,6 +173,7 @@
                       <Component id="btnreset" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btndelete" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnback" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnnew" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
@@ -298,6 +301,20 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnchooseimgActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnnew">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="New"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnewActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
