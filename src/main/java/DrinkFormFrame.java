@@ -57,9 +57,9 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         PriceField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         DescriptionArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
         SaveButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        resetbtn = new javax.swing.JButton();
         chooseImgButton = new javax.swing.JButton();
         lblimage = new javax.swing.JLabel();
 
@@ -87,12 +87,12 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         DescriptionArea.setRows(5);
         jScrollPane1.setViewportView(DescriptionArea);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 51));
+        btnback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnback.setText("Back");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -105,12 +105,12 @@ public class DrinkFormFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setText("Reset");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        resetbtn.setBackground(new java.awt.Color(255, 0, 0));
+        resetbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        resetbtn.setText("Reset");
+        resetbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                resetbtnActionPerformed(evt);
             }
         });
 
@@ -166,9 +166,9 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                         .addGap(282, 282, 282)
                         .addComponent(SaveButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(resetbtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btnback)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -200,8 +200,8 @@ public class DrinkFormFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(SaveButton)
-                            .addComponent(jButton3)
-                            .addComponent(jButton1))
+                            .addComponent(resetbtn)
+                            .addComponent(btnback))
                         .addGap(12, 12, 12))))
         );
 
@@ -249,13 +249,18 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         DrinksDAO.insert(drinks);
     }//GEN-LAST:event_SaveButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void resetbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        NameField.setText("");
+        PriceField.setText("");
+        DescriptionArea.setText("");
+        lblimage.setIcon(null);
+    }//GEN-LAST:event_resetbtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        DrinkIndexForm.ShowDrinkIndexFrame();
+    }//GEN-LAST:event_btnbackActionPerformed
 
     public ImageIcon resizeImage(String imagePath, byte[] pic) {
 
@@ -317,12 +322,12 @@ public class DrinkFormFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Price;
     private javax.swing.JTextField PriceField;
     private javax.swing.JButton SaveButton;
+    private javax.swing.JButton btnback;
     private javax.swing.JButton chooseImgButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblimage;
+    private javax.swing.JButton resetbtn;
     // End of variables declaration//GEN-END:variables
 }

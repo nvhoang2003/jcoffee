@@ -55,6 +55,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         btnsave = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnchooseimg = new javax.swing.JButton();
+        btnnew = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -73,8 +74,6 @@ public class DrinkIndexForm extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        lbimage.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Documents\\NetBeansProjects\\jcoffee\\src\\main\\java\\image\\img 50.png")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Create New Drink");
@@ -132,6 +131,15 @@ public class DrinkIndexForm extends javax.swing.JFrame {
             }
         });
 
+        btnnew.setBackground(new java.awt.Color(0, 255, 0));
+        btnnew.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnnew.setText("New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout lbidLayout = new javax.swing.GroupLayout(lbid);
         lbid.setLayout(lbidLayout);
         lbidLayout.setHorizontalGroup(
@@ -152,6 +160,8 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(lbidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbidLayout.createSequentialGroup()
+                                .addComponent(btnnew)
+                                .addGap(25, 25, 25)
                                 .addComponent(btnsave)
                                 .addGap(9, 9, 9))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbidLayout.createSequentialGroup()
@@ -162,17 +172,6 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                         .addGap(258, 258, 258)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(lbidLayout.createSequentialGroup()
-                        .addGroup(lbidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(lbidLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lbidLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fdescription, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(lbidLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(btnreset)
                         .addGap(18, 18, 18)
@@ -180,8 +179,18 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnback))
                     .addGroup(lbidLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbimage, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(lbidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(lbidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(lbidLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(lbidLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(fdescription, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbimage, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(447, 447, 447))
             .addGroup(lbidLayout.createSequentialGroup()
                 .addGap(182, 182, 182)
@@ -222,7 +231,8 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                     .addComponent(btnsave)
                     .addComponent(btnreset)
                     .addComponent(btndelete)
-                    .addComponent(btnback))
+                    .addComponent(btnback)
+                    .addComponent(btnnew))
                 .addGap(36, 36, 36))
         );
 
@@ -249,7 +259,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
-                    .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 622, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,6 +328,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         fname.setText("");
         fprice.setText("");
         fdescription.setText("");
+        lbimage.setIcon(null);
     }//GEN-LAST:event_btnresetActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -328,16 +339,13 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        HomeFrame jframe = new HomeFrame();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-
-        // set the jframe size and location, and make it visible
-        jframe.setPreferredSize(new Dimension(400, 300));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true); 
+        HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_btnbackActionPerformed
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
+        // TODO add your handling code here:
+        DrinkFormFrame.ShowDrinkFormFrame();
+    }//GEN-LAST:event_btnnewActionPerformed
 
      public ImageIcon resizeImage(byte[] pic) {
 
@@ -388,6 +396,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnchooseimg;
     private javax.swing.JButton btndelete;
+    private javax.swing.JButton btnnew;
     private javax.swing.JButton btnreset;
     private javax.swing.JButton btnsave;
     private javax.swing.JTextField fdescription;
