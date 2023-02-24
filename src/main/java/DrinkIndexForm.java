@@ -262,12 +262,11 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-       private void showListDrinks(){
-//        jTable1.addRow
+    private void showListDrinks() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         for (int i = 0; i < DrinksDAO.list().size(); i++) {
-            model.addRow(new Object[]{DrinksDAO.list().get(i).getId(), DrinksDAO.list().get(i).getName(), DrinksDAO.list().get(i).getPrice(), DrinksDAO.list().get(i).getDescription()});      
+            model.addRow(new Object[]{DrinksDAO.list().get(i).getId(), DrinksDAO.list().get(i).getName(), DrinksDAO.list().get(i).getPrice(), DrinksDAO.list().get(i).getDescription()});
         }
     }
     
@@ -275,7 +274,6 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
         int id = (int) (jTable1.getModel().getValueAt(row, 0));
-//        id = 1;
         Drinks drink = DrinksDAO.find(id);
         lblid.setText(String.valueOf(id));
         fname.setText(DrinksDAO.find(id).getName());
@@ -311,7 +309,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
         Drinks drinks = new Drinks(Integer.parseInt(lblid.getText()),fname.getText(), Integer.parseInt(fprice.getText()), fprice.getText(), pimage); 
-        DrinksDAO.insert(drinks);
+        DrinksDAO.update(drinks);
         showListDrinks();
     }//GEN-LAST:event_btnsaveActionPerformed
 
