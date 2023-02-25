@@ -1,9 +1,13 @@
 
 import com.mycompany.jcafe88.GenderState;
 import static com.mycompany.jcafe88.GenderState.values;
+import com.mycompany.jcafe88.dao.CustomerDAO;
+import com.mycompany.jcafe88.models.Customer;
+import com.mycompany.jcafe88.models.Table;
 import java.sql.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+//import java.util.Date;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -37,6 +41,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         ccf.ShowGender();
         ccf.setLocationRelativeTo(null);
         ccf.setVisible(true);
+//        ccf.jDate.setValue(new Date());
     }
 
     /**
@@ -70,6 +75,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         Delete = new javax.swing.JButton();
         jDate = new javax.swing.JFormattedTextField();
         jGender = new javax.swing.JComboBox<>();
+        lbid = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -147,13 +154,15 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("ID :");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
@@ -170,7 +179,12 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                                 .addComponent(jAge, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
                             .addComponent(jName)
                             .addComponent(jAdress)))
-                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -214,13 +228,21 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSave)
-                    .addComponent(jExit)
-                    .addComponent(jReset)
-                    .addComponent(Delete))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSave)
+                            .addComponent(jExit)
+                            .addComponent(jReset)
+                            .addComponent(Delete))
+                        .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addContainerGap())))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -231,6 +253,11 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                 "Name", "Gender", "Address", "Email", "Phone Number", "Age", "Date Of Birth"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -288,13 +315,16 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         System.out.println("Save ....");
+        System.out.println((Date)jDate.getValue());
         String fullname = jName.getText();
         String adress = jAdress.getText();
         String email = jEmail.getText();
-        int phonenumber = Integer.parseInt(jPhoneNumber.getText());
         int age = Integer.parseInt(jAge.getText());
-        jGender.getSelectedItem();
-     
+        int gender = GenderState.getGenderStateByValue(String.valueOf(jGender.getSelectedItem())).getKey() ;
+        Date dob =(Date)jDate.getValue();
+        
+        Customer customer = new Customer(fullname, adress, email, jPhoneNumber.getText(), gender, age, dob, false);
+        CustomerDAO.insert(customer);
 //        System.out.println(jGender.getSelectedItem());
 //        tableModel.addRow(new Object[]{fullname, gender, adress, email, phonenumber, age, dateofbirth});
     }//GEN-LAST:event_jSaveActionPerformed
@@ -310,17 +340,24 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
-        jName.setText("");
-        jPhoneNumber.setText("");
-        jAge.setText("");
-        jAdress.setText("");
-        jEmail.setText("");
+        
+        
         System.out.println("Delete Succesful!!");
     }//GEN-LAST:event_DeleteActionPerformed
 
     private void jGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jGenderActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+//         int row = jTable1.getSelectedRow();
+//        int id = (int) (jTable1.getModel().getValueAt(row, 0));
+//        Customer customer = CustomerDAO.find(id);
+//        lbid.setText(String.valueOf(id));
+//        jName.setText(customer.getCustomer_name());
+//        jGender.set
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -371,6 +408,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jName;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jPhoneNumber;
@@ -380,5 +418,6 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JLabel lbid;
     // End of variables declaration//GEN-END:variables
 }

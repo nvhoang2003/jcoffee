@@ -13,6 +13,17 @@ import java.util.Date;
 public class Customer {
     private String customer_name, address, email, phone_number;
     private int customer_id, gender, age;
+
+    public Customer(String customer_name, String address, String email, String phone_number, int gender, int age, Date date_of_birth, Boolean Is_vip) {
+        this.customer_name = customer_name;
+        this.address = address;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.gender = gender;
+        this.age = age;
+        this.date_of_birth = date_of_birth;
+        this.Is_vip = Is_vip;
+    }
     private Date date_of_birth;
     private Boolean Is_vip;
 
