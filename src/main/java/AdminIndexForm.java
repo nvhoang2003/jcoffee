@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import com.mycompany.jcafe88.dao.AdminDAO;
-import com.mycompany.jcafe88.dao.DrinksDAO;
-import java.awt.Dimension;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -156,7 +154,7 @@ public class AdminIndexForm extends javax.swing.JFrame {
 
     private void createAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAdminButtonActionPerformed
         // TODO add your handling code here:
-        AdminCreateForm.ShowAdminForm();
+        AdminCreateForm.ShowAdminCreateForm();
     }//GEN-LAST:event_createAdminButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

@@ -55,7 +55,7 @@ public class DrinksDAO extends BaseDAO {
     public static void insert(Drinks drinks) {
         openConnection();
 
-        String sql = "insert into drinks(name, price, description,image) values (?, ?, ?,?)";
+        String sql = "insert into drinks(name, price, description, image) values (?, ?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, drinks.getName());
