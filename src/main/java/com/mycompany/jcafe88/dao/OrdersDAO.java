@@ -39,8 +39,7 @@ public class OrdersDAO extends BaseDAO {
          String sql = "SELECT o.*, c.customer_name as customer_name, t.name as table_name "
                 + "FROM orders as o "
                 + "JOIN customers as c ON o.customer_id = c.customer_id "
-                + "JOIN tables as t ON o.table_id = t.table_id "
-                + "WHERE o.is_cancel != false";
+                + "JOIN tables as t ON o.table_id = t.table_id ";
         openConnection();
         try {
             statement = conn.prepareStatement(sql);
@@ -59,12 +58,11 @@ public class OrdersDAO extends BaseDAO {
     public static void insert(Orders orders) {
         openConnection();
 
-        String sql = "insert into orders(order_id, customer_id, amount,) values (?, ?, ?)";
+        String sql = "insert into orders(customer_id, table_id) values (?, ?)";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setInt(1, orders.getOrder_id());
-            statement.setInt(2, orders.getCustomer_id());
-//            statement.setInt(3, orders.getAmount());
+            statement.setInt(1, orders.getCustomer_id());
+            statement.setInt(2, orders.getTable_id());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -136,5 +134,55 @@ public class OrdersDAO extends BaseDAO {
             Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         closeConnection();
+    }
+    
+    public static int findCustomer_ID(String cus_name) {
+        int cus_id = 0;
+
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select customer_id from customers where customer_name = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, cus_name);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                cus_id = rs.getInt("customer_id");
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return cus_id;
+    }
+    
+    public static int findTable_id(String table_name) {
+        int table_id = 0;
+        
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select table_id from tables where name = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, table_name);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                table_id = rs.getInt("table_id");
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return table_id;
     }
 }

@@ -209,7 +209,9 @@ public class OrderCreateForm extends javax.swing.JFrame {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-//        Orders orders = new Orders(fieldcustomername.getText(), )
+        int cus_id = OrdersDAO.findCustomer_ID(fieldcustomername.getText());
+        int table_id = OrdersDAO.findTable_id(String.valueOf(list_table.getSelectedItem()));
+        Orders orders = new Orders(cus_id, table_id);
         OrdersDAO.insert(orders);
     }//GEN-LAST:event_btnsaveActionPerformed
 

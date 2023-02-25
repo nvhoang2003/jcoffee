@@ -40,7 +40,6 @@ public class Orders {
     }
 
     public Orders(int Customer_id, int table_id) {
-        this.Order_id = Order_id;
         this.Customer_id = Customer_id;
         this.table_id = table_id;
     }
