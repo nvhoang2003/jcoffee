@@ -31,13 +31,13 @@ public class Customer {
   
     }
     
-    public Customer(int customer_id, String customer_name, int gender, String address, String email, String phone_number, int age, Date date_of_birth, Boolean Is_vip){
+    public Customer(int customer_id, String customer_name, String address, String email, String phone_number, int gender, int age, Date date_of_birth, Boolean Is_vip) {
         this.customer_id = customer_id;
         this.customer_name = customer_name;
-        this.gender = gender;
         this.address = address;
         this.email = email;
         this.phone_number = phone_number;
+        this.gender = gender;
         this.age = age;
         this.date_of_birth = date_of_birth;
         this.Is_vip = Is_vip;
@@ -75,7 +75,7 @@ public class Customer {
         this.phone_number = phone_number;
     }
 
-    public int getCustomer_id(String string) {
+    public int getCustomer_id() {
         return customer_id;
     }
 

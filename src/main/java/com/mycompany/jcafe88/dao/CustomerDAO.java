@@ -35,10 +35,10 @@ public class CustomerDAO extends BaseDAO {
                 customer = new Customer(
                         resultSet.getInt("customer_id"),
                         resultSet.getString("customer_name"),
-                        resultSet.getInt("gender"),
                         resultSet.getString("address"),
                         resultSet.getString("email"),
                         resultSet.getString("phone_number"),
+                        resultSet.getInt("gender"),
                         resultSet.getInt("age"),
                         resultSet.getDate("date_of_birth"),
                         resultSet.getBoolean("is_vip"));
@@ -55,7 +55,7 @@ public class CustomerDAO extends BaseDAO {
     public static void insert(Customer customer) {
         openConnection();
 
-        String sql = "insert into customers(customer_name, gender, address, email, phone_number, age, date_of_birth) values (?, ?, ?, ?, ?, ?)";
+        String sql = "insert into customers(customer_name, gender, address, email, phone_number, age, date_of_birth, is_vip) values (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, customer.getCustomer_name());
@@ -64,7 +64,7 @@ public class CustomerDAO extends BaseDAO {
             statement.setString(4, customer.getEmail());
             statement.setString(5, customer.getPhone_number());
             statement.setInt(6, customer.getAge());
-            statement.setDate(7, (Date) customer.getDate_of_birth());
+            statement.setDate(7, new java.sql.Date(customer.getDate_of_birth().getTime()));
             statement.setBoolean(8, customer.getIs_vip());
 
             statement.execute();
@@ -79,16 +79,18 @@ public class CustomerDAO extends BaseDAO {
     public static void update(Customer customer) {
         openConnection();
 
-        String sql = "update customer set customer_name = ?, gender = ?, address = ?, email = ?, phone_number = ?. age = ?, date_of_birth = ? where id = ?";
+        String sql = "update customers set customer_name = ?, gender = ?, address = ?, email = ?, phone_number = ?, age = ?, date_of_birth = ?, is_vip = ? where customer_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, customer.getCustomer_name());
             statement.setInt(2, customer.getGender());
-            statement.setString(3, customer.getEmail());
+            statement.setString(3, customer.getAddress());
+            statement.setString(4, customer.getEmail());
             statement.setString(5, customer.getPhone_number());
             statement.setInt(6, customer.getAge());
-            statement.setDate(7, (Date) customer.getDate_of_birth());
+            statement.setDate(7, new java.sql.Date(customer.getDate_of_birth().getTime()));
             statement.setBoolean(8, customer.getIs_vip());
+            statement.setInt(9, customer.getCustomer_id());
 
             statement.execute();
 
@@ -102,7 +104,7 @@ public class CustomerDAO extends BaseDAO {
     public static void delete(int Customer_id) {
         openConnection();
 
-        String sql = "delete from customer where customer_id = ?";
+        String sql = "delete from customers where customer_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, Customer_id);
@@ -123,7 +125,7 @@ public class CustomerDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from customer where id = ?";
+            String sql = "select * from customers where customer_id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, Customer_id);
 
@@ -135,10 +137,10 @@ public class CustomerDAO extends BaseDAO {
                 customer = new Customer(
                         resultSet.getInt("customer_id"),
                         resultSet.getString("customer_name"),
-                        resultSet.getInt("gender"),
                         resultSet.getString("address"),
                         resultSet.getString("email"),
                         resultSet.getString("phone_number"),
+                        resultSet.getInt("gender"),
                         resultSet.getInt("age"),
                         resultSet.getDate("date_Of_Birth"),
                         resultSet.getBoolean("is_vip")

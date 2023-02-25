@@ -3,10 +3,10 @@ import com.mycompany.jcafe88.GenderState;
 import static com.mycompany.jcafe88.GenderState.values;
 import com.mycompany.jcafe88.dao.CustomerDAO;
 import com.mycompany.jcafe88.models.Customer;
-import com.mycompany.jcafe88.models.Table;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 //import java.util.Date;
 
 /*
@@ -32,7 +32,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     public void ShowGender() {
         jGender.removeAllItems();
         for (GenderState b : values()) {
-           jGender.addItem(b.getValue());
+            jGender.addItem(b.getValue());
         }
     }
 
@@ -40,6 +40,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         CustomerCreateForm ccf = new CustomerCreateForm();
         ccf.ShowGender();
         ccf.setLocationRelativeTo(null);
+        ccf.showListCustomer();
+        ccf.jdob.setDate( new java.util.Date());
         ccf.setVisible(true);
 //        ccf.jDate.setValue(new Date());
     }
@@ -73,10 +75,12 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jReset = new javax.swing.JButton();
         jExit = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
-        jDate = new javax.swing.JFormattedTextField();
         jGender = new javax.swing.JComboBox<>();
         lbid = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jdob = new com.toedter.calendar.JDateChooser();
+        btnnew = new javax.swing.JButton();
+        lid = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -145,8 +149,6 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             }
         });
 
-        jDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
         jGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,35 +158,48 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
         jLabel9.setText("ID :");
 
+        btnnew.setBackground(new java.awt.Color(0, 204, 204));
+        btnnew.setText("New");
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jAge, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                            .addComponent(jName)
-                            .addComponent(jAdress)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lid, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(btnnew, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jAge))
+                    .addComponent(jName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jAdress, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -199,8 +214,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                         .addComponent(jReset, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jExit, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
-                    .addComponent(jDate)
-                    .addComponent(jGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jdob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,13 +230,14 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel7))
+                    .addComponent(jdob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,24 +251,34 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                             .addComponent(jSave)
                             .addComponent(jExit)
                             .addComponent(jReset)
-                            .addComponent(Delete))
+                            .addComponent(Delete)
+                            .addComponent(btnnew))
                         .addContainerGap(16, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(lbid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(lid, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Name", "Gender", "Address", "Email", "Phone Number", "Age", "Date Of Birth"
+                "ID", "Name", "Gender", "Address", "Email", "Phone Number", "Age", "Date Of Birth"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -277,9 +303,11 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -287,16 +315,56 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameActionPerformed
+    public void showListCustomer(){
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        List<Customer> c = CustomerDAO.list();
+        model.setRowCount(0);
+        for (int i = 0; i < CustomerDAO.list().size(); i++) {
+            model.addRow(new Object[]{c.get(i).getCustomer_id(), c.get(i).getCustomer_name(), GenderState.getGenderStateByKey(c.get(i).getGender()).getValue(), c.get(i).getAddress(), c.get(i).getEmail(), c.get(i).getPhone_number(), c.get(i).getAge(), c.get(i).getDate_of_birth()});
+        }
+    }
+    
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+         int row = jTable1.getSelectedRow();
+        int id = (int) (jTable1.getModel().getValueAt(row, 0));
+        Customer cus = CustomerDAO.find(id);
+        lid.setText(String.valueOf(id));
+        jName.setText(cus.getCustomer_name());
+        jAdress.setText(cus.getAddress());
+        jEmail.setText(cus.getEmail());
+        jPhoneNumber.setText(cus.getPhone_number());
+        jAge.setText(String.valueOf(cus.getAge()));
+        jdob.setDate( cus.getDate_of_birth());
+        jGender.setSelectedIndex(cus.getGender());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jNameActionPerformed
+        dispose();
+        CustomerCreateFrame.ShowCustomerCreateFrame();
+    }//GEN-LAST:event_btnnewActionPerformed
+
+    private void jGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jGenderActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        // TODO add your handling code here:
+        CustomerDAO.delete(Integer.parseInt(lid.getText()));
+        showListCustomer();
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        HomeFrame.ShowHomeFrame();
+    }//GEN-LAST:event_jExitActionPerformed
 
     private void jResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jResetActionPerformed
         // TODO add your handling code here:
@@ -306,58 +374,34 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jEmail.setText("");
         jPhoneNumber.setText("");
         jAge.setText("");
-        jDate.setText("");
+        jdob.setDate( new java.util.Date());
         jGender.setSelectedIndex(0);
-    
     }//GEN-LAST:event_jResetActionPerformed
 
     private void jSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSaveActionPerformed
         // TODO add your handling code here:
-
-        System.out.println("Save ....");
-        System.out.println((Date)jDate.getValue());
         String fullname = jName.getText();
         String adress = jAdress.getText();
         String email = jEmail.getText();
+        String phonenumber = jPhoneNumber.getText();
         int age = Integer.parseInt(jAge.getText());
-        int gender = GenderState.getGenderStateByValue(String.valueOf(jGender.getSelectedItem())).getKey() ;
-        Date dob =(Date)jDate.getValue();
+        int gen = GenderState.getGenderStateByValue(String.valueOf(jGender.getSelectedItem())).getKey() ;
+        java.util.Date dob = jdob.getDate();
         
-        Customer customer = new Customer(fullname, adress, email, jPhoneNumber.getText(), gender, age, dob, false);
-        CustomerDAO.insert(customer);
-//        System.out.println(jGender.getSelectedItem());
-//        tableModel.addRow(new Object[]{fullname, gender, adress, email, phonenumber, age, dateofbirth});
-    }//GEN-LAST:event_jSaveActionPerformed
+        Customer c = new Customer(Integer.parseInt(lid.getText()), fullname, adress, email, phonenumber, gen, age, dob, false);
 
-    private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
-        // TODO add your handling code here:
-        HomeFrame.ShowHomeFrame();
-    }//GEN-LAST:event_jExitActionPerformed
+        
+        CustomerDAO.update(c);
+        showListCustomer();
+    }//GEN-LAST:event_jSaveActionPerformed
 
     private void jPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPhoneNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPhoneNumberActionPerformed
 
-    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+    private void jNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameActionPerformed
         // TODO add your handling code here:
-        
-        
-        System.out.println("Delete Succesful!!");
-    }//GEN-LAST:event_DeleteActionPerformed
-
-    private void jGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jGenderActionPerformed
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-//         int row = jTable1.getSelectedRow();
-//        int id = (int) (jTable1.getModel().getValueAt(row, 0));
-//        Customer customer = CustomerDAO.find(id);
-//        lbid.setText(String.valueOf(id));
-//        jName.setText(customer.getCustomer_name());
-//        jGender.set
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -393,11 +437,11 @@ public class CustomerCreateForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Delete;
+    private javax.swing.JButton btnnew;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField jAdress;
     private javax.swing.JTextField jAge;
-    private javax.swing.JFormattedTextField jDate;
     private javax.swing.JTextField jEmail;
     private javax.swing.JButton jExit;
     private javax.swing.JComboBox<String> jGender;
@@ -418,6 +462,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private com.toedter.calendar.JDateChooser jdob;
     private javax.swing.JLabel lbid;
+    private javax.swing.JLabel lid;
     // End of variables declaration//GEN-END:variables
 }
