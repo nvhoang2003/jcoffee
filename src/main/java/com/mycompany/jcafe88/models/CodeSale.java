@@ -55,6 +55,8 @@ public class CodeSale {
         this.sale_off = sale_off;
         this.Code = Code;
     }
+    
+
 
     
     public CodeSale(String name, int sale_off, String Code) {

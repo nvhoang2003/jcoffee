@@ -68,7 +68,7 @@ public class TableDAO extends BaseDAO{
     public static void update(Table table) {
         openConnection();
 
-        String sql = "update admins set name = ?, seat_count = ?, is_useable = ? where admin_id = ?";
+        String sql = "update tables set name = ?, seat_count = ?, is_useable = ? where admin_id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, table.getName());

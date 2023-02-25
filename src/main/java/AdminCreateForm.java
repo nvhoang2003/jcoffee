@@ -20,7 +20,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         initComponents();
     }
     
-    public static void ShowAdminForm(){
+    public static void ShowAdminCreateForm(){
         AdminCreateForm acf = new AdminCreateForm();
         acf.setLocationRelativeTo(null);
         acf.setVisible(true);
@@ -280,8 +280,8 @@ public class AdminCreateForm extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-         AdminIndexForm jframe = new AdminIndexForm();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+        AdminIndexForm jframe = new AdminIndexForm();
+        jframe.setDefaultCloseOperation(AdminIndexForm.EXIT_ON_CLOSE);
 
         // set the jframe size and location, and make it visible
         jframe.setPreferredSize(new Dimension(400, 300));
@@ -289,6 +289,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         jframe.setLocationRelativeTo(null);
         setVisible(false);
         jframe.setVisible(true);
+        AdminIndexForm.ShowAdminIndexForm();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed
@@ -337,7 +338,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ShowAdminForm();
+                ShowAdminCreateForm();
             }
         });
     }
