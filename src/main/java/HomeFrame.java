@@ -16,6 +16,7 @@ import javax.swing.JLabel;
  * @author ACER
  */
 public class HomeFrame extends javax.swing.JFrame {
+    final String dir = System.getProperty("user.dir");
     public HomeFrame() {
          initComponents();
            
@@ -45,10 +46,10 @@ public class HomeFrame extends javax.swing.JFrame {
         TitleHome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TitleHome.setForeground(new java.awt.Color(102, 0, 102));
         TitleHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitleHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-coffee-beans-50.png"))); // NOI18N
+        TitleHome.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\icons8-coffee-beans-50.png")); // NOI18N
         TitleHome.setText("WELCOME TO JCAFE88!!!");
 
-        CodeSaleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sale resize.png"))); // NOI18N
+        CodeSaleButton.setIcon(new javax.swing.ImageIcon(dir +"\\src\\main\\java\\image\\sale resize.png")); // NOI18N
         CodeSaleButton.setText("Code Sale");
         CodeSaleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +57,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        CustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/customer resize.png"))); // NOI18N
+        CustomerButton.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\customer resize.png")); // NOI18N
         CustomerButton.setText("Customer");
         CustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +65,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        OrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/order resize.png"))); // NOI18N
+        OrderButton.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\order resize.png")); // NOI18N
         OrderButton.setText("Order");
         OrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +73,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        AdminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/admin resize.png"))); // NOI18N
+        AdminButton.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\admin resize.png")); // NOI18N
         AdminButton.setText("Admin");
         AdminButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         //AdminButton.setBorder(new javax.swing.border.AbstractBorder(javax.swing.border.BevelBorder.RAISED));
@@ -83,7 +84,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        BillButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bill resize.png"))); // NOI18N
+        BillButton.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\bill resize.png")); // NOI18N
         BillButton.setText("Bill");
         BillButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +92,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        DrinkButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/drink resize.png"))); // NOI18N
+        DrinkButton.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\drink resize.png")); // NOI18N
         DrinkButton.setText("    Drink");
         DrinkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +103,7 @@ public class HomeFrame extends javax.swing.JFrame {
         LogoutButton.setBackground(new java.awt.Color(255, 51, 51));
         LogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LogoutButton.setForeground(new java.awt.Color(255, 255, 255));
-        LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout 30x30.png"))); // NOI18N
+        LogoutButton.setIcon(new javax.swing.ImageIcon(dir + "\\src\\main\\java\\image\\logout 30x30.png")); // NOI18N
         LogoutButton.setText("Logout");
         LogoutButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -259,9 +260,7 @@ public class HomeFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws IOException{
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
             ShowHomeFrame();
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
