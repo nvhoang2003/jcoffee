@@ -1,4 +1,7 @@
 
+import com.mycompany.jcafe88.GenderState;
+import static com.mycompany.jcafe88.GenderState.values;
+import java.sql.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -22,8 +25,16 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         tableModel = (DefaultTableModel) jTable1.getModel();
     }
 
+    public void ShowGender() {
+        jGender.removeAllItems();
+        for (GenderState b : values()) {
+           jGender.addItem(b.getValue());
+        }
+    }
+
     public static void ShowCustomerCreateForm() {
         CustomerCreateForm ccf = new CustomerCreateForm();
+        ccf.ShowGender();
         ccf.setLocationRelativeTo(null);
         ccf.setVisible(true);
     }
@@ -49,17 +60,16 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jName = new javax.swing.JTextField();
-        jCheckboxMale = new javax.swing.JCheckBox();
-        jCheckboxFemale = new javax.swing.JCheckBox();
         jAdress = new javax.swing.JTextField();
         jEmail = new javax.swing.JTextField();
         jPhoneNumber = new javax.swing.JTextField();
         jAge = new javax.swing.JTextField();
-        jDateOfBirth = new javax.swing.JTextField();
         jSave = new javax.swing.JButton();
         jReset = new javax.swing.JButton();
         jExit = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
+        jDate = new javax.swing.JFormattedTextField();
+        jGender = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -90,26 +100,9 @@ public class CustomerCreateForm extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jCheckboxMale);
-        jCheckboxMale.setText("Male");
-        jCheckboxMale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckboxMaleActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jCheckboxFemale);
-        jCheckboxFemale.setText("Female");
-
         jPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPhoneNumberActionPerformed(evt);
-            }
-        });
-
-        jDateOfBirth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDateOfBirthActionPerformed(evt);
             }
         });
 
@@ -142,6 +135,15 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteActionPerformed(evt);
+            }
+        });
+
+        jDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+
+        jGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jGenderActionPerformed(evt);
             }
         });
 
@@ -179,16 +181,12 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jEmail)
-                    .addComponent(jDateOfBirth)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jReset, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckboxMale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckboxFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jExit, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                    .addComponent(jDate)
+                    .addComponent(jGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -200,9 +198,8 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addComponent(jName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckboxMale)
-                        .addComponent(jCheckboxFemale)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2)
+                        .addComponent(jGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -210,7 +207,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                     .addComponent(jAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
-                    .addComponent(jDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,16 +279,10 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jEmail.setText("");
         jPhoneNumber.setText("");
         jAge.setText("");
-        jDateOfBirth.setText("");
-//        buttonGroup1.setSelected(jCheckboxMale, false);
-        jCheckboxMale.setSelected(false);
-        jCheckboxFemale.setSelected(false);
+        jDate.setText("");
+        jGender.setSelectedIndex(0);
+    
     }//GEN-LAST:event_jResetActionPerformed
-
-    private void jCheckboxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckboxMaleActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jCheckboxMaleActionPerformed
 
     private void jSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSaveActionPerformed
         // TODO add your handling code here:
@@ -302,28 +293,15 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         String email = jEmail.getText();
         int phonenumber = Integer.parseInt(jPhoneNumber.getText());
         int age = Integer.parseInt(jAge.getText());
-        int dateofbirth = Integer.parseInt(jDateOfBirth.getText());
-        int gender;
-        if (jCheckboxFemale.isSelected()) {
-            gender = 2;
-        } else if (jCheckboxMale.isSelected()) {
-            gender = 1;
-        } else {
-            gender = 3;
-        }
-
-        tableModel.addRow(new Object[]{fullname, gender, adress, email, phonenumber, age, dateofbirth});
+        jGender.getSelectedItem();
+     
+//        System.out.println(jGender.getSelectedItem());
+//        tableModel.addRow(new Object[]{fullname, gender, adress, email, phonenumber, age, dateofbirth});
     }//GEN-LAST:event_jSaveActionPerformed
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
         // TODO add your handling code here:
-        HomeFrame jframe = new HomeFrame();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_jExitActionPerformed
 
     private void jPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPhoneNumberActionPerformed
@@ -336,14 +314,13 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         jPhoneNumber.setText("");
         jAge.setText("");
         jAdress.setText("");
-        jDateOfBirth.setText("");
         jEmail.setText("");
         System.out.println("Delete Succesful!!");
     }//GEN-LAST:event_DeleteActionPerformed
 
-    private void jDateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDateOfBirthActionPerformed
+    private void jGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jDateOfBirthActionPerformed
+    }//GEN-LAST:event_jGenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,11 +360,10 @@ public class CustomerCreateForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField jAdress;
     private javax.swing.JTextField jAge;
-    private javax.swing.JCheckBox jCheckboxFemale;
-    private javax.swing.JCheckBox jCheckboxMale;
-    private javax.swing.JTextField jDateOfBirth;
+    private javax.swing.JFormattedTextField jDate;
     private javax.swing.JTextField jEmail;
     private javax.swing.JButton jExit;
+    private javax.swing.JComboBox<String> jGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
