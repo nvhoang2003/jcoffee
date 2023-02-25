@@ -84,6 +84,9 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        Reset.setBackground(new java.awt.Color(255, 255, 0));
+        Reset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Reset.setForeground(new java.awt.Color(255, 255, 255));
         Reset.setText("Reset");
         Reset.setMaximumSize(new java.awt.Dimension(86, 30));
         Reset.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -115,6 +118,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        Delete.setBackground(new java.awt.Color(255, 51, 51));
         Delete.setText("Delete");
         Delete.setMaximumSize(new java.awt.Dimension(86, 30));
         Delete.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -171,7 +175,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                     .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         CodeSaleTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -205,7 +209,6 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
@@ -229,7 +232,9 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         System.out.println("Code Sale Off: " + SaleOff);
         System.out.println("Code: " + Code);
         
+        
         tableModel.addRow(new Object[] {tableModel.getRowCount() + 1, Name, SaleOff, Code});
+        
         
     }//GEN-LAST:event_Save_CodeActionPerformed
 
@@ -254,7 +259,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
-        dispose();
+        
     }//GEN-LAST:event_DeleteActionPerformed
 
     /**
