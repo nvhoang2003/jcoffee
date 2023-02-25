@@ -86,7 +86,7 @@ public class CodeSaleDAO extends BaseDAO {
     public static void delete(int id) {
         openConnection();
 
-        String sql = "delete from code_sale where id = ?";
+        String sql = "delete from code_sale where code_sale_id= ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
@@ -106,7 +106,7 @@ public class CodeSaleDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from code_sale where id = ?";
+            String sql = "select * from code_sale where code_sale_id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
 

@@ -213,7 +213,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         AdminIndexForm jframe = new AdminIndexForm();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
+        jframe.setDefaultCloseOperation(AdminIndexForm.EXIT_ON_CLOSE);
 
         // set the jframe size and location, and make it visible
         jframe.setPreferredSize(new Dimension(400, 300));
@@ -221,7 +221,6 @@ public class AdminUpdateForm extends javax.swing.JFrame {
         jframe.setLocationRelativeTo(null);
         setVisible(false);
         jframe.setVisible(true);
-        HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_backButtonActionPerformed
     public static void ShowAdminUpdateForm(){
         AdminUpdateForm auf = new AdminUpdateForm();

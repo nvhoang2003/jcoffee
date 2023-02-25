@@ -1,7 +1,6 @@
 
 import com.mycompany.jcafe88.dao.DrinksDAO;
 import com.mycompany.jcafe88.models.Drinks;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,20 +18,21 @@ import javax.swing.table.DefaultTableModel;
  * @author Tcom
  */
 public class DrinkIndexForm extends javax.swing.JFrame {
-    private ImageIcon format=null;
-    byte[] pimage=null;
-    
+
+    private ImageIcon format = null;
+    byte[] pimage = null;
+
     public DrinkIndexForm() {
         initComponents();
     }
+
     public static void ShowDrinkIndexFrame() {
-            DrinkIndexForm dif = new DrinkIndexForm();
-            dif.setLocationRelativeTo(null);
-            dif.setVisible(true);
-            dif.showListDrinks();
+        DrinkIndexForm dif = new DrinkIndexForm();
+        dif.setLocationRelativeTo(null);
+        dif.setVisible(true);
+        dif.showListDrinks();
     }
-    
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -272,20 +272,22 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void showListDrinks() {
+       private void showListDrinks(){
+//        jTable1.addRow
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         for (int i = 0; i < DrinksDAO.list().size(); i++) {
             model.addRow(new Object[]{DrinksDAO.list().get(i).getId(), DrinksDAO.list().get(i).getName(), DrinksDAO.list().get(i).getPrice(), DrinksDAO.list().get(i).getDescription()});
         }
     }
-    
+
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
         int id = (int) (jTable1.getModel().getValueAt(row, 0));
         Drinks drink = DrinksDAO.find(id);
         lblid.setText(String.valueOf(id));
+
         fname.setText(DrinksDAO.find(id).getName());
         fprice.setText(String.valueOf(drink.getPrice()));
         fdescription.setText(drink.getDescription());
@@ -294,23 +296,22 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
     private void btnchooseimgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchooseimgActionPerformed
         // TODO add your handling code here:
-        String fname=null;
-        JFileChooser fchoser=new JFileChooser();
+        String fname = null;
+        JFileChooser fchoser = new JFileChooser();
         fchoser.showOpenDialog(null);
         File f = fchoser.getSelectedFile();
         fname = f.getAbsolutePath();
-        ImageIcon micon=new ImageIcon(fname);
+        ImageIcon micon = new ImageIcon(fname);
         try {
-            File image=new File(fname);
-            FileInputStream fis=new FileInputStream(image);
-            ByteArrayOutputStream baos=new ByteArrayOutputStream();
-            byte[] buf=new byte[1024];
-            for(int readnum; (readnum = fis.read(buf)) !=-1;)
-            {
-                baos.write(buf,0,readnum);
+            File image = new File(fname);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for (int readnum; (readnum = fis.read(buf)) != -1;) {
+                baos.write(buf, 0, readnum);
             }
             pimage = baos.toByteArray();
-            lbimage.setIcon(resizeImage( pimage));
+            lbimage.setIcon(resizeImage(pimage));
 //            lblimage.setText( pimage.toString());
         } catch (Exception e) {
         }
@@ -348,15 +349,15 @@ public class DrinkIndexForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnewActionPerformed
 
      public ImageIcon resizeImage(byte[] pic) {
-
         ImageIcon myImage = null;
         myImage = new ImageIcon(pic);
 
         Image img = myImage.getImage();
-        Image img2=img.getScaledInstance(lbimage.getHeight(),    lbimage.getWidth(),  Image.SCALE_SMOOTH);
+        Image img2 = img.getScaledInstance(lbimage.getHeight(), lbimage.getWidth(), Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(img2);
         return image;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -387,7 +388,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               ShowDrinkIndexFrame();
+                ShowDrinkIndexFrame();
             }
         });
     }
