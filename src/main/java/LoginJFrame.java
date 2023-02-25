@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Tcom
  */
 public class LoginJFrame extends javax.swing.JFrame {
-    
+    public volatile int user_id;
    
     public static void ShowLoginJFrame(){
         final String dir = System.getProperty("user.dir");
@@ -278,6 +278,7 @@ public class LoginJFrame extends javax.swing.JFrame {
 //            jframe.setLocationRelativeTo(null);
 //            setVisible(false);
 //            jframe.setVisible(true);
+              this.user_id = AdminDAO.getIdByName(username);
               HomeFrame.ShowHomeFrame();
               dispose();
         } else {

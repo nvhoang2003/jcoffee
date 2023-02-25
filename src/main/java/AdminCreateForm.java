@@ -280,16 +280,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        AdminIndexForm jframe = new AdminIndexForm();
-        jframe.setDefaultCloseOperation(AdminIndexForm.EXIT_ON_CLOSE);
-
-        // set the jframe size and location, and make it visible
-        jframe.setPreferredSize(new Dimension(400, 300));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
-        AdminIndexForm.ShowAdminIndexForm();
+        AdminIndexForm.ShowAdminForm();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed

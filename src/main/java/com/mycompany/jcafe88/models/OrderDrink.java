@@ -22,6 +22,13 @@ public class OrderDrink {
         this.quantity = quantity;
         this.price = price;
     }
+    
+     public OrderDrink( int order_id, int drink_id, int quantity, int price) {
+        this.order_id = order_id;
+        this.drink_id = drink_id;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
     public OrderDrink() {
     }
