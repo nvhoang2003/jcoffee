@@ -56,6 +56,14 @@ public class CodeSale {
         this.Code = Code;
     }
 
+    
+    public CodeSale(String name, int sale_off, String Code) {
+        this.name = name;
+        this.sale_off = sale_off;
+        this.Code = Code;
+    }
+
+    
     @Override
     public String toString() {
         return "CodeSale{" + "code_sale_id=" + code_sale_id + ", name=" + name + ", sale_off=" + sale_off + ", Code=" + Code + '}';
