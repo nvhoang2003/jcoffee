@@ -20,7 +20,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         initComponents();
     }
     
-    public static void ShowAdminForm(){
+    public static void ShowAdminCreateForm(){
         AdminCreateForm acf = new AdminCreateForm();
         acf.setLocationRelativeTo(null);
         acf.setVisible(true);
@@ -329,7 +329,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ShowAdminForm();
+                ShowAdminCreateForm();
             }
         });
     }

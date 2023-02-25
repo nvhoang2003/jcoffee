@@ -235,13 +235,7 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void CodeSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodeSaleButtonActionPerformed
         // TODO add your handling code here:
-        CodeSaleFrame jframe = new CodeSaleFrame();
-        jframe.setDefaultCloseOperation(CodeSaleFrame.EXIT_ON_CLOSE);
-        
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        CodeSaleFrame.ShowCodeSaleFram();
     }//GEN-LAST:event_CodeSaleButtonActionPerformed
 
     private void DrinkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DrinkButtonActionPerformed
