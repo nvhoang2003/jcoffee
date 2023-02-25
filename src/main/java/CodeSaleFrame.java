@@ -1,4 +1,6 @@
 
+import com.mycompany.jcafe88.dao.CodeSaleDAO;
+import com.mycompany.jcafe88.models.CodeSale;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
@@ -13,13 +15,12 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author ACER
  */
 public class CodeSaleFrame extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form CodeSale
      */
@@ -27,6 +28,14 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     public CodeSaleFrame() {
         initComponents();
         tableModel = (DefaultTableModel) CodeSaleTable.getModel();
+    }
+
+    private void showListCodeSaleFrame() {
+        DefaultTableModel model = (DefaultTableModel) CodeSaleTable.getModel();
+        model.setRowCount(0);
+        for (int i = 0; i < CodeSaleDAO.list().size(); i++) {
+            model.addRow(new Object[]{CodeSaleDAO.list().get(i).getCode_sale_id(), CodeSaleDAO.list().get(i).getName(), CodeSaleDAO.list().get(i).getSale_off(), CodeSaleDAO.list().get(i).getCode()});
+        }
     }
 
     /**
@@ -51,6 +60,8 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         txtCode = new javax.swing.JTextField();
         BackButton = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lID = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         CodeSaleTable = new javax.swing.JTable();
 
@@ -75,15 +86,24 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.setToolTipText("");
 
+        Save_Code.setBackground(new java.awt.Color(51, 204, 255));
         Save_Code.setText("Save Code");
         Save_Code.setMaximumSize(new java.awt.Dimension(86, 30));
         Save_Code.setMinimumSize(new java.awt.Dimension(86, 30));
+        Save_Code.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Save_CodeMouseClicked(evt);
+            }
+        });
         Save_Code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Save_CodeActionPerformed(evt);
             }
         });
 
+        Reset.setBackground(new java.awt.Color(255, 102, 204));
+        Reset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Reset.setForeground(new java.awt.Color(255, 255, 255));
         Reset.setText("Reset");
         Reset.setMaximumSize(new java.awt.Dimension(86, 30));
         Reset.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -103,8 +123,15 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
         SaleOff.setText("Sale off");
 
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
         Code.setText("Code");
 
+        BackButton.setBackground(new java.awt.Color(102, 255, 102));
         BackButton.setText("Back");
         BackButton.setMaximumSize(new java.awt.Dimension(86, 30));
         BackButton.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -115,6 +142,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        Delete.setBackground(new java.awt.Color(255, 51, 51));
         Delete.setText("Delete");
         Delete.setMaximumSize(new java.awt.Dimension(86, 30));
         Delete.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -124,6 +152,8 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("ID");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,47 +161,59 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SaleOff, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtSaleOff)
-                    .addComponent(txtCode, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(SaleOff, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSaleOff))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCode, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSaleOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SaleOff))
-                .addGap(27, 27, 27)
+                    .addComponent(SaleOff)
+                    .addComponent(txtSaleOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         CodeSaleTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -182,12 +224,24 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                 "ID", "Code Name", "Sale Off", "Code"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, true, true, false
             };
 
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        CodeSaleTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CodeSaleTableMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(CodeSaleTable);
@@ -196,41 +250,32 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void ShowCodeSaleFram(){
+    public static void ShowCodeSaleFram() {
         CodeSaleFrame csf = new CodeSaleFrame();
         csf.setLocationRelativeTo(null);
+        csf.showListCodeSaleFrame();
         csf.setVisible(true);
     }
     private void Save_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_CodeActionPerformed
         // TODO add your handling code here:
-        String Name = txtName.getText();      
-        int SaleOff = Integer.parseInt(txtSaleOff.getText());
-        String Code = txtCode.getText();
-        System.out.println("Code Name: " + Name);
-        System.out.println("Code Sale Off: " + SaleOff);
-        System.out.println("Code: " + Code);
-        
-        tableModel.addRow(new Object[] {tableModel.getRowCount() + 1, Name, SaleOff, Code});
-        
     }//GEN-LAST:event_Save_CodeActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
@@ -238,7 +283,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         txtName.setText("");
         txtSaleOff.setText("");
         txtCode.setText("");
-//        System.out.println("Reset Done");
+        System.out.println("Reset Done");
     }//GEN-LAST:event_ResetActionPerformed
 
     private void txtSaleOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleOffActionPerformed
@@ -248,14 +293,36 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
- 
-       HomeFrame.ShowHomeFrame();
+
+        HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
-        dispose();
+        CodeSaleDAO.delete(Integer.parseInt(lID.getText()));
+        showListCodeSaleFrame();
     }//GEN-LAST:event_DeleteActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void CodeSaleTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CodeSaleTableMouseClicked
+        // TODO add your handling code here:
+        int row = CodeSaleTable.getSelectedRow();
+        int id = (int) (CodeSaleTable.getModel().getValueAt(row, 0));
+        CodeSale CS = CodeSaleDAO.find(1);
+        lID.setText(String.valueOf(id));
+        txtName.setText(CS.getName());
+        txtSaleOff.setText(String.valueOf(CS.getSale_off()));
+        txtCode.setText(CS.getCode());
+    }//GEN-LAST:event_CodeSaleTableMouseClicked
+
+    private void Save_CodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Save_CodeMouseClicked
+        CodeSale c = new CodeSale(Integer.parseInt(lID.getText()), txtName.getText(), Integer.parseInt(txtSaleOff.getText()), txtCode.getText());
+        CodeSaleDAO.update(c);
+        showListCodeSaleFrame();
+    }//GEN-LAST:event_Save_CodeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -291,7 +358,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                 ShowCodeSaleFram();
             }
         });
- 
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -303,10 +370,12 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     private javax.swing.JButton Reset;
     private javax.swing.JLabel SaleOff;
     private javax.swing.JButton Save_Code;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField lID;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSaleOff;

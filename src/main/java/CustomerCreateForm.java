@@ -43,7 +43,6 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         ccf.showListCustomer();
         ccf.jdob.setDate( new java.util.Date());
         ccf.setVisible(true);
-//        ccf.jDate.setValue(new Date());
     }
 
     /**
@@ -207,7 +206,7 @@ public class CustomerCreateForm extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jSave, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jEmail)
                     .addGroup(jPanel1Layout.createSequentialGroup()

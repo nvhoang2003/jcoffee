@@ -134,4 +134,52 @@ public class DrinksDAO extends BaseDAO {
         }
         closeConnection();
     }
+    
+     public static int findPrice(String name) {
+         int price = 0;
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select price from drinks where name = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, name);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                price = resultSet.getInt(1);
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return price;
+    }
+     
+     public static int findID(String name) {
+         int id = 0;
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select drink_id from drinks where name = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, name);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                id = resultSet.getInt(1);
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DrinksDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return id;
+    }
 }

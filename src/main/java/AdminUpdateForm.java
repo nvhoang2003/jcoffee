@@ -10,6 +10,7 @@ import java.awt.Dimension;
  * @author Tcom
  */
 public class AdminUpdateForm extends javax.swing.JFrame {
+    public volatile int user_id;
 
     /**
      * Creates new form AdminUpdateForm
@@ -139,7 +140,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
                                 .addComponent(userNameText, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(oldPassword1)
                                 .addComponent(newPassword, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,25 +172,31 @@ public class AdminUpdateForm extends javax.swing.JFrame {
                     .addComponent(saveButton)
                     .addComponent(resetButton)
                     .addComponent(backButton))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void setText(int id){
-        Admin admin = AdminDAO.find(id);
+    private void setText(){
+        System.out.println(this.user_id);
+        Admin admin = AdminDAO.find(2);
         
         fullNameText.setText(admin.getName());
         userNameText.setText(admin.getUser_name());
@@ -212,19 +219,12 @@ public class AdminUpdateForm extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        AdminIndexForm jframe = new AdminIndexForm();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-
-        // set the jframe size and location, and make it visible
-        jframe.setPreferredSize(new Dimension(400, 300));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
         setVisible(false);
-        jframe.setVisible(true);
         HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_backButtonActionPerformed
     public static void ShowAdminUpdateForm(){
         AdminUpdateForm auf = new AdminUpdateForm();
+        auf.setText();
         auf.setLocationRelativeTo(null);
         auf.setVisible(true);
     }
