@@ -96,7 +96,7 @@ public class AdminDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from admins where id = ?";
+            String sql = "select * from admins where admin_id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
 
@@ -105,8 +105,8 @@ public class AdminDAO extends BaseDAO {
             while (resultSet.next()) {
                 admin = new Admin(
                         resultSet.getInt("admin_id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("user_name")
+                        resultSet.getString("user_name"),
+                        resultSet.getString("name")
                 );
                 break;
             }
@@ -117,6 +117,38 @@ public class AdminDAO extends BaseDAO {
         closeConnection();
 
         return admin;
+    }
+    
+    public static int getIdByName(String user_name){
+        int id = 0;
+        Admin admin = null;
+         openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select * from admins where user_name = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, user_name);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                admin = new Admin(
+                        resultSet.getInt("admin_id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("user_name")
+                );
+                break;
+            }
+            id = admin.getAdmin_id();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+        return id;
+        
     }
 
     public static boolean login(String user_name, String password) {

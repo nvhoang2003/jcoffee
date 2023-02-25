@@ -34,15 +34,19 @@ public class OrdersDAO extends BaseDAO {
         return instance;
     }
 
-    public List<Orders> ListOrder(int id) {
-        List<Orders> list = new ArrayList<Orders>();
+    public static List<Orders> ListOrder() {
+        List<Orders> list = new ArrayList<>();
+         String sql = "SELECT o.*, c.customer_name as customer_name, t.name as table_name "
+                + "FROM orders as o "
+                + "JOIN customers as c ON o.customer_id = c.customer_id "
+                + "JOIN tables as t ON o.table_id = t.table_id "
+                + "WHERE o.is_cancel != false";
         openConnection();
         try {
-            String sql = ("SELECT * FROM orders");
             statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Orders orders = new Orders(rs.getInt(1), rs.getInt(2), rs.getInt(3));
+                Orders orders = new Orders(rs.getInt("order_id"), rs.getInt("customer_id"), rs.getInt("table_id"), rs.getString("customer_name"), rs.getString("table_name"));
                 list.add(orders);
             }
         } catch (SQLException ex) {
@@ -51,6 +55,7 @@ public class OrdersDAO extends BaseDAO {
         closeConnection();
         return list;
     }
+    
     public static void insert(Orders orders) {
         openConnection();
 
@@ -59,7 +64,7 @@ public class OrdersDAO extends BaseDAO {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getOrder_id());
             statement.setInt(2, orders.getCustomer_id());
-            statement.setInt(3, orders.getAmount());
+//            statement.setInt(3, orders.getAmount());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,7 +81,7 @@ public class OrdersDAO extends BaseDAO {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getOrder_id());
             statement.setInt(2, orders.getCustomer_id());
-            statement.setInt(3, orders.getAmount());
+//            statement.setInt(3, orders.getAmount());
 
             statement.execute();
         } catch (SQLException ex) {
@@ -88,22 +93,25 @@ public class OrdersDAO extends BaseDAO {
 
     public static Orders find(int id) {
         Orders orders = null;
+        
+        String sql = "SELECT o.*, c.customer_name as customer_name, t.name as table_name "
+                + "FROM orders as o "
+                + "JOIN customers as c ON o.customer_id = c.customer_id "
+                + "JOIN tables as t ON o.table_id = t.table_id "
+                + "WHERE NOT o.is_cancel = false AND order_id = ?";
 
         openConnection();
 
         try {
             //Thuc thi lenh
-            String sql = "select * from orders where id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
 
-            ResultSet resultSet = statement.executeQuery();
+            ResultSet rs = statement.executeQuery();
 
-            while (resultSet.next()) {
+            while (rs.next()) {
                 orders = new Orders(
-                        resultSet.getInt("order_id"),
-                        resultSet.getInt("customer_id"),
-                        resultSet.getInt("amount")
+                        rs.getInt("order_id"), rs.getInt("customer_id"), rs.getInt("table_id"), rs.getString("customer_name"), rs.getString("table_name")
                 );
                 break;
             }

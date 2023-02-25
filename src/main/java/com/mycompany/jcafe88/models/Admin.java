@@ -14,20 +14,20 @@ import java.security.MessageDigest;
 public class Admin {
 
     private int admin_id;
-    private String user_name;
     private String name;
+    private String user_name;
     private String password;
 
     public Admin() {
     }
 
-    public Admin(int admin_id, String user_name, String name) {
+    public Admin(int admin_id, String name, String user_name) {
         this.admin_id = admin_id;
         this.user_name = user_name;
         this.name = name;
     }
 
-    public Admin(String user_name, String name, String password) {
+    public Admin(String name, String user_name, String password) {
         this.user_name = user_name;
         this.name = name;
         this.password = password;

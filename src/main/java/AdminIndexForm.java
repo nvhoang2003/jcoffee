@@ -127,27 +127,11 @@ public class AdminIndexForm extends javax.swing.JFrame {
 
     private void createAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAdminButtonActionPerformed
         // TODO add your handling code here:
-        AdminCreateForm jframe = new AdminCreateForm();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-
-        // set the jframe size and location, and make it visible
-        jframe.setPreferredSize(new Dimension(400, 300));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        AdminCreateForm.ShowAdminForm();
     }//GEN-LAST:event_createAdminButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        HomeFrame jframe = new HomeFrame();
-        jframe.setDefaultCloseOperation(HomeFrame.EXIT_ON_CLOSE);
-
-        // set the jframe size and location, and make it visible
-        jframe.setPreferredSize(new Dimension(400, 300));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);        // TODO add your handling code here:
+        HomeFrame.ShowHomeFrame();     // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**

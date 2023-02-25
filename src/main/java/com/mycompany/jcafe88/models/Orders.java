@@ -11,14 +11,50 @@ package com.mycompany.jcafe88.models;
 public class Orders {
     private int Order_id;
     private int Customer_id;
-    private int amount;
+    private int table_id;
+    private String customer_name;
+    private String table_name;
 
-    public Orders(int Order_id, int Customer_id, int amount) {
-        this.Order_id = Order_id;
-        this.Customer_id = Customer_id;
-        this.amount = amount;
+    public void setTable_id(int table_id) {
+        this.table_id = table_id;
     }
 
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
+    }
+
+    public void setTable_name(String table_name) {
+        this.table_name = table_name;
+    }
+
+    public int getTable_id() {
+        return table_id;
+    }
+
+    public String getCustomer_name() {
+        return customer_name;
+    }
+
+    public String getTable_name() {
+        return table_name;
+    }
+
+    public Orders(int Customer_id, int table_id) {
+        this.Order_id = Order_id;
+        this.Customer_id = Customer_id;
+        this.table_id = table_id;
+    }
+
+    public Orders(int Order_id, int Customer_id, int table_id, String customer_name, String table_name) {
+        this.Order_id = Order_id;
+        this.Customer_id = Customer_id;
+        this.table_id = table_id;
+        this.customer_name = customer_name;
+        this.table_name = table_name;
+    }
+
+    
+    
     public int getOrder_id() {
         return Order_id;
     }
@@ -34,19 +70,4 @@ public class Orders {
     public void setCustomer_id(int Customer_id) {
         this.Customer_id = Customer_id;
     }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public Orders(int amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-        return "Orders{" + "Order_id=" + Order_id + ", Customer_id=" + Customer_id + ", Booking_id=" + amount + '}';
-    }
-
-    
 }
