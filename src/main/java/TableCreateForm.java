@@ -165,7 +165,7 @@ public class TableCreateForm extends javax.swing.JFrame {
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
         Map<String, String> validate_message = TableForm.validated(fname.getText(), ValidateSC.getText());
-        if (validate_message.isEmpty()) {
+        if (validate_message.isEmpty()) {          
             Table t = new Table(ftablename.getText(), Integer.parseInt(fseatcount.getText()), true);
             TableDAO.insert(t);
         } else {
