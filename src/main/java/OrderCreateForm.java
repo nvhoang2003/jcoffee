@@ -16,11 +16,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class OrderCreateForm extends javax.swing.JFrame {
 
-    public static void ShowOrderCreateForm() {
+    public static void ShowOrderCreate() {
         OrderCreateForm ocf = new OrderCreateForm();
-        ocf.setLocationRelativeTo(null);
-        ocf.setVisible(true);
+        ocf.showListOrder();
         ocf.showListTable();
+        ocf.setVisible(true);
     }
 
     /**
@@ -270,7 +270,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ShowOrderCreateForm();
+                ShowOrderCreate();
             }
         });
     }

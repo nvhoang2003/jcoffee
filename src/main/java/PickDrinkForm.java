@@ -190,7 +190,6 @@ public class PickDrinkForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         boolean redirect = false;
         int order_id = OrdersDAO.ListOrder().get(OrdersDAO.ListOrder().size() - 1).getOrder_id();
-        System.out.println(order_id);
         for (int i = 0; i < jTable1.getRowCount(); i++) {
             int drink_id = DrinksDAO.findID(String.valueOf(jTable1.getModel().getValueAt(i, 0)));
 
@@ -199,23 +198,14 @@ public class PickDrinkForm extends javax.swing.JFrame {
             if (validate_message.isEmpty()) {
                 OrderDrinkDAO.insert(od);
                 redirect = true;
-                
             } else {
                 quantity_validate.setText(validate_message.get("quantity"));
             }
-            
-            if (redirect) {
-              OrderCreateForm jframe = new OrderCreateForm();
-                jframe.setDefaultCloseOperation(OrderCreateForm.EXIT_ON_CLOSE);
-
-                jframe.pack();
-                jframe.setLocationRelativeTo(null);
-                setVisible(false);
-                jframe.setVisible(true);  
-            }
-
         }
-
+        if (redirect) {
+            dispose();
+            OrderCreateForm.ShowOrderCreate();
+        }
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void jQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jQuantityActionPerformed
