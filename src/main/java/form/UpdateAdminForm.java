@@ -51,7 +51,7 @@ public class UpdateAdminForm {
             validate_message.put("new_password", "New password is require");
         }
         
-        if (old_password == null ? new_password == null : !old_password.equals(new_password)) {
+        if (old_password.equals(new_password)) {
         } else {
             validate_message.put("new_password", "New password must be different form the old password");
         }
