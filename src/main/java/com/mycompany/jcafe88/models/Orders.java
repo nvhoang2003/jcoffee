@@ -15,6 +15,25 @@ public class Orders {
     private String customer_name;
     private String table_name;
     private String state;
+    private String amount;
+
+    public Orders(int Order_id, int Customer_id, int table_id, String customer_name, String table_name, String state, String amount) {
+        this.Order_id = Order_id;
+        this.Customer_id = Customer_id;
+        this.table_id = table_id;
+        this.customer_name = customer_name;
+        this.table_name = table_name;
+        this.state = state;
+        this.amount = amount;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
 
     public Orders(int Customer_id, int table_id, String customer_name, String table_name, String state) {
         this.Customer_id = Customer_id;
