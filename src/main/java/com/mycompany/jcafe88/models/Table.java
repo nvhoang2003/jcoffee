@@ -61,4 +61,10 @@ public class Table {
         this.seat_count = seat_count;
         this.is_useable = is_useable;
     }
+
+    @Override
+    public String toString() {
+        return "Table{" + "table_id=" + table_id + ", name=" + name + ", seat_count=" + seat_count + ", is_useable=" + is_useable + '}';
+    }
+    
 }

@@ -278,14 +278,14 @@ public class DrinkFormFrame extends javax.swing.JFrame {
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
-        Map<String, String> validate_message = DrinksForm.validated(NameField.getText(), PriceField.getText(), DescriptionArea.getText(), pimage);
-        Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage);
+        Map<String, String> validate_message = DrinksForm.validated(NameField.getText(), PriceField.getText(), DescriptionArea.getText());
         if (validate_message.isEmpty()) {
+            Drinks drinks = new Drinks(NameField.getText(), Integer.parseInt(PriceField.getText()), DescriptionArea.getText(), pimage);
+            DrinksDAO.insert(drinks);
+        } else {
             ValidateNameDrink.setText(validate_message.get("name"));
             ValidatePriceDrink.setText(validate_message.get("Price"));
             ValidateDescriptionDrink.setText(validate_message.get("Description"));
-            DrinksDAO.insert(drinks);
-
         }
 
     }//GEN-LAST:event_SaveButtonActionPerformed

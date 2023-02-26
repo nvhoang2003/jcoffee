@@ -1,22 +1,25 @@
 
 import com.mycompany.jcafe88.dao.TableDAO;
 import com.mycompany.jcafe88.models.Table;
+import form.TableForm;
+import java.util.Map;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Tcom
  */
 public class TableCreateForm extends javax.swing.JFrame {
-    public static void ShowTableCreateForm(){
+
+    public static void ShowTableCreateForm() {
         TableCreateForm tcf = new TableCreateForm();
         tcf.setLocationRelativeTo(null);
         tcf.setVisible(true);
     }
+
     /**
      * Creates new form TableCreateForm
      */
@@ -42,6 +45,8 @@ public class TableCreateForm extends javax.swing.JFrame {
         btnsave = new javax.swing.JButton();
         btnreset = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
+        fname = new javax.swing.JLabel();
+        ValidateSC = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +99,9 @@ public class TableCreateForm extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ftablename)
-                            .addComponent(fseatcount))))
+                            .addComponent(fseatcount)
+                            .addComponent(fname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ValidateSC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(188, 188, 188))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
@@ -110,15 +117,19 @@ public class TableCreateForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtablename)
                     .addComponent(ftablename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(9, 9, 9)
+                .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fseatcount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ValidateSC, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnsave)
                     .addComponent(btnreset)
@@ -134,9 +145,7 @@ public class TableCreateForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -150,13 +159,21 @@ public class TableCreateForm extends javax.swing.JFrame {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-       TableMangementForm.ShowTableManagementForm();
+        TableMangementForm.ShowTableManagementForm();
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        Table t  = new Table(ftablename.getText(), Integer.parseInt(fseatcount.getText()), false);  
-        TableDAO.insert(t);
+        Map<String, String> validate_message = TableForm.validated(fname.getText(), ValidateSC.getText());
+        if (validate_message.isEmpty()) {
+            Table t = new Table(ftablename.getText(), Integer.parseInt(fseatcount.getText()), true);
+            TableDAO.insert(t);
+        } else {
+            fname.setText(validate_message.get("name"));
+            ValidateSC.setText(validate_message.get("seatcount"));
+            
+        }
+
     }//GEN-LAST:event_btnsaveActionPerformed
 
     /**
@@ -195,9 +212,11 @@ public class TableCreateForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ValidateSC;
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnreset;
     private javax.swing.JButton btnsave;
+    private javax.swing.JLabel fname;
     private javax.swing.JTextField fseatcount;
     private javax.swing.JTextField ftablename;
     private javax.swing.JLabel jLabel1;
