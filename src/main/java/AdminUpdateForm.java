@@ -5,6 +5,8 @@
 import com.mycompany.jcafe88.dao.AdminDAO;
 import com.mycompany.jcafe88.models.Admin;
 import java.awt.Dimension;
+import form.UpdateAdminForm;
+import java.util.Map;
 /**
  *
  * @author Tcom
@@ -43,6 +45,12 @@ public class AdminUpdateForm extends javax.swing.JFrame {
         newPassword = new javax.swing.JPasswordField();
         oldPassword1 = new javax.swing.JPasswordField();
         confirmNewPassword = new javax.swing.JPasswordField();
+        fullname_validate = new javax.swing.JLabel();
+        username_validate = new javax.swing.JLabel();
+        oldpassword_message = new javax.swing.JLabel();
+        newpassword_message = new javax.swing.JLabel();
+        confirm_newpassword_message = new javax.swing.JLabel();
+        toast_create = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 51));
@@ -96,6 +104,24 @@ public class AdminUpdateForm extends javax.swing.JFrame {
             }
         });
 
+        fullname_validate.setForeground(new java.awt.Color(255, 0, 0));
+        fullname_validate.setText("jLabel7");
+
+        username_validate.setForeground(new java.awt.Color(255, 0, 0));
+        username_validate.setText("jLabel7");
+
+        oldpassword_message.setForeground(new java.awt.Color(255, 0, 0));
+        oldpassword_message.setText("jLabel7");
+
+        newpassword_message.setForeground(new java.awt.Color(255, 0, 0));
+        newpassword_message.setText("jLabel8");
+
+        confirm_newpassword_message.setForeground(new java.awt.Color(255, 0, 0));
+        confirm_newpassword_message.setText("jLabel7");
+
+        toast_create.setForeground(new java.awt.Color(0, 255, 0));
+        toast_create.setText("jLabel8");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,7 +129,9 @@ public class AdminUpdateForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(203, 203, 203))
+                .addGap(52, 52, 52)
+                .addComponent(toast_create, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -139,40 +167,57 @@ public class AdminUpdateForm extends javax.swing.JFrame {
                                 .addComponent(confirmNewPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                                 .addComponent(userNameText, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(oldPassword1)
-                                .addComponent(newPassword, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                .addComponent(newPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(fullname_validate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(username_validate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(oldpassword_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(newpassword_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(confirm_newpassword_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toast_create, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fullNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(1, 1, 1)
+                .addComponent(fullname_validate)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
+                .addComponent(username_validate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(oldPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(oldpassword_message)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newpassword_message)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(confirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirm_newpassword_message)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(resetButton)
                     .addComponent(backButton))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,8 +249,20 @@ public class AdminUpdateForm extends javax.swing.JFrame {
     
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
+        Map<String, String> validate_message = UpdateAdminForm.validated(userNameText.getText(), fullNameText.getText(), new String(newPassword.getPassword()), new String(oldPassword1.getPassword()), new String(confirmNewPassword.getPassword()));
         Admin admin = new Admin(userNameText.getText(), fullNameText.getText(), new String(newPassword.getPassword()));
-        AdminDAO.update(admin);
+        
+        if (validate_message.isEmpty()) {
+            AdminDAO.update(admin);
+            toast_create.setText("Create Successfully");
+        }else{
+            fullname_validate.setText(validate_message.get("name"));
+            username_validate.setText(validate_message.get("user_name"));
+            oldpassword_message.setText(validate_message.get("old_password"));
+            newpassword_message.setText(validate_message.get("new_password"));
+            confirm_newpassword_message.setText(validate_message.get("confrim_new_password"));
+        }
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
@@ -266,7 +323,9 @@ public class AdminUpdateForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmNewPassword;
+    private javax.swing.JLabel confirm_newpassword_message;
     private javax.swing.JTextField fullNameText;
+    private javax.swing.JLabel fullname_validate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -275,9 +334,13 @@ public class AdminUpdateForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField newPassword;
+    private javax.swing.JLabel newpassword_message;
     private javax.swing.JPasswordField oldPassword1;
+    private javax.swing.JLabel oldpassword_message;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton saveButton;
+    private javax.swing.JLabel toast_create;
     private javax.swing.JTextField userNameText;
+    private javax.swing.JLabel username_validate;
     // End of variables declaration//GEN-END:variables
 }
