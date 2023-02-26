@@ -14,6 +14,12 @@ import java.util.Map;
  */
 public class CodeSaleCreateForm extends javax.swing.JFrame {
 
+    public static void showForm() {
+        CodeSaleCreateForm cscf = new CodeSaleCreateForm();
+        cscf.setLocationRelativeTo(null);
+        cscf.setVisible(true);
+    }
+
     private static Map<String, String> validated(String text, int parseInt, String text0) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -172,10 +178,13 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here: 
+        Name_Valid.setText("");
+        Sale_off_Valid.setText("");
+        CodeValid.setText("");
         String Name = txtName.getText();
         String Code = txtCode.getText();
 
-        Map<String, String> validate_message = CodeSaleForm.validated(Code, txtSale_Off.getText(), Code);
+        Map<String, String> validate_message = CodeSaleForm.validated(Name, txtSale_Off.getText(), Code);
         if (validate_message.isEmpty()) {
             int Sale_Off = Integer.parseInt(txtSale_Off.getText());
             CodeSale c = new CodeSale(Name, Sale_Off, Code);
@@ -230,7 +239,7 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CodeSaleCreateForm().setVisible(true);
+                showForm();
             }
         });
     }
