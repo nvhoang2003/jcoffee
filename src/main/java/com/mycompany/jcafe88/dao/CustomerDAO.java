@@ -156,5 +156,30 @@ public class CustomerDAO extends BaseDAO {
 
         return customer;
     }
+    
+    public static boolean findCustomer_ID(String cus_name) {
+        boolean b = false;
+
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select customer_id from customers where customer_name = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, cus_name);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+               b = true;
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return b;
+    }
 }
 
