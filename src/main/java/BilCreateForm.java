@@ -42,8 +42,6 @@ public class BilCreateForm extends javax.swing.JFrame {
             jTable1.getModel().setValueAt(OrdersDAO.findAllInfor(id), i, 3);
         }
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,17 +59,17 @@ public class BilCreateForm extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Customer Name", "Table Name", "Drink", "Money"
+                "Customer Name", "Table Name", "Drink", "Money"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -130,7 +128,6 @@ public class BilCreateForm extends javax.swing.JFrame {
             public void run() {
 //                new BilCreateForm().setVisible(true);
                 showBillCreateForm();
-//                showListPendingOrder();
             }
         });
     }

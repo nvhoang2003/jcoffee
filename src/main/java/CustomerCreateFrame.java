@@ -97,6 +97,9 @@ public class CustomerCreateFrame extends javax.swing.JFrame {
 
         jGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jPhone.setText("phone");
+
+        jAge.setText("age_field");
         jAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAgeActionPerformed(evt);
