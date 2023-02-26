@@ -305,6 +305,9 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     }
     private void Save_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_CodeActionPerformed
         // TODO add your handling code here:
+        Name_Valid.setText("");
+        Sale_off_Valid.setText("");
+        CodeValid.setText("");
         String Name = txtName.getText();
         String Code = txtCode.getText();
         Map<String, String> validate_message = CodeSaleForm.validated(Code, txtSale_Off.getText(), Code);
