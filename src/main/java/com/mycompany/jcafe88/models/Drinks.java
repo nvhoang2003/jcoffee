@@ -11,7 +11,7 @@ package com.mycompany.jcafe88.models;
 public class Drinks {
     private int id;
     private String name;
-    private int price;
+    public int price;
     private String Description;
     private byte[] Image;
 
