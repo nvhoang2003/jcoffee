@@ -20,7 +20,7 @@ public class CustomerForm {
         } else if (name.length() <= 6) {
             validate_message.put("name", "Name has been long than 6 character");
         } else if (name.length() >= 255) {
-            validate_message.put("name", "Name has been short than 255 character");
+            validate_message.put("name", "Name has been short than 255 character");   
         }
 
         if (address.isBlank()) {
