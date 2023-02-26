@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  */
 public class AdminForm extends Admin {
 
-    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z]).{8,20}$";
     private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 
     public static Map<String, String> validated(String name, String user_name, String password, String confirm_password) {
@@ -48,6 +48,12 @@ public class AdminForm extends Admin {
             validate_message.put("password", "Password is require");
         } else if (!matcher.find()) {
             validate_message.put("password", "Invalid password");
+        }
+        
+        if(confirm_password.isBlank()) {
+            validate_message.put("confirm_password", "Confirm password is require");
+        }else if (!matcher.find()) {
+            validate_message.put("confirm_password", "Invalid password");
         }
 
         return validate_message;

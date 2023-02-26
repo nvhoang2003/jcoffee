@@ -32,8 +32,6 @@
                   <Group type="102" attributes="0">
                       <Component id="createAdminButton" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Reset" min="-2" pref="88" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Delete" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="backButton" min="-2" pref="88" max="-2" attributes="0"/>
@@ -55,7 +53,6 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="backButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="Reset" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="createAdminButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="Delete" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
@@ -142,17 +139,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Reset">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Reset"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Delete">
