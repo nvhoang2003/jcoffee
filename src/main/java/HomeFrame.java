@@ -192,7 +192,7 @@ public class HomeFrame extends javax.swing.JFrame {
     }
     private void BillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillButtonActionPerformed
         // TODO add your handling code here:
-        AdminUpdateForm.ShowAdminUpdateForm();
+        BillMangementForm.ShowBillMangementForm();
     }//GEN-LAST:event_BillButtonActionPerformed
 
     private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed

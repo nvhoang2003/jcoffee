@@ -92,6 +92,12 @@ public class TableMangementForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Seat Count");
 
+        ftablename.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftablenameActionPerformed(evt);
+            }
+        });
+
         btnsave.setText("Save");
         btnsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +255,10 @@ public class TableMangementForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_btnbackActionPerformed
+
+    private void ftablenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftablenameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftablenameActionPerformed
 
     /**
      * @param args the command line arguments

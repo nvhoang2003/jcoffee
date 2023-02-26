@@ -345,10 +345,10 @@ public class DrinkIndexForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnchooseimgActionPerformed
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
-        // TODO add your handling code here:
-        Map<String, String> validate_message = DrinksForm.validated(ValidateFname.getText(), ValidateFprice.getText(), validateFdescription.getText(), pimage);
-        Drinks drinks = new Drinks(Integer.parseInt(lblid.getText()),fname.getText(), Integer.parseInt(fprice.getText()), fprice.getText(), pimage); 
+        // TODO add your handling code he
+        Map<String, String> validate_message = DrinksForm.validated(ValidateFname.getText(), ValidateFprice.getText(), validateFdescription.getText());
         if (validate_message.isEmpty()){
+            Drinks drinks = new Drinks(Integer.parseInt(lblid.getText()),fname.getText(), Integer.parseInt(fprice.getText()), fdescription.getText(), pimage); 
             DrinksDAO.update(drinks);
         } else {
             ValidateFname.setText(validate_message.get("name"));
