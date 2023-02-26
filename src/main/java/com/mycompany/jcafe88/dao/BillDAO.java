@@ -94,7 +94,7 @@ public class BillDAO extends BaseDAO {
 
         try {
             //Thuc thi lenh
-            String sql = "select * from bills where id = ?";
+            String sql = "select * from bills where bill_id = ?";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
 
