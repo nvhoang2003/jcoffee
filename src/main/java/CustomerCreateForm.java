@@ -84,14 +84,11 @@ public class CustomerCreateForm extends javax.swing.JFrame {
         lid = new javax.swing.JLabel();
         phoenumber_validate = new javax.swing.JLabel();
         name_validated = new javax.swing.JLabel();
-        age_validate = new javax.swing.JLabel();
-        address_validate = new javax.swing.JLabel();
         email_validate = new javax.swing.JLabel();
         toast_create = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

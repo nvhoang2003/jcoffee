@@ -34,5 +34,6 @@ public class Jcafe88 {
         Drinks d = DrinksDAO.find(1);
         
         d.toString();
+//        System.out.println(Integer.parseInt(""));
     }
 }

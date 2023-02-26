@@ -4,7 +4,6 @@ package form;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import com.mycompany.jcafe88.models.Drinks;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +12,7 @@ import java.util.Map;
  *
  * @author Tcom
  */
-public class DrinksForm extends Drinks {
+public class DrinksForm {
 
     public static Map<String, String> validated(String name, String Price, String Description, byte[] Image) {
         Map<String, String> validate_message = new HashMap<>();

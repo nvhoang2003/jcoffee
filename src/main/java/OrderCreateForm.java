@@ -193,7 +193,6 @@ public class OrderCreateForm extends javax.swing.JFrame {
             Orders od = OrdersDAO.ListOrder().get(i);
             model.addRow(new Object[]{od.getOrder_id(), od.getCustomer_name(), od.getTable_name(), null, od.getState()});
         }
-
         for (int i = 0; i < jTable1.getRowCount(); i++) {
             int id = (int) (jTable1.getModel().getValueAt(i, 0));
             jTable1.getModel().setValueAt(OrdersDAO.findAllInfor(id), i, 3);

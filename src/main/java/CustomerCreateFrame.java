@@ -3,8 +3,8 @@ import com.mycompany.jcafe88.GenderState;
 import static com.mycompany.jcafe88.GenderState.values;
 import com.mycompany.jcafe88.dao.CustomerDAO;
 import com.mycompany.jcafe88.models.Customer;
-import java.util.Date;
 import form.CustomerForm;
+import java.util.Date;
 import java.util.Map;
 
 /*
@@ -70,14 +70,10 @@ public class CustomerCreateFrame extends javax.swing.JFrame {
         name_validate = new javax.swing.JLabel();
         address_validate = new javax.swing.JLabel();
         email_validate = new javax.swing.JLabel();
-        phone_validate = new javax.swing.JLabel();
-        age_validate = new javax.swing.JLabel();
         toast_create = new javax.swing.JLabel();
 
-        jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Name");

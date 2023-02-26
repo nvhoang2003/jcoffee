@@ -10,6 +10,7 @@ import static com.mycompany.jcafe88.dao.BaseDAO.closeConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.conn;
 import static com.mycompany.jcafe88.dao.BaseDAO.openConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.statement;
+import com.mycompany.jcafe88.models.Bill;
 import com.mycompany.jcafe88.models.Orders;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -219,5 +220,30 @@ public class OrdersDAO extends BaseDAO {
 
         closeConnection();
         return str;
+    }
+     
+    public static List<Bill> ListPendingOrder() {
+        List<Bill> list = new ArrayList<>();
+         String sql = "SELECT o.price as price,o.order_id as order_id, c.customer_name as customer_name, t.name as table_name, SUM(od.price) as amount "
+                + "FROM orders as o "
+                + "JOIN customers as c ON o.customer_id = c.customer_id "
+                + "JOIN tables as t ON o.table_id = t.table_id "
+                + "JOIN order_drinks as od ON o.order_id = od.order_id "
+                + "GROUP BY od.order_id "
+                + "WHERE o.state = ? ";
+        openConnection();
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1,OrderState.getKeyByValue("Pending"));
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Bill bill = new Bill(rs.getInt("order_id"), rs.getInt("price"), rs.getString("customer_name"), rs.getString("table_name"));
+                list.add(bill);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        closeConnection();
+        return list;
     }
 }
