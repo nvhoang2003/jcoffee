@@ -49,7 +49,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
         username_validate = new javax.swing.JLabel();
         oldpassword_message = new javax.swing.JLabel();
         newpassword_message = new javax.swing.JLabel();
-        confirm_newpassword_message = new javax.swing.JLabel();
+        nconf_mess = new javax.swing.JLabel();
         toast_create = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,7 +112,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
 
         newpassword_message.setForeground(new java.awt.Color(255, 0, 0));
 
-        confirm_newpassword_message.setForeground(new java.awt.Color(255, 0, 0));
+        nconf_mess.setForeground(new java.awt.Color(255, 0, 0));
 
         toast_create.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         toast_create.setForeground(new java.awt.Color(0, 255, 0));
@@ -139,7 +139,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
                             .addComponent(username_validate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(oldpassword_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(newpassword_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(confirm_newpassword_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(nconf_mess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84)
@@ -200,7 +200,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(confirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(confirm_newpassword_message, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nconf_mess, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
@@ -248,7 +248,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
             username_validate.setText(validate_message.get("user_name"));
             oldpassword_message.setText(validate_message.get("old_password"));
             newpassword_message.setText(validate_message.get("new_password"));
-            confirm_newpassword_message.setText(validate_message.get("confrim_new_password"));
+            nconf_mess.setText(validate_message.get("confirm_new_password"));
         }
         
     }//GEN-LAST:event_saveButtonActionPerformed
@@ -311,7 +311,6 @@ public class AdminUpdateForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmNewPassword;
-    private javax.swing.JLabel confirm_newpassword_message;
     private javax.swing.JTextField fullNameText;
     private javax.swing.JLabel fullname_validate;
     private javax.swing.JLabel jLabel1;
@@ -321,6 +320,7 @@ public class AdminUpdateForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nconf_mess;
     private javax.swing.JPasswordField newPassword;
     private javax.swing.JLabel newpassword_message;
     private javax.swing.JPasswordField oldPassword1;
