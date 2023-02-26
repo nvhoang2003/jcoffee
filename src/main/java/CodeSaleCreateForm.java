@@ -1,13 +1,13 @@
 
 import com.mycompany.jcafe88.dao.CodeSaleDAO;
 import com.mycompany.jcafe88.models.CodeSale;
+import form.CodeSaleForm;
 import java.util.Map;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author ACER
@@ -91,7 +91,7 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                         .addGap(43, 43, 43))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,7 +115,7 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
                             .addComponent(Save)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(Reset)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGap(18, 18, 18)
                             .addComponent(Back))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
@@ -146,12 +146,12 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
                     .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CodeValid)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
                     .addComponent(Reset)
                     .addComponent(Back))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,24 +172,27 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here: 
-        CodeSale c = new CodeSale(txtName.getText(), Integer.parseInt(txtSale_Off.getText()), txtCode.getText());
-        CodeSaleDAO.insert(c);
-        Map <String, String> validate_message = CodeSaleCreateForm.validated(txtName.getText(), Integer.parseInt(txtSale_Off.getText()), txtCode.getText());
-        if (validate_message.isEmpty()){
+        String Name = txtName.getText();
+        String Code = txtCode.getText();
+
+        Map<String, String> validate_message = CodeSaleForm.validated(Code, txtSale_Off.getText(), Code);
+        if (validate_message.isEmpty()) {
+            int Sale_Off = Integer.parseInt(txtSale_Off.getText());
+            CodeSale c = new CodeSale(Name, Sale_Off, Code);
             CodeSaleDAO.insert(c);
             toast_create.setText("Create Successfully");
         } else {
             Name_Valid.setText(validate_message.get("Name"));
             Sale_off_Valid.setText(validate_message.get("Sale_Off"));
-            CodeValid.setText(validate_message.get("Code"));          
+            CodeValid.setText(validate_message.get("Code"));
         };
     }//GEN-LAST:event_SaveActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         // TODO add your handling code here:
-         txtName.setText("");
-         txtCode.setText("");
-         txtSale_Off.setText("");
+        txtName.setText("");
+        txtCode.setText("");
+        txtSale_Off.setText("");
     }//GEN-LAST:event_ResetActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
