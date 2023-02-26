@@ -237,14 +237,8 @@
     <Component class="javax.swing.JTextField" name="jEmail">
     </Component>
     <Component class="javax.swing.JTextField" name="jPhone">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="phone"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jAge">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="age_field"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jAgeActionPerformed"/>
       </Events>
