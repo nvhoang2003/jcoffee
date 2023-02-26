@@ -1,10 +1,12 @@
 
 import com.mycompany.jcafe88.dao.CodeSaleDAO;
 import com.mycompany.jcafe88.models.CodeSale;
+import form.CodeSaleForm;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -53,7 +55,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         Save_Code = new javax.swing.JButton();
         Reset = new javax.swing.JButton();
         Name = new javax.swing.JLabel();
-        txtSaleOff = new javax.swing.JTextField();
+        txtSale_Off = new javax.swing.JTextField();
         SaleOff = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         Code = new javax.swing.JLabel();
@@ -62,6 +64,10 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         Delete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lID = new javax.swing.JTextField();
+        toast_create = new javax.swing.JLabel();
+        Name_Valid = new javax.swing.JLabel();
+        Sale_off_Valid = new javax.swing.JLabel();
+        CodeValid = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         CodeSaleTable = new javax.swing.JTable();
 
@@ -115,9 +121,9 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
         Name.setText("Name");
 
-        txtSaleOff.addActionListener(new java.awt.event.ActionListener() {
+        txtSale_Off.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSaleOffActionPerformed(evt);
+                txtSale_OffActionPerformed(evt);
             }
         });
 
@@ -154,6 +160,14 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
         jLabel1.setText("ID");
 
+        toast_create.setText("jLabel2");
+
+        Name_Valid.setText("jLabel2");
+
+        Sale_off_Valid.setText("jLabel2");
+
+        CodeValid.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -164,7 +178,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(SaleOff, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtSaleOff))
+                        .addComponent(txtSale_Off))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,15 +197,24 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                                 .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtCode, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Name_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Sale_off_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(CodeValid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(toast_create, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(toast_create)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -199,15 +222,21 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(Name_Valid)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaleOff)
-                    .addComponent(txtSaleOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtSale_Off, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Sale_off_Valid)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CodeValid)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,7 +290,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -276,19 +305,37 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     }
     private void Save_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_CodeActionPerformed
         // TODO add your handling code here:
+        Name_Valid.setText("");
+        Sale_off_Valid.setText("");
+        CodeValid.setText("");
+        String Name = txtName.getText();
+        String Code = txtCode.getText();
+        Map<String, String> validate_message = CodeSaleForm.validated(Code, txtSale_Off.getText(), Code);
+        if (validate_message.isEmpty()) {
+            int Sale_Off = Integer.parseInt(txtSale_Off.getText());
+            CodeSale c = new CodeSale(Name, Sale_Off, Code);
+            CodeSaleDAO.update(c);
+            toast_create.setText("Update Successfully");
+        } else {
+            Name_Valid.setText(validate_message.get("Name"));
+            Sale_off_Valid.setText(validate_message.get("Sale_Off"));
+            CodeValid.setText(validate_message.get("Code"));
+        };                                 
+
+        
     }//GEN-LAST:event_Save_CodeActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         // TODO add your handling code here:   
         txtName.setText("");
-        txtSaleOff.setText("");
+        txtSale_Off.setText("");
         txtCode.setText("");
         System.out.println("Reset Done");
     }//GEN-LAST:event_ResetActionPerformed
 
-    private void txtSaleOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleOffActionPerformed
+    private void txtSale_OffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSale_OffActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSaleOffActionPerformed
+    }//GEN-LAST:event_txtSale_OffActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
@@ -305,6 +352,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void CodeSaleTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CodeSaleTableMouseClicked
@@ -314,14 +362,15 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         CodeSale CS = CodeSaleDAO.find(1);
         lID.setText(String.valueOf(id));
         txtName.setText(CS.getName());
-        txtSaleOff.setText(String.valueOf(CS.getSale_off()));
+        txtSale_Off.setText(String.valueOf(CS.getSale_off()));
         txtCode.setText(CS.getCode());
     }//GEN-LAST:event_CodeSaleTableMouseClicked
 
     private void Save_CodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Save_CodeMouseClicked
-        CodeSale c = new CodeSale(Integer.parseInt(lID.getText()), txtName.getText(), Integer.parseInt(txtSaleOff.getText()), txtCode.getText());
+        CodeSale c = new CodeSale(Integer.parseInt(lID.getText()), txtName.getText(), Integer.parseInt(txtSale_Off.getText()), txtCode.getText());
         CodeSaleDAO.update(c);
         showListCodeSaleFrame();
+        
     }//GEN-LAST:event_Save_CodeMouseClicked
 
     /**
@@ -365,10 +414,13 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel Code;
     private javax.swing.JTable CodeSaleTable;
+    private javax.swing.JLabel CodeValid;
     private javax.swing.JButton Delete;
     private javax.swing.JLabel Name;
+    private javax.swing.JLabel Name_Valid;
     private javax.swing.JButton Reset;
     private javax.swing.JLabel SaleOff;
+    private javax.swing.JLabel Sale_off_Valid;
     private javax.swing.JButton Save_Code;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -376,8 +428,9 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField lID;
+    private javax.swing.JLabel toast_create;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtSaleOff;
+    private javax.swing.JTextField txtSale_Off;
     // End of variables declaration//GEN-END:variables
 }

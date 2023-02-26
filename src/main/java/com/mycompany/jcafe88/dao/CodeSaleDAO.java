@@ -90,8 +90,7 @@ public class CodeSaleDAO extends BaseDAO {
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
-
-            statement.execute();
+statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(CodeSaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

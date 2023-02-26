@@ -57,8 +57,6 @@ public class CodeSale {
     }
     
 
-
-    
     public CodeSale(String name, int sale_off, String Code) {
         this.name = name;
         this.sale_off = sale_off;
