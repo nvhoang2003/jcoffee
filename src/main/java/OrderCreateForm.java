@@ -190,7 +190,6 @@ public class OrderCreateForm extends javax.swing.JFrame {
             int id = (int) (jTable1.getModel().getValueAt(i, 0));
             jTable1.getModel().setValueAt(OrdersDAO.findAllInfor(id), i, 3);
         }
-        OrdersDAO.findAllInfor(5);
     }
 
     private void showListTable() {
