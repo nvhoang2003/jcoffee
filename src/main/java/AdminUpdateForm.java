@@ -256,11 +256,11 @@ public class AdminUpdateForm extends javax.swing.JFrame {
             AdminDAO.update(admin);
             toast_create.setText("Create Successfully");
         }else{
-            fullname_validate.setText("name");
-            username_validate.setText("user_name");
-            oldpassword_message.setText("old_password");
-            newpassword_message.setText("new_password");
-            confirm_newpassword_message.setText("confrim_new_password");
+            fullname_validate.setText(validate_message.get("name"));
+            username_validate.setText(validate_message.get("user_name"));
+            oldpassword_message.setText(validate_message.get("old_password"));
+            newpassword_message.setText(validate_message.get("new_password"));
+            confirm_newpassword_message.setText(validate_message.get("confrim_new_password"));
         }
         
     }//GEN-LAST:event_saveButtonActionPerformed

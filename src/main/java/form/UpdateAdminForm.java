@@ -25,11 +25,11 @@ public class UpdateAdminForm {
             validate_message.put("name", "Name is required");
         } else if (name.length() <= 6) {
             validate_message.put("name", "Name has been long than 6 character");
-        } else if (name.length() >= 256) {
-            validate_message.put("name", "Name has been short than 256 character");
+        } else if (name.length() >= 255) {
+            validate_message.put("name", "Name has been short than 255 character");
         }
 
-        if (new_password == null ? confirm_new_password == null : confirm_new_password.equals(new_password)) {
+        if (new_password == null ? confirm_new_password == null : !confirm_new_password.equals(new_password)) {
         } else {
             validate_message.put("new_password", "New password must a same as confirm password");
             validate_message.put("confirm_new_password", "Confirm password must a same as password");
@@ -39,12 +39,16 @@ public class UpdateAdminForm {
             validate_message.put("user_name", "User name is require");
         } else if (user_name.length() <= 6) {
             validate_message.put("user_name", "User name has been long than 6 character");
-        } else if (user_name.length() >= 256) {
-            validate_message.put("user_name", "User name has been short than 256 character");
+        } else if (user_name.length() >= 255) {
+            validate_message.put("user_name", "User name has been short than 255 character");
         }
         
         if (old_password.isBlank()) {
             validate_message.put("old_password", "Old password is require");
+        }
+        
+        if (new_password.isBlank()) {
+            validate_message.put("new_password", "New password is require");
         }
         
         if (old_password == null ? new_password == null : !old_password.equals(new_password)) {
