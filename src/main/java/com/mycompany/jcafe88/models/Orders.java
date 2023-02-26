@@ -14,6 +14,34 @@ public class Orders {
     private int table_id;
     private String customer_name;
     private String table_name;
+    private String state;
+
+    public Orders(int Customer_id, int table_id, String customer_name, String table_name, String state) {
+        this.Customer_id = Customer_id;
+        this.table_id = table_id;
+        this.customer_name = customer_name;
+        this.table_name = table_name;
+        this.state = state;
+    }
+
+    public Orders(int Order_id, int Customer_id, int table_id, String customer_name, String table_name, String state) {
+        this.Order_id = Order_id;
+        this.Customer_id = Customer_id;
+        this.table_id = table_id;
+        this.customer_name = customer_name;
+        this.table_name = table_name;
+        this.state = state;
+    }
+    
+    
+    
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public void setTable_id(int table_id) {
         this.table_id = table_id;

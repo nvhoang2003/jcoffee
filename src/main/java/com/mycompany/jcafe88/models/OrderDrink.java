@@ -4,6 +4,8 @@
  */
 package com.mycompany.jcafe88.models;
 
+import com.mycompany.jcafe88.dao.DrinksDAO;
+
 /**
  *
  * @author Tcom
@@ -14,6 +16,24 @@ public class OrderDrink {
     private int drink_id;
     private int quantity;
     private int price;
+    private String drink_name;
+
+    public String getDrink_name() {
+        return drink_name;
+    }
+
+    public void setDrink_name(String drink_name) {
+        this.drink_name = drink_name;
+    }
+
+    public OrderDrink(int order_drink_id, int order_id, int drink_id, int quantity, int price, String drink_name) {
+        this.order_drink_id = order_drink_id;
+        this.order_id = order_id;
+        this.drink_id = drink_id;
+        this.quantity = quantity;
+        this.price = price;
+        this.drink_name = drink_name;
+    }
 
     public OrderDrink(int order_drink_id, int order_id, int drink_id, int quantity, int price) {
         this.order_drink_id = order_drink_id;
@@ -75,6 +95,6 @@ public class OrderDrink {
 
     @Override
     public String toString() {
-        return "OrderDrink{" + "order_drink_id=" + order_drink_id + ", order_id=" + order_id + ", drink_id=" + drink_id + ", quantity=" + quantity + ", price=" + price + '}';
+        return drink_name + " x " + quantity;
     }
 }

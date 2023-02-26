@@ -4,6 +4,8 @@
  */
 package com.mycompany.jcafe88.dao;
 
+import com.mycompany.jcafe88.GenderState;
+import com.mycompany.jcafe88.OrderState;
 import static com.mycompany.jcafe88.dao.BaseDAO.closeConnection;
 import static com.mycompany.jcafe88.dao.BaseDAO.conn;
 import static com.mycompany.jcafe88.dao.BaseDAO.openConnection;
@@ -40,12 +42,14 @@ public class OrdersDAO extends BaseDAO {
                 + "FROM orders as o "
                 + "JOIN customers as c ON o.customer_id = c.customer_id "
                 + "JOIN tables as t ON o.table_id = t.table_id ";
+//                + "WHERE o.state = ?";
         openConnection();
         try {
             statement = conn.prepareStatement(sql);
+//            statement.setInt(1,OrderState.getKeyByValue("Pending"));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Orders orders = new Orders(rs.getInt("order_id"), rs.getInt("customer_id"), rs.getInt("table_id"), rs.getString("customer_name"), rs.getString("table_name"));
+                Orders orders = new Orders(rs.getInt("order_id"), rs.getInt("customer_id"), rs.getInt("table_id"), rs.getString("customer_name"), rs.getString("table_name"), OrderState.getValueByKey(rs.getInt("state")));
                 list.add(orders);
             }
         } catch (SQLException ex) {
@@ -58,11 +62,12 @@ public class OrdersDAO extends BaseDAO {
     public static void insert(Orders orders) {
         openConnection();
 
-        String sql = "insert into orders(customer_id, table_id) values (?, ?)";
+        String sql = "insert into orders(customer_id, table_id, state) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, orders.getCustomer_id());
             statement.setInt(2, orders.getTable_id());
+            statement.setInt(3,OrderState.getKeyByValue("Pending"));
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,7 +101,7 @@ public class OrdersDAO extends BaseDAO {
                 + "FROM orders as o "
                 + "JOIN customers as c ON o.customer_id = c.customer_id "
                 + "JOIN tables as t ON o.table_id = t.table_id "
-                + "WHERE NOT o.is_cancel = false AND order_id = ?";
+                + "WHERE order_id = ?";
 
         openConnection();
 
@@ -109,7 +114,7 @@ public class OrdersDAO extends BaseDAO {
 
             while (rs.next()) {
                 orders = new Orders(
-                        rs.getInt("order_id"), rs.getInt("customer_id"), rs.getInt("table_id"), rs.getString("customer_name"), rs.getString("table_name")
+                        rs.getInt("order_id"), rs.getInt("customer_id"), rs.getInt("table_id"), rs.getString("customer_name"), rs.getString("table_name"), OrderState.getValueByKey(rs.getInt("state"))
                 );
                 break;
             }
@@ -184,5 +189,35 @@ public class OrdersDAO extends BaseDAO {
 
         closeConnection();
         return table_id;
+    }
+    
+     public static String findAllInfor(int id) {
+        String str = "";
+
+        String sql = "SELECT od.quantity as quantity, d.name as drink_name " 
+                    + "FROM orders as o " 
+                    + "JOIN order_drinks as od ON o.order_id = od.order_id "
+                    + "JOIN drinks as d ON od.drink_id = d.drink_id "
+                    + "WHERE o.order_id = ?" ; 
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+
+            ResultSet result = statement.executeQuery();
+            
+            while (result.next()) {
+                System.out.println("wth");
+                str += result.getString("drink_name") + " x " + result.getString("quantity");
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+        return str;
     }
 }

@@ -75,9 +75,5 @@ public class Drinks {
         this.Image = Image;
     }
 
-    @Override
-    public String toString() {
-        return "Drinks{" + "id=" + id + ", name=" + name + ", price=" + price + ", Description=" + Description + '}';
-    }
     
 }
