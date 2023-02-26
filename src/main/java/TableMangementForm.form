@@ -101,6 +101,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabel3" max="32767" attributes="0"/>
+                      <Component id="jLabel2" max="32767" attributes="0"/>
+                      <Component id="jLabel4" alignment="0" pref="71" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                      <Component id="ftablename" max="32767" attributes="0"/>
+                      <Component id="fseatcount" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lid" alignment="0" pref="230" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="btnsave" min="-2" max="-2" attributes="0"/>
@@ -113,26 +129,6 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnback" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel3" max="32767" attributes="0"/>
-                      <Component id="jLabel2" max="32767" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" pref="71" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ValidateSeat" pref="230" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ValidateTable" max="32767" attributes="0"/>
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="ftablename" max="32767" attributes="0"/>
-                          <Component id="fseatcount" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lid" alignment="0" pref="230" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -150,16 +146,12 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ftablename" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ValidateTable" min="-2" pref="21" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fseatcount" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ValidateSeat" min="-2" pref="26" max="-2" attributes="0"/>
-                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnsave" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnreset" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -255,10 +247,6 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="ValidateTable">
-        </Component>
-        <Component class="javax.swing.JLabel" name="ValidateSeat">
         </Component>
       </SubComponents>
     </Container>

@@ -19,14 +19,12 @@ public class BillMangementForm extends javax.swing.JFrame {
         bmf.setLocationRelativeTo(null);
         bmf.setVisible(true);
     }
-
     /**
      * Creates new form BillMangementForm
      */
     public BillMangementForm() {
         initComponents();
     }
-
     private void showListBill() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
