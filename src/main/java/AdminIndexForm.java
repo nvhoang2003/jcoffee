@@ -47,7 +47,6 @@ public class AdminIndexForm extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         createAdminButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        Reset = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,14 +91,6 @@ public class AdminIndexForm extends javax.swing.JFrame {
             }
         });
 
-        Reset.setBackground(new java.awt.Color(255, 153, 153));
-        Reset.setText("Reset");
-        Reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetActionPerformed(evt);
-            }
-        });
-
         Delete.setBackground(new java.awt.Color(204, 0, 0));
         Delete.setText("Delete");
         Delete.addActionListener(new java.awt.event.ActionListener() {
@@ -118,8 +109,6 @@ public class AdminIndexForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(createAdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,7 +126,6 @@ public class AdminIndexForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createAdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -151,17 +139,15 @@ public class AdminIndexForm extends javax.swing.JFrame {
 
     private void createAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAdminButtonActionPerformed
         // TODO add your handling code here:
+        dispose();
         AdminCreateForm.ShowAdminCreateForm();
     }//GEN-LAST:event_createAdminButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        dispose();
         HomeFrame.ShowHomeFrame();     // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
 
-
-    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ResetActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
@@ -204,7 +190,6 @@ public class AdminIndexForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Delete;
-    private javax.swing.JButton Reset;
     private javax.swing.JButton backButton;
     private javax.swing.JButton createAdminButton;
     private javax.swing.JLabel jLabel1;

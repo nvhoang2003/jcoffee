@@ -73,7 +73,7 @@
                               <Component id="username_validate" max="32767" attributes="0"/>
                               <Component id="oldpassword_message" max="32767" attributes="0"/>
                               <Component id="newpassword_message" max="32767" attributes="0"/>
-                              <Component id="confirm_newpassword_message" max="32767" attributes="0"/>
+                              <Component id="nconf_mess" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -151,7 +151,7 @@
                       <Component id="confirmNewPassword" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="confirm_newpassword_message" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="nconf_mess" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -292,7 +292,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="confirm_newpassword_message">
+        <Component class="javax.swing.JLabel" name="nconf_mess">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
