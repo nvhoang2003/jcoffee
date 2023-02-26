@@ -222,7 +222,7 @@ public class OrdersDAO extends BaseDAO {
         return str;
     }
      
-     public static List<Bill> ListPendingOrder() {
+    public static List<Bill> ListPendingOrder() {
         List<Bill> list = new ArrayList<>();
          String sql = "SELECT o.price as price,o.order_id as order_id, c.customer_name as customer_name, t.name as table_name, SUM(od.price) as amount "
                 + "FROM orders as o "

@@ -4,7 +4,9 @@ import com.mycompany.jcafe88.dao.OrderDrinkDAO;
 import com.mycompany.jcafe88.dao.OrdersDAO;
 import com.mycompany.jcafe88.dao.TableDAO;
 import com.mycompany.jcafe88.models.OrderDrink;
+import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import form.PickDrinksForm;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -59,6 +61,7 @@ public class PickDrinkForm extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jQuantity = new javax.swing.JTextField();
+        quantity_validate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +119,9 @@ public class PickDrinkForm extends javax.swing.JFrame {
             }
         });
 
+        quantity_validate.setForeground(new java.awt.Color(250, 0, 0));
+        quantity_validate.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,15 +139,16 @@ public class PickDrinkForm extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jQuantity, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(quantity_validate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -151,7 +158,9 @@ public class PickDrinkForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(quantity_validate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btnsave)
@@ -179,13 +188,32 @@ public class PickDrinkForm extends javax.swing.JFrame {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
+        boolean redirect = false;
         int order_id = OrdersDAO.ListOrder().get(OrdersDAO.ListOrder().size() - 1).getOrder_id();
-
+        System.out.println(order_id);
         for (int i = 0; i < jTable1.getRowCount(); i++) {
             int drink_id = DrinksDAO.findID(String.valueOf(jTable1.getModel().getValueAt(i, 0)));
-            
+
             OrderDrink od = new OrderDrink(order_id, drink_id, Integer.parseInt(String.valueOf(jTable1.getModel().getValueAt(i, 1))), Integer.parseInt(String.valueOf(jTable1.getModel().getValueAt(i, 2))));
-            OrderDrinkDAO.insert(od);
+            Map<String, String> validate_message = PickDrinksForm.validated(jQuantity.getText());
+            if (validate_message.isEmpty()) {
+                OrderDrinkDAO.insert(od);
+                redirect = true;
+                
+            } else {
+                quantity_validate.setText(validate_message.get("quantity"));
+            }
+            
+            if (redirect) {
+              OrderCreateForm jframe = new OrderCreateForm();
+                jframe.setDefaultCloseOperation(OrderCreateForm.EXIT_ON_CLOSE);
+
+                jframe.pack();
+                jframe.setLocationRelativeTo(null);
+                setVisible(false);
+                jframe.setVisible(true);  
+            }
+
         }
 
     }//GEN-LAST:event_btnsaveActionPerformed
@@ -250,5 +278,6 @@ public class PickDrinkForm extends javax.swing.JFrame {
     private javax.swing.JTextField jQuantity;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel quantity_validate;
     // End of variables declaration//GEN-END:variables
 }

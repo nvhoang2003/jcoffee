@@ -2,6 +2,8 @@
 import com.mycompany.jcafe88.dao.OrdersDAO;
 import com.mycompany.jcafe88.dao.TableDAO;
 import com.mycompany.jcafe88.models.Orders;
+import form.OrderForm;
+import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -14,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class OrderCreateForm extends javax.swing.JFrame {
 
-    public void ShowOrderCreate() {
+    public static void ShowOrderCreate() {
 
     }
 
@@ -44,6 +46,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
         list_table = new javax.swing.JComboBox<>();
         btnsave = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        name_validate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,20 +109,12 @@ public class OrderCreateForm extends javax.swing.JFrame {
             }
         });
 
+        name_validate.setText("jLabel4");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fieldcustomername, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(list_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -131,13 +126,26 @@ public class OrderCreateForm extends javax.swing.JFrame {
                         .addGap(83, 83, 83)
                         .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(name_validate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldcustomername, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(list_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(102, 102, 102))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(60, 60, 60)
+                .addGap(32, 32, 32)
+                .addComponent(name_validate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fieldcustomername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,11 +193,11 @@ public class OrderCreateForm extends javax.swing.JFrame {
             Orders od = OrdersDAO.ListOrder().get(i);
             model.addRow(new Object[]{od.getOrder_id(), od.getCustomer_name(), od.getTable_name(), null, od.getState()});
         }
-        
         for (int i = 0; i < jTable1.getRowCount(); i++) {
             int id = (int) (jTable1.getModel().getValueAt(i, 0));
             jTable1.getModel().setValueAt(OrdersDAO.findAllInfor(id), i, 3);
         }
+        OrdersDAO.findAllInfor(5);
     }
 
     private void showListTable() {
@@ -218,8 +226,15 @@ public class OrderCreateForm extends javax.swing.JFrame {
         int cus_id = OrdersDAO.findCustomer_ID(fieldcustomername.getText());
         int table_id = OrdersDAO.findTable_id(String.valueOf(list_table.getSelectedItem()));
         Orders orders = new Orders(cus_id, table_id);
-        OrdersDAO.insert(orders);
-        PickDrinkForm.ShowPickDrinks();
+
+        Map<String, String> validate_message = OrderForm.validated(fieldcustomername.getText());
+        if (validate_message.isEmpty()) {
+            OrdersDAO.insert(orders);
+            PickDrinkForm.ShowPickDrinks();
+        } else {
+            name_validate.setText(validate_message.get("name"));
+        }
+
     }//GEN-LAST:event_btnsaveActionPerformed
 
     /**
@@ -271,5 +286,6 @@ public class OrderCreateForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> list_table;
+    private javax.swing.JLabel name_validate;
     // End of variables declaration//GEN-END:variables
 }

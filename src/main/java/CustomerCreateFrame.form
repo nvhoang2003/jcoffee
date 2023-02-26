@@ -61,13 +61,29 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jAddress" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jEmail" max="32767" attributes="0"/>
-                                      <Component id="jPhone" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jAge" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jdob" alignment="1" pref="224" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jAddress" min="-2" pref="206" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="address_validate" min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jEmail" max="32767" attributes="0"/>
+                                          <Component id="jPhone" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jAge" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jdob" alignment="1" pref="224" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Component id="age_validate" min="-2" pref="43" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="email_validate" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="phone_validate" min="-2" pref="43" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="toast_create" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -76,6 +92,8 @@
                                   <Component id="jName" max="32767" attributes="0"/>
                                   <Component id="jGender" pref="216" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="name_validate" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -98,19 +116,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="jName" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name_validate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="jGender" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jAddress" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="address_validate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jPhone" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phone_validate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jEmail" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="email_validate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -130,7 +160,10 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jAge" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="age_validate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -138,7 +171,9 @@
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <Component id="jdob" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="toast_create" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Save" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Reset" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -238,6 +273,36 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbackActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="name_validate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="address_validate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel9"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="email_validate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="phone_validate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel11"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="age_validate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel12"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="toast_create">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel13"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
