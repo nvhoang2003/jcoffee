@@ -2,22 +2,22 @@
 import com.mycompany.jcafe88.dao.OrdersDAO;
 import com.mycompany.jcafe88.dao.TableDAO;
 import com.mycompany.jcafe88.models.Orders;
-import com.mycompany.jcafe88.models.Table;
 import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Tcom
  */
 public class OrderCreateForm extends javax.swing.JFrame {
-    public void ShowOrderCreate(){
-        
+
+    public void ShowOrderCreate() {
+
     }
+
     /**
      * Creates new form OrderCreateForm
      */
@@ -52,11 +52,11 @@ public class OrderCreateForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Customer Name", "Table Name", "Drink"
+                "ID", "Customer Name", "Table Name", "Drink", "State"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -182,17 +182,24 @@ public class OrderCreateForm extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         for (int i = 0; i < OrdersDAO.ListOrder().size(); i++) {
-            model.addRow(new Object[]{OrdersDAO.ListOrder().get(i).getOrder_id(), OrdersDAO.ListOrder().get(i).getCustomer_name(), OrdersDAO.ListOrder().get(i).getTable_name()});
+            Orders od = OrdersDAO.ListOrder().get(i);
+            model.addRow(new Object[]{od.getOrder_id(), od.getCustomer_name(), od.getTable_name(), null, od.getState()});
         }
-    }    
-    
-    private void showListTable(){
+        
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            int id = (int) (jTable1.getModel().getValueAt(i, 0));
+            jTable1.getModel().setValueAt(OrdersDAO.findAllInfor(id), i, 3);
+        }
+        OrdersDAO.findAllInfor(5);
+    }
+
+    private void showListTable() {
         list_table.removeAllItems();
         for (int i = 0; i < TableDAO.list().size(); i++) {
             list_table.addItem(TableDAO.list().get(i).getName());
         }
     }
-    
+
     private void list_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_tableActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_list_tableActionPerformed
@@ -213,6 +220,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
         int table_id = OrdersDAO.findTable_id(String.valueOf(list_table.getSelectedItem()));
         Orders orders = new Orders(cus_id, table_id);
         OrdersDAO.insert(orders);
+        PickDrinkForm.ShowPickDrinks();
     }//GEN-LAST:event_btnsaveActionPerformed
 
     /**
