@@ -91,6 +91,12 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
         jLabel9.setText("Description:");
 
+        fname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fnameActionPerformed(evt);
+            }
+        });
+
         btndelete.setBackground(new java.awt.Color(255, 0, 0));
         btndelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btndelete.setText("Delete");
@@ -299,7 +305,7 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-       private void showListDrinks(){
+       private void showListDrinks() {
 //        jTable1.addRow
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
@@ -346,16 +352,16 @@ public class DrinkIndexForm extends javax.swing.JFrame {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        Map<String, String> validate_message = DrinksForm.validated(ValidateFname.getText(), ValidateFprice.getText(), validateFdescription.getText(), pimage);
-        Drinks drinks = new Drinks(Integer.parseInt(lblid.getText()),fname.getText(), Integer.parseInt(fprice.getText()), fprice.getText(), pimage); 
-        if (validate_message.isEmpty()){
+        Map<String, String> validate_message = DrinksForm.validated(ValidateFname.getText(), ValidateFprice.getText(), validateFdescription.getText());
+        if (validate_message.isEmpty()) {
+            Drinks drinks = new Drinks(Integer.parseInt(lblid.getText()), fname.getText(), Integer.parseInt(fprice.getText()), fdescription.getText(), pimage);
             DrinksDAO.update(drinks);
         } else {
             ValidateFname.setText(validate_message.get("name"));
             ValidateFprice.setText(validate_message.get("Price"));
             validateFdescription.setText(validate_message.get("Description"));
         }
-        
+
         showListDrinks();
     }//GEN-LAST:event_btnsaveActionPerformed
 
@@ -383,7 +389,11 @@ public class DrinkIndexForm extends javax.swing.JFrame {
         DrinkFormFrame.ShowDrinkFormFrame();
     }//GEN-LAST:event_btnnewActionPerformed
 
-     public ImageIcon resizeImage(byte[] pic) {
+    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fnameActionPerformed
+
+    public ImageIcon resizeImage(byte[] pic) {
         ImageIcon myImage = null;
         myImage = new ImageIcon(pic);
 
