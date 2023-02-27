@@ -128,4 +128,27 @@ statement.execute();
 
         return code_sale;
     }
+    
+    public static int findByCode(String code) {
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select sale_off from code_sale where code = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, code);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("sale_off");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CodeSaleDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+        return 0;
+    }
 }
