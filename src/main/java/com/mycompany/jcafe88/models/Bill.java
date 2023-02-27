@@ -82,18 +82,16 @@ public class Bill {
         this.order_id = order_id;
         this.code_sale_id = code_sale_id;
     }
-
-    public Bill(int customer_id, Date time_pay, int amount, int amount_after_sale, int order_id, int code_sale_id) {
+    
+        public Bill(int customer_id, int amount, int amount_after_sale, int order_id, int code_sale_id) {
         this.customer_id = customer_id;
-        this.time_pay = time_pay;
+        this.time_pay = new java.sql.Date( new java.util.Date().getTime());
         this.amount = amount;
         this.amount_after_sale = amount_after_sale;
         this.order_id = order_id;
         this.code_sale_id = code_sale_id;
     }
     
-    
-
     public int getBill_id() {
         return bill_id;
     }

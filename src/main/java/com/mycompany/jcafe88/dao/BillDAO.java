@@ -54,13 +54,15 @@ public class BillDAO extends BaseDAO {
     public static void insert(Bill bill) {
         openConnection();
 
-        String sql = "insert into bills(time_pay, amount, amount_after_sale, code_sale_id) values (?, ?, ?, ? )";
+        String sql = "insert into bills(time_pay, amount, amount_after_sale, customer_id, order_id, code_sale_id) values (?, ?, ?, ? , ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setDate(1, bill.getTime_pay());
             statement.setInt(2, bill.getAmount());
             statement.setInt(3, bill.getAmount_after_sale());
-            statement.setInt(3, bill.getCode_sale_id());
+            statement.setInt(4, bill.getCustomer_id());
+            statement.setInt(5, bill.getOrder_id());
+            statement.setInt(6, bill.getCode_sale_id());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(BillDAO.class.getName()).log(Level.SEVERE, null, ex);
