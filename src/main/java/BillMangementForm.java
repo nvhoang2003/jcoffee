@@ -83,6 +83,8 @@ public class BillMangementForm extends javax.swing.JFrame {
 
         jLabel7.setText("Code Sale");
 
+        JBack.setBackground(new java.awt.Color(153, 153, 153));
+        JBack.setForeground(new java.awt.Color(255, 255, 255));
         JBack.setText("Back");
         JBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

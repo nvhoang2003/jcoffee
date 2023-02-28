@@ -221,29 +221,20 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void CustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerButtonActionPerformed
         // TODO add your handling code here:
-        CustomerCreateForm jframe = new CustomerCreateForm();
-        jframe.setDefaultCloseOperation(CustomerCreateForm.EXIT_ON_CLOSE);
-        
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        dispose();
+        CustomerCreateForm.ShowCustomerCreateForm();
     }//GEN-LAST:event_CustomerButtonActionPerformed
 
     private void CodeSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodeSaleButtonActionPerformed
         // TODO add your handling code here:
+        dispose();
         CodeSaleFrame.ShowCodeSaleFram();
     }//GEN-LAST:event_CodeSaleButtonActionPerformed
 
     private void DrinkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DrinkButtonActionPerformed
         // TODO add your handling code here:
-        DrinkIndexForm jframe = new DrinkIndexForm();
-        jframe.setDefaultCloseOperation(DrinkIndexForm.EXIT_ON_CLOSE);
-        
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        dispose();
+        DrinkIndexForm.ShowDrinkIndexFrame();
     }//GEN-LAST:event_DrinkButtonActionPerformed
 
     /**
