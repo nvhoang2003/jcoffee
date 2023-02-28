@@ -68,6 +68,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         Name_Valid = new javax.swing.JLabel();
         Sale_off_Valid = new javax.swing.JLabel();
         CodeValid = new javax.swing.JLabel();
+        btnnew = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         CodeSaleTable = new javax.swing.JTable();
 
@@ -87,12 +88,14 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Code Sale");
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Code Sale", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.setToolTipText("");
 
-        Save_Code.setBackground(new java.awt.Color(51, 204, 255));
+        Save_Code.setBackground(new java.awt.Color(51, 0, 204));
+        Save_Code.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Save_Code.setForeground(new java.awt.Color(255, 255, 255));
         Save_Code.setText("Save Code");
         Save_Code.setMaximumSize(new java.awt.Dimension(86, 30));
         Save_Code.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -107,7 +110,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
-        Reset.setBackground(new java.awt.Color(255, 102, 204));
+        Reset.setBackground(new java.awt.Color(102, 102, 102));
         Reset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Reset.setForeground(new java.awt.Color(255, 255, 255));
         Reset.setText("Reset");
@@ -119,6 +122,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        Name.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         Name.setText("Name");
 
         txtSale_Off.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +131,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        SaleOff.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         SaleOff.setText("Sale off");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
@@ -135,9 +140,12 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        Code.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         Code.setText("Code");
 
-        BackButton.setBackground(new java.awt.Color(102, 255, 102));
+        BackButton.setBackground(new java.awt.Color(102, 102, 102));
+        BackButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BackButton.setForeground(new java.awt.Color(255, 255, 255));
         BackButton.setText("Back");
         BackButton.setMaximumSize(new java.awt.Dimension(86, 30));
         BackButton.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -149,6 +157,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         });
 
         Delete.setBackground(new java.awt.Color(255, 51, 51));
+        Delete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Delete.setText("Delete");
         Delete.setMaximumSize(new java.awt.Dimension(86, 30));
         Delete.setMinimumSize(new java.awt.Dimension(86, 30));
@@ -158,7 +167,22 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("ID");
+
+        lID.setEditable(false);
+
+        btnnew.setBackground(new java.awt.Color(51, 0, 204));
+        btnnew.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnnew.setForeground(new java.awt.Color(255, 255, 255));
+        btnnew.setText("New");
+        btnnew.setMaximumSize(new java.awt.Dimension(86, 30));
+        btnnew.setMinimumSize(new java.awt.Dimension(86, 30));
+        btnnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,31 +198,31 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Sale_off_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Name_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(toast_create, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 262, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(toast_create, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnnew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(CodeValid, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtSale_Off, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Name_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lID, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE))))
+                        .addGap(0, 31, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,10 +253,11 @@ public class CodeSaleFrame extends javax.swing.JFrame {
                 .addComponent(CodeValid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Save_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnnew, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -280,7 +305,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -320,6 +345,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         txtName.setText("");
         txtSale_Off.setText("");
         txtCode.setText("");
+        lID.setText("");
         System.out.println("Reset Done");
     }//GEN-LAST:event_ResetActionPerformed
 
@@ -362,6 +388,12 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         showListCodeSaleFrame();
         
     }//GEN-LAST:event_Save_CodeMouseClicked
+
+    private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        CodeSaleCreateForm.showForm();
+    }//GEN-LAST:event_btnnewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -412,6 +444,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
     private javax.swing.JLabel SaleOff;
     private javax.swing.JLabel Sale_off_Valid;
     private javax.swing.JButton Save_Code;
+    private javax.swing.JButton btnnew;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

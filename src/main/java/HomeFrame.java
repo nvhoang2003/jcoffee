@@ -192,18 +192,14 @@ public class HomeFrame extends javax.swing.JFrame {
     }
     private void BillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillButtonActionPerformed
         // TODO add your handling code here:
-        AdminUpdateForm.ShowAdminUpdateForm();
+        dispose();
+        BillMangementForm.ShowBillMangementForm();
     }//GEN-LAST:event_BillButtonActionPerformed
 
     private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
         // TODO add your handling code here:
-        AdminIndexForm jframe = new AdminIndexForm();
-        jframe.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        dispose();
+        AdminIndexForm.ShowAdminIndexForm();
     }//GEN-LAST:event_AdminButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -219,7 +215,8 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void OrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderButtonActionPerformed
         // TODO add your handling code here:
-        
+        dispose();
+        OrderCreateForm.ShowOrderCreate();
     }//GEN-LAST:event_OrderButtonActionPerformed
 
     private void CustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerButtonActionPerformed

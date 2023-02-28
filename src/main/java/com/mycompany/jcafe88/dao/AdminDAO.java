@@ -38,7 +38,7 @@ public class AdminDAO extends BaseDAO {
                 admin = new Admin(
                         resultSet.getInt("admin_id"),
                         resultSet.getString("user_name"),
-                        resultSet.getString("name")        
+                        resultSet.getString("name")
                 );
                 dataList.add(admin);
             }
@@ -57,9 +57,9 @@ public class AdminDAO extends BaseDAO {
         String sql = "insert into admins(name, user_name, password) values (?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, admin.getUser_name());
-            statement.setString(2, admin.getName());
-            
+            statement.setString(1, admin.getName());
+            statement.setString(2, admin.getUser_name());
+
             statement.setString(3, admin.getEncryptedPassword(admin.getPassword()));
 
             statement.execute();
@@ -118,11 +118,11 @@ public class AdminDAO extends BaseDAO {
 
         return admin;
     }
-    
-    public static int getIdByName(String user_name){
+
+    public static int getIdByName(String user_name) {
         int id = 0;
         Admin admin = null;
-         openConnection();
+        openConnection();
 
         try {
             //Thuc thi lenh
@@ -148,7 +148,7 @@ public class AdminDAO extends BaseDAO {
         closeConnection();
 
         return id;
-        
+
     }
 
     public static boolean login(String user_name, String password) {
@@ -173,7 +173,7 @@ public class AdminDAO extends BaseDAO {
             }
             if (admin == null) {
                 return false;
-            }else if( !admin.getEncryptedPassword(password).equals(resultSet.getString("password"))){
+            } else if (!admin.getEncryptedPassword(password).equals(resultSet.getString("password"))) {
                 return false;
             }
 

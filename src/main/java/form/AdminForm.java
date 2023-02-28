@@ -20,7 +20,8 @@ public class AdminForm extends Admin {
     private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 
     public static Map<String, String> validated(String name, String user_name, String password, String confirm_password) {
-        Matcher matcher = pattern.matcher(password);
+        Matcher matcherpwd = pattern.matcher(password);
+        Matcher cmatcherpwd = pattern.matcher(confirm_password);
         Map<String, String> validate_message = new HashMap<>();
         if (name.isBlank()) {
             validate_message.put("name", "Name is require");
@@ -28,12 +29,6 @@ public class AdminForm extends Admin {
             validate_message.put("name", "Name has been long than 6 character");
         } else if (name.length() >= 255) {
             validate_message.put("name", "Name has been short than 255 character");
-        }
-
-        if (confirm_password == null ? password == null : confirm_password.equals(password)) {
-        } else {
-            validate_message.put("password", "Password must a same as confirm password");
-            validate_message.put("confirm_password", "Confirm password must a same as password");
         }
 
         if (user_name.isBlank()) {
@@ -46,14 +41,19 @@ public class AdminForm extends Admin {
 
         if (password.isBlank()) {
             validate_message.put("password", "Password is require");
-        } else if (!matcher.find()) {
+        } else if (!matcherpwd.find()) {
             validate_message.put("password", "Invalid password");
         }
-        
-        if(confirm_password.isBlank()) {
+
+        if (confirm_password.isBlank()) {
             validate_message.put("confirm_password", "Confirm password is require");
-        }else if (!matcher.find()) {
-            validate_message.put("confirm_password", "Invalid password");
+        } else if (!cmatcherpwd.find()) {
+            validate_message.put("confirm_password", "Invalid confirm password");
+        }
+
+        if (!confirm_password.equals(password)) {
+            validate_message.put("password", "Password must a same as confirm password");
+            validate_message.put("confirm_password", "Confirm password must a same as password");
         }
 
         return validate_message;

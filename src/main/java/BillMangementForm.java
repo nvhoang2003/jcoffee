@@ -1,6 +1,9 @@
 
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.jcafe88.dao.BillDAO;
+import com.mycompany.jcafe88.dao.CustomerDAO;
+import com.mycompany.jcafe88.dao.CodeSaleDAO;
+
 import com.mycompany.jcafe88.models.Bill;
 
 /*
@@ -29,7 +32,8 @@ public class BillMangementForm extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         for (int i = 0; i < BillDAO.list().size(); i++) {
-            model.addRow(new Object[]{BillDAO.list().get(i).getBill_id(), BillDAO.list().get(i).getCustomer_id(), BillDAO.list().get(i).getTime_pay(), BillDAO.list().get(i).getAmount(), BillDAO.list().get(i).getAmount_after_sale(), BillDAO.list().get(i).getOrder_id(), BillDAO.list().get(i).getCode_sale_id()});
+            Bill b = BillDAO.list().get(i);
+            model.addRow(new Object[]{b.getBill_id(), CustomerDAO.find(b.getCustomer_id()).getCustomer_name(), BillDAO.list().get(i).getTime_pay(), BillDAO.list().get(i).getAmount(), BillDAO.list().get(i).getAmount_after_sale(), BillDAO.list().get(i).getOrder_id(), CodeSaleDAO.find(b.getCode_sale_id()).getCode()});
         }
     }
 
@@ -65,21 +69,20 @@ public class BillMangementForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("bill_id");
+        jLabel1.setText("Bill ID");
 
-        jLabel2.setText("customer_id");
+        jLabel2.setText("Customer");
 
-        jLabel3.setText("time_pay");
+        jLabel3.setText("Time Pay");
 
-        jLabel4.setText("amount");
+        jLabel4.setText("Amount");
 
-        jLabel5.setText("amount_after_sale");
+        jLabel5.setText("Amount Pay");
 
-        jLabel6.setText("order_id");
+        jLabel6.setText("Order ID");
 
-        jLabel7.setText("code_sale_id");
+        jLabel7.setText("Code Sale");
 
-        JBack.setBackground(new java.awt.Color(102, 255, 51));
         JBack.setText("Back");
         JBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +93,8 @@ public class BillMangementForm extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setText("Bill Management");
 
-        btncreatenew.setBackground(new java.awt.Color(153, 255, 153));
+        btncreatenew.setBackground(new java.awt.Color(102, 0, 255));
+        btncreatenew.setForeground(new java.awt.Color(255, 255, 255));
         btncreatenew.setText("New");
         btncreatenew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,34 +107,35 @@ public class BillMangementForm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(91, 91, 91)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7))
-                            .addGap(53, 53, 53)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(b_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(c_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(t_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(a_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(aas_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(or_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cs_id, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(139, 139, 139)
-                            .addComponent(btncreatenew)
-                            .addGap(93, 93, 93)
-                            .addComponent(JBack))))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(b_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(c_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(t_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(a_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(aas_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(or_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cs_id, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btncreatenew, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,8 +171,8 @@ public class BillMangementForm extends javax.swing.JFrame {
                     .addComponent(cs_id))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBack)
-                    .addComponent(btncreatenew))
+                    .addComponent(JBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncreatenew, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -176,7 +181,7 @@ public class BillMangementForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "bill_id", "customer_id", "time_pay", "amount", "amount_after_sale", "order_id", "code_sale_id"
+                "Bill Id", "Customer", "Time Pay", "Amount", "Amount Pay", "Order Id", "Code"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -209,23 +214,25 @@ public class BillMangementForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
         int id = (int) (jTable1.getModel().getValueAt(row, 0));
-        Bill bi = BillDAO.find(id);
+        Bill b = BillDAO.find(id);
         b_id.setText(String.valueOf(id));
-        c_id.setText(String.valueOf(bi.getCustomer_id()));
-        t_id.setText(String.valueOf(bi.getTime_pay()));
-        a_id.setText(String.valueOf(bi.getAmount()));
-        aas_id.setText(String.valueOf(bi.getAmount_after_sale()));
-        or_id.setText(String.valueOf(bi.getOrder_id()));
-        cs_id.setText(String.valueOf(bi.getCode_sale_id()));
+        c_id.setText(String.valueOf(CustomerDAO.find(b.getCustomer_id()).getCustomer_name()));
+        t_id.setText(String.valueOf(b.getTime_pay()));
+        a_id.setText(String.valueOf(b.getAmount()));
+        aas_id.setText(String.valueOf(b.getAmount_after_sale()));
+        or_id.setText(String.valueOf(b.getOrder_id()));
+        cs_id.setText(String.valueOf(CodeSaleDAO.find(b.getCode_sale_id()).getCode()));
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void JBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBackActionPerformed
         // TODO add your handling code here:
+        dispose();
         HomeFrame.ShowHomeFrame();
     }//GEN-LAST:event_JBackActionPerformed
 
     private void btncreatenewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreatenewActionPerformed
         // TODO add your handling code here:
+        dispose();
         BilCreateForm.showBillCreateForm();
     }//GEN-LAST:event_btncreatenewActionPerformed
 
