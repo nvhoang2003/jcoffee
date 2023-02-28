@@ -105,30 +105,32 @@
                           <Component id="toast_create" min="-2" pref="269" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="Delete" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnnew" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="Reset" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="BackButton" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="Save_Code" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="CodeValid" alignment="1" min="-2" pref="633" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtSale_Off" alignment="0" min="-2" pref="632" max="-2" attributes="0"/>
-                                  <Component id="txtCode" alignment="0" min="-2" pref="633" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lID" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtName" alignment="0" pref="632" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="Delete" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnnew" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="Reset" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="BackButton" min="-2" pref="60" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="Save_Code" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="CodeValid" alignment="1" min="-2" pref="633" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtCode" alignment="0" min="-2" pref="633" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="lID" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtName" alignment="0" pref="632" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <Component id="txtSale_Off" min="-2" pref="635" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -206,14 +208,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="Reset">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reset"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -234,11 +230,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtSale_Off">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSale_OffActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="SaleOff">
           <Properties>
@@ -349,6 +340,11 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnewActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="txtSale_Off">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSale_OffActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

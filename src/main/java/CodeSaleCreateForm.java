@@ -43,7 +43,6 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Name = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtSale_Off = new javax.swing.JTextField();
         Sale_Off = new javax.swing.JLabel();
         txtCode = new javax.swing.JTextField();
         Code = new javax.swing.JLabel();
@@ -52,6 +51,7 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
         Name_Valid = new javax.swing.JLabel();
         Sale_off_Valid = new javax.swing.JLabel();
         CodeValid = new javax.swing.JLabel();
+        txtSale_Off = new javax.swing.JFormattedTextField();
         Reset = new javax.swing.JButton();
         Back = new javax.swing.JButton();
         Save = new javax.swing.JButton();
@@ -84,6 +84,8 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
         CodeValid.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         CodeValid.setForeground(new java.awt.Color(255, 0, 0));
 
+        txtSale_Off.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,13 +101,17 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(Name_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(toast_create, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Name_Valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(txtSale_Off, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addComponent(CodeValid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -117,9 +123,8 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(Sale_Off)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                .addComponent(txtSale_Off, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(451, 451, 451)))
                 .addGap(37, 37, 37))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
@@ -143,10 +148,10 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
                     .addComponent(Name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Name_Valid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSale_Off, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Sale_Off))
+                    .addComponent(Sale_Off)
+                    .addComponent(txtSale_Off, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Sale_off_Valid, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -300,6 +305,6 @@ public class CodeSaleCreateForm extends javax.swing.JFrame {
     private javax.swing.JLabel toast_create;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtSale_Off;
+    private javax.swing.JFormattedTextField txtSale_Off;
     // End of variables declaration//GEN-END:variables
 }

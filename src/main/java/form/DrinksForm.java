@@ -27,7 +27,7 @@ public class DrinksForm {
         if (String.valueOf(Price).isEmpty()) {
             validate_message.put("Price", "Price is require");
         } else if (Integer.parseInt(Price) <= 5 ) {
-            validate_message.put("Price", "Price must be more than 0$");
+            validate_message.put("Price", "Price must be more than 5$");
         }
 
         if (Description.isBlank()) {
