@@ -69,6 +69,7 @@ public class BilCreateForm extends javax.swing.JFrame {
         btn_reset = new javax.swing.JButton();
         code_message = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btn_reset1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 204));
@@ -139,12 +140,24 @@ public class BilCreateForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setText("NEW BILL");
 
+        btn_reset1.setBackground(new java.awt.Color(102, 102, 102));
+        btn_reset1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_reset1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_reset1.setText("Back");
+        btn_reset1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reset1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(374, 374, 374)
+                .addGap(299, 299, 299)
+                .addComponent(btn_reset1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -191,7 +204,8 @@ public class BilCreateForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_reset1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -228,6 +242,12 @@ public class BilCreateForm extends javax.swing.JFrame {
         }
         showListPendingOrder();
     }//GEN-LAST:event_btn_saveActionPerformed
+
+    private void btn_reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reset1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        BillMangementForm.ShowBillMangementForm();
+    }//GEN-LAST:event_btn_reset1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,6 +287,7 @@ public class BilCreateForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_reset;
+    private javax.swing.JButton btn_reset1;
     private javax.swing.JButton btn_save;
     private javax.swing.JLabel code_message;
     private javax.swing.JLabel jLabel1;

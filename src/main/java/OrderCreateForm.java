@@ -18,6 +18,7 @@ public class OrderCreateForm extends javax.swing.JFrame {
 
     public static void ShowOrderCreate() {
         OrderCreateForm ocf = new OrderCreateForm();
+        ocf.setLocationRelativeTo(null);
         ocf.showListOrder();
         ocf.showListTable();
         ocf.setVisible(true);
@@ -251,11 +252,11 @@ public class OrderCreateForm extends javax.swing.JFrame {
         Map<String, String> validate_message = OrderForm.validated(fieldcustomername.getText());
         if (validate_message.isEmpty()) {
             OrdersDAO.insert(orders);
+            dispose();
             PickDrinkForm.ShowPickDrinks();
         } else {
             name_validate.setText(validate_message.get("name"));
         }
-
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
