@@ -51,7 +51,7 @@ public class AdminIndexForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 500));
 
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SHOW LIST ADMIN");
 
@@ -75,6 +75,7 @@ public class AdminIndexForm extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         createAdminButton.setBackground(new java.awt.Color(51, 0, 204));
+        createAdminButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         createAdminButton.setForeground(new java.awt.Color(255, 255, 255));
         createAdminButton.setText("Create");
         createAdminButton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +85,7 @@ public class AdminIndexForm extends javax.swing.JFrame {
         });
 
         backButton.setBackground(new java.awt.Color(102, 102, 102));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {

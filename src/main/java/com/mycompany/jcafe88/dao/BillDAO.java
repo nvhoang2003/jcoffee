@@ -5,6 +5,7 @@
 package com.mycompany.jcafe88.dao;
 
 import com.mycompany.jcafe88.models.Bill;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -122,5 +123,31 @@ public class BillDAO extends BaseDAO {
 
         return Bill;
     }
+    
+     public static int find_stas(Date a, Date b) {
+        int amount = 0;
 
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select SUM(bills.amount) as sum from bills where bills.time_pay between ? and ?";
+            statement = conn.prepareStatement(sql);
+            statement.setDate(1, new java.sql.Date(a.getTime()));
+            statement.setDate(2, new java.sql.Date(b.getTime()));
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                amount = resultSet.getInt("sum");
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BillDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+        return amount;
+    }
 }

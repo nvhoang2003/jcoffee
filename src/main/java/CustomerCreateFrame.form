@@ -269,7 +269,7 @@
     <Component class="javax.swing.JButton" name="Save">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="0" red="66" type="rgb"/>
+          <Color blue="cc" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="1"/>
@@ -374,7 +374,7 @@
           <Font name="Segoe UI" size="36" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="CREATE NEW CUSTOMER"/>
+        <Property name="text" type="java.lang.String" value="NEW CUSTOMER"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
@@ -391,7 +391,7 @@
     <Component class="javax.swing.JFormattedTextField" name="jAge">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format subtype="0" type="0"/>
+          <Format format="#0.00" subtype="-1" type="0"/>
         </Property>
       </Properties>
     </Component>

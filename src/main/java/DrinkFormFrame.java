@@ -142,7 +142,7 @@ public class DrinkFormFrame extends javax.swing.JFrame {
         toast.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         toast.setForeground(new java.awt.Color(0, 153, 0));
 
-        PriceField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        PriceField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         PriceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PriceFieldActionPerformed(evt);

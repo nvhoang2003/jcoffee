@@ -57,13 +57,13 @@
                 <Column editable="true" title="ID" type="java.lang.Integer"/>
                 <Column editable="true" title="Customer Name" type="java.lang.String"/>
                 <Column editable="true" title="Table Name" type="java.lang.String"/>
-                <Column editable="true" title="Drink" type="java.lang.String"/>
+                <Column editable="true" title="Drink" type="java.lang.Object"/>
                 <Column editable="true" title="State" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="15" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -78,7 +78,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -105,23 +105,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="85" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnsave" min="-2" pref="91" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -135,6 +118,20 @@
                       <Component id="list_table" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnsave" min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="85" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -155,13 +152,13 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="list_table" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnsave" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnsave" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -172,7 +169,8 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Order"/>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="ORDER"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fieldcustomername">
@@ -221,6 +219,9 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Continue"/>
           </Properties>

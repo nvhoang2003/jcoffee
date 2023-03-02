@@ -46,6 +46,36 @@ public class TableDAO extends BaseDAO{
 
         return dataList;
     }
+     
+      public static List<Table> listUseable() {
+        List<Table> dataList = new ArrayList<>();
+
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select * from tables where is_useable = true";
+            statement = conn.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Table table;
+                table = new Table(
+                        resultSet.getInt("table_id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("seat_count"),
+                        resultSet.getBoolean("is_useable")
+                );
+                dataList.add(table);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TableDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+        return dataList;
+    }
 
     public static void insert(Table table) {
         openConnection();
@@ -121,6 +151,23 @@ public class TableDAO extends BaseDAO{
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
+
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(TableDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+    }
+     
+      public static void updateState(int id, boolean new_state) {
+        openConnection();
+
+        String sql = "update tables set is_useable = ? where table_id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setBoolean(1, new_state);
+            statement.setInt(2, id);
 
             statement.execute();
         } catch (SQLException ex) {

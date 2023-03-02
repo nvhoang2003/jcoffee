@@ -104,7 +104,7 @@ public class CustomerCreateFrame extends javax.swing.JFrame {
 
         jGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        Save.setBackground(new java.awt.Color(102, 0, 255));
+        Save.setBackground(new java.awt.Color(0, 0, 204));
         Save.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Save.setForeground(new java.awt.Color(255, 255, 255));
         Save.setText("Save");
@@ -154,12 +154,12 @@ public class CustomerCreateFrame extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("CREATE NEW CUSTOMER");
+        jLabel8.setText("NEW CUSTOMER");
         jLabel8.setToolTipText("");
 
         toast_create.setForeground(new java.awt.Color(0, 102, 51));
 
-        jAge.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        jAge.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

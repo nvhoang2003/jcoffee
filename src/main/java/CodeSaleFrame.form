@@ -59,7 +59,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="132" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="125" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -73,9 +73,8 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" title="Code Sale">
-              <Font PropertyName="font" name="Segoe UI" size="18" style="1"/>
-              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+            <TitledBorder justification="2" title="CODE SALE">
+              <Font PropertyName="font" name="Segoe UI" size="24" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -168,15 +167,15 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="CodeValid" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Reset" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="Save_Code" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="Delete" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="BackButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="btnnew" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="Delete" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnnew" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="Reset" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="BackButton" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="Save_Code" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -318,6 +317,11 @@
         <Component class="javax.swing.JLabel" name="Sale_off_Valid">
         </Component>
         <Component class="javax.swing.JLabel" name="CodeValid">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnnew">
           <Properties>
@@ -343,6 +347,11 @@
           </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtSale_Off">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+              <Format format="#0.00" subtype="-1" type="0"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSale_OffActionPerformed"/>
           </Events>

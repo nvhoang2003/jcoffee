@@ -69,6 +69,8 @@ public class BillMangementForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel1.setText("Bill ID");
 
         jLabel2.setText("Customer");
@@ -84,6 +86,7 @@ public class BillMangementForm extends javax.swing.JFrame {
         jLabel7.setText("Code Sale");
 
         JBack.setBackground(new java.awt.Color(153, 153, 153));
+        JBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JBack.setForeground(new java.awt.Color(255, 255, 255));
         JBack.setText("Back");
         JBack.addActionListener(new java.awt.event.ActionListener() {
@@ -93,9 +96,10 @@ public class BillMangementForm extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Bill Management");
+        jLabel8.setText("BILL MANAGEMENT");
 
-        btncreatenew.setBackground(new java.awt.Color(102, 0, 255));
+        btncreatenew.setBackground(new java.awt.Color(0, 0, 204));
+        btncreatenew.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btncreatenew.setForeground(new java.awt.Color(255, 255, 255));
         btncreatenew.setText("New");
         btncreatenew.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +131,7 @@ public class BillMangementForm extends javax.swing.JFrame {
                     .addComponent(aas_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(or_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cs_id, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(JBack)
@@ -136,8 +140,8 @@ public class BillMangementForm extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
+                .addComponent(jLabel8)
+                .addGap(174, 174, 174))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -199,7 +199,7 @@ public class OrdersDAO extends BaseDAO {
                 + "FROM orders as o "
                 + "JOIN order_drinks as od ON o.order_id = od.order_id "
                 + "JOIN drinks as d ON od.drink_id = d.drink_id "
-                + "WHERE o.order_id = ?";
+                + "WHERE o.order_id = ? ";
         openConnection();
 
         try {
@@ -210,9 +210,7 @@ public class OrdersDAO extends BaseDAO {
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                System.out.println("wth");
-                str += result.getString("drink_name") + " x " + result.getString("quantity");
-                break;
+                str += result.getString("drink_name") + " x " + result.getString("quantity") + " ; ";
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -247,8 +245,8 @@ public class OrdersDAO extends BaseDAO {
         closeConnection();
         return list;
     }
-    
-     public static void setComplete(int id) {
+
+    public static void setComplete(int id) {
         openConnection();
 
         String sql = "update orders set state = ? where order_id = ?";

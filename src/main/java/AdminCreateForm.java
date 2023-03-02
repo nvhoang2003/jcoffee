@@ -61,7 +61,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTER ADMIN");
 
@@ -71,14 +71,14 @@ public class AdminCreateForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Password");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Confirm Password");
 
         saveButton.setBackground(new java.awt.Color(51, 0, 204));
-        saveButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        saveButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         saveButton.setForeground(new java.awt.Color(255, 255, 255));
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
             }
         });
 
-        resetButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        resetButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
         });
 
         backButton.setBackground(new java.awt.Color(102, 102, 102));
-        backButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Full Name");
 
         fullNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,7 @@ public class AdminCreateForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("User name");
 
         name_validate.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
