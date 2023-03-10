@@ -239,6 +239,11 @@ public class BilCreateForm extends javax.swing.JFrame {
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         // TODO add your handling code here:
         code_message.setText("");
+        int code_id = CodeSaleDAO.findIDByCode(jcodesale.getText());
+        if(jcodesale.getText().equals("")){
+            code_id = 5;
+        }
+        System.out.println(code_id);
         if (lb_id.getText().isBlank()) {
             code_message.setText("Please Choose Order");
         } else if(CodeSaleDAO.findByCode(jcodesale.getText()) == 0 && !jcodesale.getText().equals("")){
@@ -249,7 +254,7 @@ public class BilCreateForm extends javax.swing.JFrame {
             OrdersDAO.setComplete(order_id);
             Orders order = OrdersDAO.find(order_id);
             int amount_after = price_all_drink * (100- CodeSaleDAO.findByCode(jcodesale.getText()))/100;
-            Bill b = new Bill(order.getCustomer_id(), price_all_drink , amount_after, order_id , 1);
+            Bill b = new Bill(order.getCustomer_id(), price_all_drink , amount_after, order_id , code_id);
             lb_id.setText("");
             BillDAO.insert(b);
         }

@@ -373,7 +373,7 @@ public class CodeSaleFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = CodeSaleTable.getSelectedRow();
         int id = (int) (CodeSaleTable.getModel().getValueAt(row, 0));
-        CodeSale CS = CodeSaleDAO.find(1);
+        CodeSale CS = CodeSaleDAO.find(id);
         lID.setText(String.valueOf(id));
         txtName.setText(CS.getName());
         txtSale_Off.setText(String.valueOf(CS.getSale_off()));

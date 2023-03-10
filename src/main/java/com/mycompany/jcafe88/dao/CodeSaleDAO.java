@@ -151,4 +151,27 @@ statement.execute();
 
         return 0;
     }
+    
+    public static int findIDByCode(String code) {
+        openConnection();
+
+        try {
+            //Thuc thi lenh
+            String sql = "select * from code_sale where code = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, code);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("code_sale_id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CodeSaleDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+        return 0;
+    }
 }
