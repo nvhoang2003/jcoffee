@@ -7,6 +7,7 @@ import com.mycompany.jcafe88.dao.AdminDAO;
 import com.mycompany.jcafe88.dao.DrinksDAO;
 import com.mycompany.jcafe88.models.Admin;
 import com.mycompany.jcafe88.models.Drinks;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,23 +18,5 @@ import java.util.List;
 public class Jcafe88 {
 
     public static void main(String[] args) {
-//        AdminDAO bd = new AdminDAO();
-//
-//        List<Admin> list1 = bd.list();
-//        if (list1 == null) {
-//            System.out.println("NOt round");
-//        } else {
-//            System.out.println(list1);
-//        }
-//        
-//        Admin admin = new Admin("hoang", "admin02", "1234678");
-//        bd.insert(admin);
-//        
-//        System.out.println(bd.login("hoang", "1234678"));
-
-        Drinks d = DrinksDAO.find(1);
-        
-        d.toString();
-//        System.out.println(Integer.parseInt(""));
     }
 }

@@ -204,13 +204,8 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
-        LoginJFrame jframe = new LoginJFrame();
-        jframe.setDefaultCloseOperation(LoginJFrame.EXIT_ON_CLOSE);
-        
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        setVisible(false);
-        jframe.setVisible(true);
+        dispose();
+        LoginJFrame.ShowLoginJFrame();
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void OrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderButtonActionPerformed
