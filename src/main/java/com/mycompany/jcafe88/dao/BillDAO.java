@@ -52,6 +52,7 @@ public class BillDAO extends BaseDAO {
         return dataList;
     }
 
+    
     public static void insert(Bill bill) {
         openConnection();
 
